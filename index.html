@@ -79,7 +79,11 @@ a:hover{text-decoration:underline}
 .cell-name a.name-brand:hover .brand-ext{opacity:1;transform:translate(1px,-1px)}
 
 /* 판매 채널 칩 (브랜드명 아래 표시) */
-.cell-channels{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
+.cell-channels{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px;align-items:center}
+.cell-channels-edit{display:inline-flex;align-items:center;gap:2px;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;background:transparent;color:var(--txt3);border:1px dashed var(--bord);cursor:pointer;transition:.12s}
+.cell-channels-edit:hover{color:var(--hi2);border-color:var(--hi);border-style:solid;background:#fdf6e8}
+.cell-channels-add-empty{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:3px;font-size:9.5px;font-weight:600;background:transparent;color:var(--txt3);border:1px dashed var(--bord);cursor:pointer;transition:.12s;margin-top:5px}
+.cell-channels-add-empty:hover{color:var(--hi2);border-color:var(--hi);border-style:solid;background:#fdf6e8}
 .channel-chip{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;text-decoration:none;border:1px solid;transition:.12s;line-height:1.4}
 .channel-chip:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(0,0,0,.06);text-decoration:none}
 .channel-chip.ch-own     {background:#fdf6e8;color:var(--hi2);   border-color:#e8d4a8}
@@ -532,6 +536,111 @@ a:hover{text-decoration:underline}
 .lock-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(168,124,74,.35)}
 .lock-btn:active{transform:translateY(0)}
 .lock-status{font-size:10px;color:var(--txt3);margin-top:16px;padding-top:14px;border-top:1px dashed var(--bord);letter-spacing:.3px}
+
+/* ========================================================== */
+/* 📱 모바일/태블릿 반응형 (≤900px: 테이블 → 카드 레이아웃)    */
+/* ========================================================== */
+@media(max-width:900px){
+ /* 헤더 압축 */
+ .hdr{padding:8px 10px}
+ .hdr h1{font-size:15px;line-height:1.2}
+ .hdr h1 span{display:block;font-size:9px;margin-left:0;margin-top:2px}
+ .hdr-actions{gap:4px;margin-left:0;margin-top:6px;width:100%}
+ .hdr-actions .btn{padding:5px 8px;font-size:11px}
+ .hdr-actions .btn-sm{padding:3px 6px;font-size:10px}
+ 
+ /* 카테고리/서브탭 압축 */
+ .cat-bar{padding:6px 8px;gap:4px}
+ .cat-tab{padding:5px 10px;font-size:12px}
+ .subtab-bar{padding:6px 8px;gap:4px}
+ .subtab{padding:4px 9px;font-size:11px}
+ 
+ /* 메인 컨테이너 */
+ .main{padding:8px}
+ .toolbar{flex-direction:column;align-items:stretch;gap:6px}
+ .search-input{min-width:0;width:100%}
+ 
+ /* 통계바 압축 */
+ .stats-bar{flex-wrap:wrap;gap:6px}
+ 
+ /* 핵심: 테이블 → 카드 변환 */
+ .table-wrap{overflow:visible;border:none;background:transparent;box-shadow:none;border-radius:0}
+ .comp-table{min-width:0;display:block;border-collapse:separate}
+ .comp-table thead{display:none}
+ .comp-table tbody, .comp-table tr, .comp-table td{display:block;width:100%;max-width:none}
+ .comp-table tr{
+  background:var(--panel);
+  border:1px solid var(--bord);
+  border-radius:10px;
+  margin-bottom:14px;
+  padding:14px 14px 10px;
+  box-shadow:0 2px 6px rgba(120,100,60,.06);
+ }
+ .comp-table tr:hover{background:var(--panel)}
+ .comp-table td{
+  padding:8px 0 !important;
+  border-bottom:1px dashed var(--bord) !important;
+  vertical-align:top;
+  min-width:0 !important;
+  width:100% !important;
+  word-break:break-word;
+  overflow-wrap:anywhere;
+ }
+ .comp-table td:last-child{border-bottom:none !important;padding-bottom:0 !important}
+ /* 라벨 (data-label 속성 사용) */
+ .comp-table td[data-label]:not(.cell-name)::before{
+  content:attr(data-label);
+  display:block;
+  font-size:9.5px;
+  color:var(--hi2);
+  font-weight:700;
+  margin-bottom:4px;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+ }
+ /* 빈 td는 숨김 (cell-actions에 라벨 없을 때) */
+ .comp-table td:empty{display:none}
+ /* 업체명 셀은 라벨 없이 강조 */
+ .cell-name{padding-bottom:12px !important;border-bottom:2px solid var(--hi) !important;margin-bottom:2px}
+ .cell-name .name-main{font-size:15px}
+ .cell-name .name-brand{font-size:13px}
+ /* 액션 버튼 행 */
+ .cell-actions{text-align:right !important;padding-top:10px !important}
+ .cell-actions .btn-xs{padding:5px 10px;font-size:12px}
+ 
+ /* 모달 풀스크린 가깝게 */
+ .overlay{padding:10px;align-items:flex-start}
+ .modal{padding:14px;max-height:95vh;max-width:100%}
+ .form-grid{grid-template-columns:1fr !important;gap:8px !important}
+ .modal-title{font-size:14px}
+ 
+ /* 광고 칩 영역 더 컴팩트 */
+ .ad-chip{font-size:10.5px;padding:4px 7px}
+ .ad-chip-plat{font-size:9.5px}
+ .ad-chip-running, .ad-chip-count, .ad-chip-startdate{font-size:9.5px;padding:1px 5px}
+ 
+ /* 매출 미니 차트 */
+ .revenue-mini-chart{height:34px}
+ 
+ /* 잠금 화면 모바일 최적화 */
+ .lock-card{padding:28px 22px}
+ .lock-emoji{font-size:42px}
+ .lock-title{font-size:18px}
+ .lock-input{font-size:18px;letter-spacing:8px;padding:12px 14px}
+ 
+ /* 메모 V2 모달 */
+ .nv2-grid3{grid-template-columns:1fr !important}
+}
+
+@media(max-width:480px){
+ /* 더 작은 모바일 (옵션) */
+ .hdr-actions .btn{padding:4px 6px;font-size:10px}
+ .hdr-actions .btn-sm{font-size:9.5px}
+ .cat-tab{padding:4px 8px;font-size:11px}
+ .subtab{padding:3px 7px;font-size:10px}
+ .comp-table tr{padding:12px 10px 8px}
+ .cell-name .name-main{font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -951,6 +1060,41 @@ a:hover{text-decoration:underline}
     <button class="btn" onclick="closeModal('modal-notes-v2')">취소</button>
     <button class="btn btn-primary" onclick="saveNotesV2()">💾 저장</button>
    </div>
+  </div>
+ </div>
+</div>
+
+<!-- 채널 빠른 편집 모달 -->
+<div class="overlay" id="modal-channels-quick">
+ <div class="modal" style="max-width:500px">
+  <div class="modal-hd">
+   <div class="modal-title">🛒 판매 채널 빠른 편집 — <span id="chq-company-name" style="color:var(--txt)">-</span></div>
+   <button class="modal-close" onclick="closeModal('modal-channels-quick')">×</button>
+  </div>
+  <div style="font-size:11px;color:var(--txt3);margin-bottom:12px;line-height:1.5">
+   각 칸에 URL을 입력하세요. <code style="background:var(--panel2);padding:1px 5px;border-radius:3px">https://</code> 자동 추가됩니다. 비우면 칩이 사라집니다.
+  </div>
+  <div class="nv2-form">
+   <div class="nv2-field">
+    <label>🏠 자사몰</label>
+    <input type="text" id="chq-own" placeholder="예: aropil.com">
+   </div>
+   <div class="nv2-field">
+    <label>📦 쿠팡</label>
+    <input type="text" id="chq-coupang" placeholder="쿠팡 상품 URL">
+   </div>
+   <div class="nv2-field">
+    <label>🟢 지마켓</label>
+    <input type="text" id="chq-gmarket" placeholder="지마켓 상품 URL">
+   </div>
+   <div class="nv2-field">
+    <label>🌐 기타 (네이버스토어/올영 등)</label>
+    <input type="text" id="chq-etc" placeholder="기타 채널 URL">
+   </div>
+  </div>
+  <div class="form-actions" style="margin-top:14px;display:flex;justify-content:flex-end;gap:6px">
+   <button class="btn" onclick="closeModal('modal-channels-quick')">취소</button>
+   <button class="btn btn-primary" onclick="saveChannelsQuick()">💾 저장</button>
   </div>
  </div>
 </div>
@@ -3161,14 +3305,51 @@ const _CHANNEL_DEFS = [
  {key:'etc',     cls:'ch-etc',     label:'기타'}
 ];
 function renderChannelChips(co){
- const ch = co.channels;
- if(!ch) return '';
+ const ch = co.channels || {};
  const chips = _CHANNEL_DEFS
   .map(def => ({...def, url: safeBrandUrl(ch[def.key])}))
   .filter(d => d.url)
   .map(d => `<a class="channel-chip ${d.cls}" href="${escapeAttr(d.url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${escapeAttr(d.url)}">${d.label}↗</a>`)
   .join('');
- return chips ? `<div class="cell-channels">${chips}</div>` : '';
+ // 칩이 하나라도 있으면 작은 ✏️ 편집 버튼, 없으면 큰 "＋ 판매링크" 버튼
+ if(chips){
+  return `<div class="cell-channels">${chips}<button class="cell-channels-edit" onclick="openChannelsQuickModal('${co.id}')" title="판매 채널 수정">✏️ 수정</button></div>`;
+ }
+ return `<button class="cell-channels-add-empty" onclick="openChannelsQuickModal('${co.id}')" title="판매 채널 추가 (자사몰/쿠팡/지마켓/기타)">🛒 ＋ 판매링크 추가</button>`;
+}
+
+// ============================================================
+// 채널 빠른 편집 — 셀에서 모달 띄워서 4개 채널 한꺼번에 수정
+// ============================================================
+let _chqEditingCoId = null;
+function openChannelsQuickModal(coId){
+ const co = data.companies.find(c=>c.id===coId);
+ if(!co) return;
+ _chqEditingCoId = coId;
+ const ch = co.channels || {};
+ document.getElementById('chq-company-name').textContent = co.name || '(이름없음)';
+ document.getElementById('chq-own').value     = ch.own     || '';
+ document.getElementById('chq-coupang').value = ch.coupang || '';
+ document.getElementById('chq-gmarket').value = ch.gmarket || '';
+ document.getElementById('chq-etc').value     = ch.etc     || '';
+ document.getElementById('modal-channels-quick').classList.add('active');
+ setTimeout(()=>document.getElementById('chq-own').focus(), 100);
+}
+
+function saveChannelsQuick(){
+ if(!_chqEditingCoId) return;
+ const co = data.companies.find(c=>c.id===_chqEditingCoId);
+ if(!co) return;
+ co.channels = {
+  own:     normalizeBrandUrl(document.getElementById('chq-own').value),
+  coupang: normalizeBrandUrl(document.getElementById('chq-coupang').value),
+  gmarket: normalizeBrandUrl(document.getElementById('chq-gmarket').value),
+  etc:     normalizeBrandUrl(document.getElementById('chq-etc').value)
+ };
+ saveData();
+ closeModal('modal-channels-quick');
+ renderCards();
+ if(typeof toast === 'function') toast('판매 채널 저장 완료','grn');
 }
 
 function renderRow(co){
@@ -3178,7 +3359,7 @@ function renderRow(co){
  
  return `
   <tr data-id="${co.id}">
-   <td class="cell-name">
+   <td class="cell-name" data-label="업체/브랜드">
     <div class="name-main">${escapeHtml(co.name||'(이름없음)')}</div>
     ${co.brand ? (
       safeBrandUrl(co.brandUrl)
@@ -3189,12 +3370,12 @@ function renderRow(co){
     ${co.platform?`<div class="name-platform" title="${escapeAttr(co.platform)}">🛠️ ${escapeHtml(co.platform.length>20?co.platform.slice(0,20)+'…':co.platform)}</div>`:''}
     ${co.recordReason && co.recordReason.trim() ? `<div class="name-record-reason" title="등록 사유: ${escapeAttr(co.recordReason)}">${escapeHtml(co.recordReason)}</div>` : ''}
    </td>
-   <td class="cell-text-sm">${escapeHtml(co.ceo||'-')}</td>
-   <td class="cell-text-sm">${escapeHtml(co.staff||'-')}</td>
-   <td class="cell-revenue">${renderRevenueMini(co)}</td>
-   <td class="cell-text-sm">${escapeHtml(co.addr||'-')}</td>
-   <td class="cell-products">${escapeHtml(co.products||'-')}</td>
-   <td class="cell-summary">
+   <td class="cell-text-sm" data-label="대표">${escapeHtml(co.ceo||'-')}</td>
+   <td class="cell-text-sm" data-label="직원수">${escapeHtml(co.staff||'-')}</td>
+   <td class="cell-revenue" data-label="📊 매출 추이">${renderRevenueMini(co)}</td>
+   <td class="cell-text-sm" data-label="주소">${escapeHtml(co.addr||'-')}</td>
+   <td class="cell-products" data-label="주요 제품">${escapeHtml(co.products||'-')}</td>
+   <td class="cell-summary" data-label="📋 광고/특징 메모">
     ${renderNotesV2Block(co)}
     ${hasNotesV2Content(co) 
       ? `<button class="notes-v2-edit-btn" onclick="openNotesV2Modal('${co.id}')" title="구조화 메모 수정">✏️ 메모 수정</button>`
@@ -3205,14 +3386,14 @@ function renderRow(co){
      ${summaryLong?`<span class="cell-summary-toggle" onclick="toggleSummary('${summaryId}',this)">▼ 더보기</span>`:''}
     ` : ''}
    </td>
-   <td class="cell-ads">
+   <td class="cell-ads" data-label="📢 광고 링크">
     <div class="ads-inline">
      ${ads.map(ad=>renderAdChip(co.id, ad)).join('')}
      <button class="add-ad-btn" onclick="openAddAdModal('${co.id}')" title="광고 추가">＋ 광고</button>
     </div>
     ${renderCellNote(co, 'adsNote', '광고 메모')}
    </td>
-   <td class="cell-articles">
+   <td class="cell-articles" data-label="📰 관련 기사">
     <div class="ads-inline">
      ${(co.articles||[]).slice(0,3).map(art=>renderArticleChip(co.id, art)).join('')}
      ${(co.articles||[]).length > 3 ? `<span class="article-chip" onclick="openArticlesModal('${co.id}')" style="background:var(--panel2);font-weight:600">+${(co.articles||[]).length-3}개 더</span>` : ''}
@@ -3220,7 +3401,7 @@ function renderRow(co){
     </div>
     ${renderCellNote(co, 'articlesNote', '기사 메모')}
    </td>
-   <td class="cell-actions">
+   <td class="cell-actions" data-label="">
     <button class="btn btn-xs" onclick="editCompany('${co.id}')" title="수정">✏</button>
     <button class="btn btn-xs btn-danger" onclick="deleteCompany('${co.id}')" title="삭제">×</button>
    </td>
