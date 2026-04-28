@@ -72,22 +72,100 @@ a:hover{text-decoration:underline}
 /* 셀 별 스타일 */
 .cell-name{font-weight:700;color:var(--hi2);min-width:120px;max-width:180px}
 .cell-name .name-main{font-size:13px;line-height:1.3}
-.cell-name .name-brand{font-size:10px;color:var(--txt3);font-weight:500;margin-top:2px}
+.cell-name .name-brand{font-size:12.5px;color:var(--hi2);font-weight:600;margin-top:4px;display:inline-flex;align-items:center;gap:3px;line-height:1.3;text-decoration:none;letter-spacing:.2px}
+.cell-name a.name-brand{cursor:pointer;border-radius:3px;padding:1px 0;transition:.12s}
+.cell-name a.name-brand:hover{color:var(--hi);text-decoration:underline}
+.cell-name a.name-brand .brand-ext{font-size:10px;opacity:.55;margin-left:1px;transition:.12s}
+.cell-name a.name-brand:hover .brand-ext{opacity:1;transform:translate(1px,-1px)}
+
+/* 판매 채널 칩 (브랜드명 아래 표시) */
+.cell-channels{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
+.channel-chip{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;text-decoration:none;border:1px solid;transition:.12s;line-height:1.4}
+.channel-chip:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(0,0,0,.06);text-decoration:none}
+.channel-chip.ch-own     {background:#fdf6e8;color:var(--hi2);   border-color:#e8d4a8}
+.channel-chip.ch-own:hover{background:#fff;color:var(--hi)}
+.channel-chip.ch-coupang {background:#fff0ed;color:#c0392b;       border-color:#f0c8c0}
+.channel-chip.ch-coupang:hover{background:#fff;color:#a02018}
+.channel-chip.ch-gmarket {background:#eaf6ec;color:#2d7d3a;       border-color:#c0e0c8}
+.channel-chip.ch-gmarket:hover{background:#fff;color:#1f5e2a}
+.channel-chip.ch-etc     {background:var(--panel2);color:var(--txt2);border-color:var(--bord)}
+.channel-chip.ch-etc:hover{background:#fff;color:var(--txt)}
+
+/* 모달: 브랜드명 + URL 인라인 행 */
+.brand-inline-row{display:flex;gap:8px;align-items:stretch}
+.brand-inline-row .brand-name-wrap{flex:0 0 38%}
+.brand-inline-row .brand-url-wrap{flex:1;display:flex;align-items:stretch;gap:0}
+.brand-inline-row .brand-url-wrap .url-prefix{display:inline-flex;align-items:center;padding:0 9px;background:var(--panel2);border:1px solid var(--bord);border-right:none;border-radius:5px 0 0 5px;font-size:13px;color:var(--hi2);font-weight:600;flex-shrink:0}
+.brand-inline-row .brand-url-wrap input{border-radius:0 5px 5px 0;flex:1}
+@media(max-width:600px){.brand-inline-row{flex-direction:column}.brand-inline-row .brand-name-wrap,.brand-inline-row .brand-url-wrap{flex:1 1 100%}}
+
+/* 모달: 판매 채널 입력 섹션 */
+.channel-input-section{background:var(--panel2);border:1px solid var(--bord);border-radius:6px;padding:10px 12px;margin-bottom:12px}
+.channel-input-section-hd{font-size:11px;color:var(--hi2);font-weight:700;margin-bottom:8px;letter-spacing:.3px}
+.channel-input-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:600px){.channel-input-grid{grid-template-columns:1fr}}
+.channel-input-row{display:flex;align-items:stretch}
+.channel-input-row .channel-label{display:inline-flex;align-items:center;justify-content:center;padding:0 10px;border:1px solid var(--bord);border-right:none;border-radius:5px 0 0 5px;font-size:11px;font-weight:700;flex-shrink:0;min-width:62px}
+.channel-input-row.ch-own .channel-label    {background:#fdf6e8;color:var(--hi2);   border-color:#e8d4a8}
+.channel-input-row.ch-coupang .channel-label{background:#fff0ed;color:#c0392b;       border-color:#f0c8c0}
+.channel-input-row.ch-gmarket .channel-label{background:#eaf6ec;color:#2d7d3a;       border-color:#c0e0c8}
+.channel-input-row.ch-etc .channel-label    {background:var(--panel2);color:var(--txt2);border-color:var(--bord)}
+.channel-input-row input{flex:1;background:#fff;border:1px solid var(--bord);border-radius:0 5px 5px 0;padding:7px 9px;font-size:12px;color:var(--txt);font-family:inherit;min-width:0}
+.channel-input-row input:focus{outline:none;border-color:var(--hi);box-shadow:0 0 0 2px rgba(200,153,104,.1)}
 .cell-name .name-platform{font-size:9px;color:var(--prp);font-weight:500;margin-top:2px;background:#f0eaf6;padding:1px 5px;border-radius:3px;display:inline-block;border:1px solid #d8c8e8}
+.cell-name .name-record-reason{font-size:10.5px;color:var(--txt2);font-weight:400;margin-top:5px;padding:4px 7px 4px 10px;background:#fdfaf3;border-left:2px solid var(--hi);border-radius:0 3px 3px 0;font-style:italic;line-height:1.45;word-break:break-word;overflow-wrap:anywhere}
+.cell-name .name-record-reason::before{content:"💭 ";font-style:normal;opacity:.7;margin-right:1px}
 .cell-text{min-width:100px;max-width:160px;font-size:11px;color:var(--txt2);word-break:break-word}
 .cell-text-sm{min-width:80px;max-width:130px;font-size:11px;color:var(--txt2)}
 .cell-products{min-width:150px;max-width:220px;font-size:11px;color:var(--txt2);line-height:1.5}
-.cell-summary{min-width:200px;max-width:300px;font-size:11px;color:var(--txt2);line-height:1.5;white-space:pre-wrap}
+.cell-summary{min-width:200px;max-width:300px;width:300px;font-size:11px;color:var(--txt2);line-height:1.5;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere}
 .cell-summary-truncate{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .cell-summary-truncate.expanded{-webkit-line-clamp:unset}
 .cell-summary-toggle{font-size:10px;color:var(--blu);cursor:pointer;margin-top:3px;display:inline-block}
 
-.cell-ads{min-width:200px;max-width:280px}
+/* 셀 메모 (광고/기사 셀에 추가되는 자유 메모) */
+.cell-note{margin-top:8px;padding:6px 8px;background:#fff8ec;border:1px dashed #e8d4a8;border-radius:5px;font-size:10px;color:var(--txt2);line-height:1.5;cursor:pointer;transition:.15s;word-break:break-word;overflow-wrap:anywhere;white-space:pre-wrap}
+.cell-note:hover{background:#fff;border-color:var(--hi);border-style:solid;box-shadow:0 1px 3px rgba(168,124,74,.08)}
+.cell-note-label{font-size:9px;color:var(--hi2);font-weight:700;display:block;margin-bottom:3px;letter-spacing:.3px}
+.cell-note-empty{margin-top:8px;padding:4px 8px;background:transparent;border:1px dashed var(--bord);border-radius:5px;font-size:10px;color:var(--txt3);font-style:italic;text-align:center;cursor:pointer;transition:.15s}
+.cell-note-empty:hover{background:#fff8ec;border-color:#e8d4a8;color:var(--hi2);font-style:normal}
+
+/* 구조화 메모 (notes-v2) - 메모 열에 표시 */
+.notes-v2-block{margin-bottom:8px;padding:8px 10px;background:linear-gradient(180deg,#fff8ec 0%,#faf2dc 100%);border:1px solid #e8d4a8;border-radius:6px;cursor:pointer;transition:.15s;font-size:10px;line-height:1.5}
+.notes-v2-block:hover{box-shadow:0 2px 6px rgba(168,124,74,.15);border-color:var(--hi)}
+.notes-v2-row{display:flex;gap:6px;margin-bottom:3px;align-items:flex-start}
+.notes-v2-row:last-child{margin-bottom:0}
+.notes-v2-label{font-size:9px;color:var(--hi2);font-weight:700;flex-shrink:0;min-width:48px;letter-spacing:.2px}
+.notes-v2-value{color:var(--txt);flex:1;word-break:break-word;overflow-wrap:anywhere;white-space:pre-wrap}
+.notes-v2-record{font-size:9px;color:var(--txt3);text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed var(--bord2);font-style:italic}
+.notes-v2-empty-btn{display:block;width:100%;padding:8px 10px;background:#fff8ec;border:1px dashed #e8d4a8;border-radius:6px;font-size:11px;color:var(--hi2);font-weight:600;cursor:pointer;transition:.15s;margin-bottom:8px;text-align:center}
+.notes-v2-empty-btn:hover{background:#fff;border-color:var(--hi);border-style:solid;box-shadow:0 1px 3px rgba(168,124,74,.1)}
+.notes-v2-edit-btn{display:inline-block;padding:3px 9px;background:var(--hi);color:#fff;border:none;border-radius:4px;font-size:10px;font-weight:600;cursor:pointer;margin-bottom:6px;transition:.15s}
+.notes-v2-edit-btn:hover{background:var(--hi2)}
+
+/* 구조화 메모 모달 폼 */
+.nv2-form{display:flex;flex-direction:column;gap:14px}
+.nv2-section{background:var(--panel2);border:1px solid var(--bord);border-radius:6px;padding:10px 12px}
+.nv2-section-hd{font-size:11px;color:var(--hi2);font-weight:700;margin-bottom:8px;letter-spacing:.3px;display:flex;align-items:center;gap:6px}
+.nv2-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+@media(max-width:600px){.nv2-grid3{grid-template-columns:1fr}}
+.nv2-field label{display:block;font-size:10px;color:var(--txt2);font-weight:600;margin-bottom:3px}
+.nv2-field input,.nv2-field textarea{width:100%;background:#fff;border:1px solid var(--bord);border-radius:4px;padding:6px 8px;font-size:12px;color:var(--txt);font-family:inherit;transition:.15s}
+.nv2-field input:focus,.nv2-field textarea:focus{outline:none;border-color:var(--hi);box-shadow:0 0 0 3px rgba(200,153,104,.1)}
+.nv2-field textarea{min-height:60px;line-height:1.5;resize:vertical}
+.nv2-field-pros textarea{border-color:#cce8d4;background:#f4faf6}
+.nv2-field-pros textarea:focus{border-color:var(--grn);box-shadow:0 0 0 3px rgba(90,154,106,.1)}
+.nv2-field-cons textarea{border-color:#f0d0d0;background:#fdf6f6}
+.nv2-field-cons textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,90,90,.1)}
+.nv2-field-expansion textarea{border-color:#d8c8e8;background:#faf6fd}
+.nv2-field-expansion textarea:focus{border-color:var(--prp);box-shadow:0 0 0 3px rgba(138,106,154,.1)}
+
+.cell-ads{min-width:200px;max-width:280px;width:280px;word-break:break-word;overflow-wrap:anywhere}
 .cell-actions{min-width:80px;text-align:right;white-space:nowrap}
 
 /* 광고 인라인 표시 */
-.ads-inline{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
-.ad-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 6px;border-radius:4px;font-size:10px;background:var(--panel2);border:1px solid var(--bord);transition:.1s;cursor:pointer;position:relative}
+.ads-inline{display:flex;flex-wrap:wrap;gap:4px;align-items:flex-start;width:100%;min-width:0}
+.ad-chip{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;padding:3px 6px;border-radius:4px;font-size:10px;background:var(--panel2);border:1px solid var(--bord);transition:.1s;cursor:pointer;position:relative;max-width:100%;min-width:0}
 .ad-chip:hover{background:#fff;border-color:var(--hi);transform:translateY(-1px);box-shadow:0 2px 4px rgba(0,0,0,.06)}
 .ad-chip-plat{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
 .ad-chip-link{color:var(--blu);text-decoration:none;font-size:10px}
@@ -116,7 +194,7 @@ a:hover{text-decoration:underline}
 .article-chip-del:hover{color:var(--red)}
 .article-chip-link{color:var(--blu);text-decoration:none;font-size:11px;flex-shrink:0}
 
-.cell-articles{min-width:180px;max-width:260px}
+.cell-articles{min-width:180px;max-width:260px;width:260px;word-break:break-word;overflow-wrap:anywhere}
 
 /* 기사 관리 모달 */
 .articles-list{max-height:340px;overflow-y:auto;margin-bottom:10px}
@@ -434,9 +512,44 @@ a:hover{text-decoration:underline}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--bord);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--bord2)}
+
+/* 비밀번호 잠금 화면 */
+.lock-screen{position:fixed;inset:0;background:linear-gradient(135deg,#f7f5f1 0%,#f0ece4 50%,#e8dfc8 100%);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px}
+.lock-screen.hidden{display:none}
+.lock-card{background:linear-gradient(180deg,#ffffff 0%,#faf8f3 100%);border:1px solid var(--bord2);border-radius:14px;padding:36px 32px;max-width:380px;width:100%;box-shadow:0 20px 60px rgba(120,100,60,.18),0 8px 20px rgba(168,124,74,.08);text-align:center}
+.lock-emoji{font-size:48px;margin-bottom:6px;display:block;filter:drop-shadow(0 4px 8px rgba(168,124,74,.15))}
+.lock-title{font-size:20px;font-weight:700;color:var(--hi2);margin-bottom:4px;letter-spacing:.5px}
+.lock-tagline{font-size:10px;color:var(--txt3);margin-bottom:6px;letter-spacing:.5px}
+.lock-sub{font-size:12px;color:var(--txt2);margin-bottom:22px;line-height:1.6}
+.lock-input{width:100%;background:var(--panel2);border:2px solid var(--bord);border-radius:8px;padding:14px 16px;color:var(--txt);font-size:20px;text-align:center;letter-spacing:10px;font-weight:600;margin-bottom:8px;transition:.2s}
+.lock-input:focus{border-color:var(--hi);box-shadow:0 0 0 4px rgba(200,153,104,.12);background:#fff}
+.lock-input.err{border-color:var(--red);box-shadow:0 0 0 4px rgba(200,90,90,.12);animation:lock-shake .4s}
+@keyframes lock-shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.lock-err-msg{font-size:11px;color:var(--red);margin-bottom:10px;min-height:14px;font-weight:500}
+.lock-check{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px;font-size:12px;color:var(--txt2);cursor:pointer;user-select:none}
+.lock-check input{width:15px;height:15px;cursor:pointer;accent-color:var(--hi)}
+.lock-btn{width:100%;background:linear-gradient(180deg,var(--hi) 0%,var(--hi2) 100%);color:#fff;font-weight:700;font-size:14px;padding:13px;border-radius:8px;border:none;cursor:pointer;letter-spacing:2px;transition:.15s;box-shadow:0 2px 6px rgba(168,124,74,.25)}
+.lock-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(168,124,74,.35)}
+.lock-btn:active{transform:translateY(0)}
+.lock-status{font-size:10px;color:var(--txt3);margin-top:16px;padding-top:14px;border-top:1px dashed var(--bord);letter-spacing:.3px}
 </style>
 </head>
 <body>
+
+<!-- 비밀번호 잠금 화면 -->
+<div class="lock-screen" id="lock-screen">
+ <div class="lock-card">
+  <span class="lock-emoji">🏝️</span>
+  <div class="lock-title">미디어 보물섬</div>
+  <div class="lock-tagline">미디어 커머스 To 유통 To 사랑받는 브랜드</div>
+  <div class="lock-sub">보물섬에 들어가려면<br>비밀번호를 입력하세요</div>
+  <input type="password" id="lock-input" class="lock-input" maxlength="20" placeholder="••••" autocomplete="off">
+  <div class="lock-err-msg" id="lock-err-msg"></div>
+  <label class="lock-check"><input type="checkbox" id="lock-remember" checked> 30일 동안 잠금해제 유지</label>
+  <button class="lock-btn" onclick="tryUnlock()">🗝️ 열&nbsp;&nbsp;기</button>
+  <div class="lock-status" id="lock-status">🔒 잠금 상태</div>
+ </div>
+</div>
 
 <!-- 헤더 -->
 <div class="hdr">
@@ -505,20 +618,60 @@ a:hover{text-decoration:underline}
    <button class="modal-close" onclick="closeModal('modal-company')">×</button>
   </div>
   
-  <div class="form-grid">
-   <div class="form-row">
-    <label class="form-label req">업체명</label>
-    <input type="text" id="comp-name" class="form-input">
-   </div>
-   <div class="form-row">
-    <label class="form-label">브랜드명</label>
-    <input type="text" id="comp-brand" class="form-input">
+  <div class="form-row">
+   <label class="form-label req">업체명</label>
+   <input type="text" id="comp-name" class="form-input">
+  </div>
+  
+  <div class="form-row">
+   <label class="form-label">브랜드명 + 🌐 웹사이트 <span style="color:var(--txt3);font-weight:400">(브랜드명 클릭 시 이 주소로 이동)</span></label>
+   <div class="brand-inline-row">
+    <div class="brand-name-wrap">
+     <input type="text" id="comp-brand" class="form-input" placeholder="브랜드명">
+    </div>
+    <div class="brand-url-wrap">
+     <span class="url-prefix">🌐</span>
+     <input type="text" id="comp-brand-url" class="form-input" placeholder="aropil.com (https:// 자동)">
+    </div>
    </div>
   </div>
   
   <div class="form-row">
-   <label class="form-label">서브카테고리</label>
-   <select id="comp-subcat" class="form-select"></select>
+   <label class="form-label">📌 등록 사유 <span style="color:var(--txt3);font-weight:400">(이 업체를 왜 기록하기 시작했나? · 짧게 한 줄)</span></label>
+   <input type="text" id="comp-record-reason" class="form-input" placeholder="예: 메타광고 입돌출 키워드 발견 / 야인 패턴 의심 / 정공 모델 본받을 점 多">
+  </div>
+  
+  <div class="form-grid">
+   <div class="form-row">
+    <label class="form-label">메인 카테고리</label>
+    <select id="comp-cat" class="form-select" onchange="onCompCatChange()"></select>
+   </div>
+   <div class="form-row">
+    <label class="form-label">서브카테고리</label>
+    <select id="comp-subcat" class="form-select"></select>
+   </div>
+  </div>
+  
+  <div class="channel-input-section">
+   <div class="channel-input-section-hd">🛒 판매 채널 (URL 입력 시 브랜드명 아래에 칩으로 표시됨)</div>
+   <div class="channel-input-grid">
+    <div class="channel-input-row ch-own">
+     <span class="channel-label">자사몰</span>
+     <input type="text" id="comp-ch-own" placeholder="예: aropil.com">
+    </div>
+    <div class="channel-input-row ch-coupang">
+     <span class="channel-label">쿠팡</span>
+     <input type="text" id="comp-ch-coupang" placeholder="쿠팡 상품 URL">
+    </div>
+    <div class="channel-input-row ch-gmarket">
+     <span class="channel-label">지마켓</span>
+     <input type="text" id="comp-ch-gmarket" placeholder="지마켓 상품 URL">
+    </div>
+    <div class="channel-input-row ch-etc">
+     <span class="channel-label">기타</span>
+     <input type="text" id="comp-ch-etc" placeholder="기타 채널 URL">
+    </div>
+   </div>
   </div>
   
   <div class="form-grid">
@@ -731,6 +884,77 @@ a:hover{text-decoration:underline}
  </div>
 </div>
 
+<!-- 구조화 메모 모달 (notes-v2) -->
+<div class="overlay" id="modal-notes-v2">
+ <div class="modal" style="max-width:720px">
+  <div class="modal-hd">
+   <div class="modal-title">📋 광고/특징 메모 — <span id="nv2-company-name" style="color:var(--txt)">-</span></div>
+   <button class="modal-close" onclick="closeModal('modal-notes-v2')">×</button>
+  </div>
+  <div class="nv2-form">
+   <!-- 기록 메타 -->
+   <div class="nv2-section">
+    <div class="nv2-section-hd">📅 기록 정보</div>
+    <div class="nv2-grid3">
+     <div class="nv2-field">
+      <label>기록일</label>
+      <input type="date" id="nv2-recordDate">
+     </div>
+     <div class="nv2-field">
+      <label>현재 돌아가는 광고 개수</label>
+      <input type="text" id="nv2-currentAdCount" placeholder="예: 12, 30+, 5종 운영">
+     </div>
+     <div class="nv2-field">
+      <label>최초 돌아가는 광고 날짜</label>
+      <input type="text" id="nv2-firstAdDate" placeholder="예: 2024-03 또는 2024-03-15">
+     </div>
+    </div>
+   </div>
+   
+   <!-- 장단점 -->
+   <div class="nv2-section">
+    <div class="nv2-section-hd">⚖️ 분석</div>
+    <div class="nv2-field nv2-field-pros" style="margin-bottom:10px">
+     <label>✅ 장점</label>
+     <textarea id="nv2-pros" placeholder="강점, 잘하는 것, 본받을 만한 점..."></textarea>
+    </div>
+    <div class="nv2-field nv2-field-cons">
+     <label>⚠️ 단점</label>
+     <textarea id="nv2-cons" placeholder="약점, 리스크, 피해야 할 것..."></textarea>
+    </div>
+   </div>
+   
+   <!-- 확장 가능성 + 기타 -->
+   <div class="nv2-section">
+    <div class="nv2-section-hd">🚀 확장 / 기타</div>
+    <div class="nv2-field nv2-field-expansion" style="margin-bottom:10px">
+     <label>확장하면 어떻게? (라인 확장·카테고리 확장·해외 진출 등)</label>
+     <textarea id="nv2-expansion" placeholder="이 브랜드/모델이 확장한다면 어떤 방향으로 갈까?"></textarea>
+    </div>
+    <div class="nv2-field">
+     <label>📌 기타 기록</label>
+     <textarea id="nv2-etc" placeholder="자유 메모, 인사이트, 후속 조사 항목..."></textarea>
+    </div>
+   </div>
+   
+   <!-- 자유 메모 (기존 summary) -->
+   <div class="nv2-section">
+    <div class="nv2-section-hd">📝 자유 메모 (요약)</div>
+    <div class="nv2-field">
+     <textarea id="nv2-summary" placeholder="한 줄 요약, 광고 소구점, 후킹 포인트... (셀에 우선 표시)" style="min-height:50px"></textarea>
+    </div>
+   </div>
+  </div>
+  <div class="form-actions" style="margin-top:14px;display:flex;justify-content:space-between;align-items:center">
+   <button class="btn btn-sm btn-danger" onclick="clearNotesV2()" title="구조화 메모 7개 항목 모두 비우기">🗑 비우기</button>
+   <div style="display:flex;gap:6px">
+    <button class="btn" onclick="closeModal('modal-notes-v2')">취소</button>
+    <button class="btn btn-primary" onclick="saveNotesV2()">💾 저장</button>
+   </div>
+  </div>
+ </div>
+</div>
+
 <!-- 메모 팝오버 (광고 메모 인라인 편집) -->
 <div id="memo-popover" class="memo-popover">
  <div class="memo-popover-hd">
@@ -863,6 +1087,78 @@ a:hover{text-decoration:underline}
 // 데이터 모델
 // ============================================================
 const STORAGE_KEY = 'adlibkit-v1';
+
+// ============================================================
+// 비밀번호 잠금 (30일 유지 옵션)
+// ============================================================
+const LOCK_KEY = 'adlibkit-unlock-until';
+const _PWD_HASH = 'MjAyOQ=='; // base64('2029') - 우연한 노출 방지용 가벼운 난독화
+const LOCK_DAYS = 30;
+const LOCK_MS = LOCK_DAYS * 24 * 60 * 60 * 1000;
+
+function checkLock(){
+ const screen = document.getElementById('lock-screen');
+ const until = parseInt(localStorage.getItem(LOCK_KEY) || '0', 10);
+ const now = Date.now();
+ if(until > now){
+  // 잠금해제 유효 → 화면 즉시 숨김
+  screen.classList.add('hidden');
+  return true;
+ }
+ // 잠금 화면 유지 + 입력 준비
+ const inp = document.getElementById('lock-input');
+ const stat = document.getElementById('lock-status');
+ if(until > 0 && until <= now){
+  stat.textContent = '⏰ 30일 잠금해제 만료 · 재인증 필요';
+ }
+ setTimeout(()=>inp.focus(), 80);
+ inp.addEventListener('keydown', e=>{
+  if(e.key === 'Enter'){ e.preventDefault(); tryUnlock(); }
+ });
+ // 잠금 중에는 배경 스크롤 방지
+ document.body.style.overflow = 'hidden';
+ return false;
+}
+
+function tryUnlock(){
+ const inp = document.getElementById('lock-input');
+ const errMsg = document.getElementById('lock-err-msg');
+ const remember = document.getElementById('lock-remember').checked;
+ const val = inp.value;
+ 
+ if(btoa(val) === _PWD_HASH){
+  // 성공
+  if(remember){
+   localStorage.setItem(LOCK_KEY, String(Date.now() + LOCK_MS));
+  } else {
+   localStorage.removeItem(LOCK_KEY);
+  }
+  const screen = document.getElementById('lock-screen');
+  screen.style.transition = 'opacity .35s ease';
+  screen.style.opacity = '0';
+  setTimeout(()=>{
+   screen.classList.add('hidden');
+   screen.style.opacity = '';
+   document.body.style.overflow = '';
+  }, 360);
+ } else {
+  // 실패 - 흔들림 + 에러 메시지
+  inp.classList.add('err');
+  errMsg.textContent = '비밀번호가 올바르지 않습니다';
+  inp.value = '';
+  setTimeout(()=>{
+   inp.classList.remove('err');
+   inp.focus();
+  }, 420);
+  setTimeout(()=>{ if(errMsg.textContent==='비밀번호가 올바르지 않습니다') errMsg.textContent = ''; }, 2500);
+ }
+}
+
+// 콘솔용: 30일 잠금해제 상태 강제 초기화 (다시 비번 입력해야 함)
+function resetLock(){
+ localStorage.removeItem(LOCK_KEY);
+ console.log('🔒 잠금 초기화 완료. 새로고침하면 비밀번호 입력 화면이 나타납니다.');
+}
 
 // 기본 카테고리 구조
 const DEFAULT_DATA = {
@@ -2730,6 +3026,151 @@ function jumpToCompany(coId){
  }, 300);
 }
 
+function renderCellNote(co, field, label){
+ const note = (co[field]||'').trim();
+ if(note){
+  return `<div class="cell-note" onclick="editCellNote('${co.id}','${field}')" title="클릭하여 수정">
+   <span class="cell-note-label">📝 ${label}</span>${escapeHtml(note)}
+  </div>`;
+ }
+ return `<div class="cell-note-empty" onclick="editCellNote('${co.id}','${field}')" title="클릭하여 메모 추가">＋ ${label}</div>`;
+}
+
+function editCellNote(coId, field){
+ const co = data.companies.find(c=>c.id===coId);
+ if(!co) return;
+ const labels = {adsNote:'광고 셀 메모', articlesNote:'기사 셀 메모'};
+ const current = co[field] || '';
+ const result = prompt(`${labels[field]||'메모'}\n(여러 줄은 \\n으로, 또는 그냥 쉼표/마침표로 짧게 적으세요)`, current);
+ if(result === null) return;  // 취소
+ co[field] = result.trim();
+ saveData();
+ renderCards();
+}
+
+// ============================================================
+// 구조화 메모 (notes-v2) — 7개 항목 + 자유 요약
+// ============================================================
+let _nv2EditingCoId = null;
+const NV2_FIELDS = ['recordDate','currentAdCount','firstAdDate','pros','cons','expansion','etc'];
+
+function getNotesV2(co){
+ if(!co.notesV2) co.notesV2 = {};
+ return co.notesV2;
+}
+
+function hasNotesV2Content(co){
+ const n = co.notesV2;
+ if(!n) return false;
+ return NV2_FIELDS.some(k => (n[k]||'').toString().trim() !== '');
+}
+
+function openNotesV2Modal(coId){
+ const co = data.companies.find(c=>c.id===coId);
+ if(!co) return;
+ _nv2EditingCoId = coId;
+ const n = getNotesV2(co);
+ document.getElementById('nv2-company-name').textContent = co.name || '(이름없음)';
+ // 기록일 기본값: 저장된 값 또는 오늘
+ const today = new Date().toISOString().slice(0,10);
+ document.getElementById('nv2-recordDate').value = n.recordDate || today;
+ document.getElementById('nv2-currentAdCount').value = n.currentAdCount || '';
+ document.getElementById('nv2-firstAdDate').value = n.firstAdDate || '';
+ document.getElementById('nv2-pros').value = n.pros || '';
+ document.getElementById('nv2-cons').value = n.cons || '';
+ document.getElementById('nv2-expansion').value = n.expansion || '';
+ document.getElementById('nv2-etc').value = n.etc || '';
+ document.getElementById('nv2-summary').value = co.summary || '';
+ document.getElementById('modal-notes-v2').classList.add('active');
+}
+
+function saveNotesV2(){
+ if(!_nv2EditingCoId) return;
+ const co = data.companies.find(c=>c.id===_nv2EditingCoId);
+ if(!co) return;
+ const n = getNotesV2(co);
+ n.recordDate = document.getElementById('nv2-recordDate').value || '';
+ n.currentAdCount = document.getElementById('nv2-currentAdCount').value.trim();
+ n.firstAdDate = document.getElementById('nv2-firstAdDate').value.trim();
+ n.pros = document.getElementById('nv2-pros').value.trim();
+ n.cons = document.getElementById('nv2-cons').value.trim();
+ n.expansion = document.getElementById('nv2-expansion').value.trim();
+ n.etc = document.getElementById('nv2-etc').value.trim();
+ // 자유 메모(summary)도 같이 저장
+ co.summary = document.getElementById('nv2-summary').value;
+ saveData();
+ closeModal('modal-notes-v2');
+ renderCards();
+ if(typeof toast === 'function') toast('메모 저장 완료','grn');
+}
+
+function clearNotesV2(){
+ if(!_nv2EditingCoId) return;
+ if(!confirm('구조화 메모 7개 항목을 모두 비웁니다 (자유 메모는 유지). 계속할까요?')) return;
+ NV2_FIELDS.forEach(k => {
+  const el = document.getElementById('nv2-'+k);
+  if(el) el.value = (k==='recordDate' ? new Date().toISOString().slice(0,10) : '');
+ });
+}
+
+// 셀에 표시할 구조화 메모 블록 (있는 항목만 컴팩트)
+function renderNotesV2Block(co){
+ const n = co.notesV2;
+ if(!n || !hasNotesV2Content(co)) return '';
+ const rows = [];
+ if(n.currentAdCount) rows.push({lbl:'🔢 광고수', val:n.currentAdCount});
+ if(n.firstAdDate)    rows.push({lbl:'🗓 최초', val:n.firstAdDate});
+ if(n.pros)           rows.push({lbl:'✅ 장점', val:n.pros});
+ if(n.cons)           rows.push({lbl:'⚠️ 단점', val:n.cons});
+ if(n.expansion)      rows.push({lbl:'🚀 확장', val:n.expansion});
+ if(n.etc)            rows.push({lbl:'📌 기타', val:n.etc});
+ const inner = rows.map(r => 
+  `<div class="notes-v2-row"><span class="notes-v2-label">${r.lbl}</span><span class="notes-v2-value">${escapeHtml(r.val)}</span></div>`
+ ).join('');
+ const recordLine = n.recordDate ? `<div class="notes-v2-record">📅 기록일: ${escapeHtml(n.recordDate)}</div>` : '';
+ return `<div class="notes-v2-block" onclick="openNotesV2Modal('${co.id}')" title="클릭하여 수정">${inner}${recordLine}</div>`;
+}
+
+// 브랜드 URL 정규화 (저장 시 호출)
+// - 빈/공백 → ''
+// - javascript:, data:, file:, vbscript: 차단 (XSS/스푸핑 방지)
+// - http(s)://, // 가 없으면 https:// 자동 추가
+function normalizeBrandUrl(url){
+ if(!url) return '';
+ url = url.trim();
+ if(!url) return '';
+ if(/^\s*(javascript|data|file|vbscript):/i.test(url)) return '';
+ if(/^\/\//.test(url)) return 'https:' + url;
+ if(!/^https?:\/\//i.test(url)) url = 'https://' + url;
+ return url;
+}
+
+// 렌더링용 안전 검사 (저장된 값이라도 한 번 더 체크)
+function safeBrandUrl(url){
+ if(!url) return '';
+ if(!/^https?:\/\//i.test(url)) return '';
+ if(/^\s*(javascript|data|file|vbscript):/i.test(url)) return '';
+ return url;
+}
+
+// 판매 채널 칩 렌더링 (URL 있는 채널만 표시)
+const _CHANNEL_DEFS = [
+ {key:'own',     cls:'ch-own',     label:'자사몰'},
+ {key:'coupang', cls:'ch-coupang', label:'쿠팡'},
+ {key:'gmarket', cls:'ch-gmarket', label:'지마켓'},
+ {key:'etc',     cls:'ch-etc',     label:'기타'}
+];
+function renderChannelChips(co){
+ const ch = co.channels;
+ if(!ch) return '';
+ const chips = _CHANNEL_DEFS
+  .map(def => ({...def, url: safeBrandUrl(ch[def.key])}))
+  .filter(d => d.url)
+  .map(d => `<a class="channel-chip ${d.cls}" href="${escapeAttr(d.url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${escapeAttr(d.url)}">${d.label}↗</a>`)
+  .join('');
+ return chips ? `<div class="cell-channels">${chips}</div>` : '';
+}
+
 function renderRow(co){
  const ads = co.ads||[];
  const summaryId = 'sum-'+co.id;
@@ -2739,8 +3180,14 @@ function renderRow(co){
   <tr data-id="${co.id}">
    <td class="cell-name">
     <div class="name-main">${escapeHtml(co.name||'(이름없음)')}</div>
-    ${co.brand?`<div class="name-brand">🏷️ ${escapeHtml(co.brand)}</div>`:''}
+    ${co.brand ? (
+      safeBrandUrl(co.brandUrl)
+       ? `<a class="name-brand" href="${escapeAttr(safeBrandUrl(co.brandUrl))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${escapeAttr(safeBrandUrl(co.brandUrl))} (새 탭에서 열기)">🏷️ ${escapeHtml(co.brand)}<span class="brand-ext">↗</span></a>`
+       : `<div class="name-brand">🏷️ ${escapeHtml(co.brand)}</div>`
+    ) : ''}
+    ${renderChannelChips(co)}
     ${co.platform?`<div class="name-platform" title="${escapeAttr(co.platform)}">🛠️ ${escapeHtml(co.platform.length>20?co.platform.slice(0,20)+'…':co.platform)}</div>`:''}
+    ${co.recordReason && co.recordReason.trim() ? `<div class="name-record-reason" title="등록 사유: ${escapeAttr(co.recordReason)}">${escapeHtml(co.recordReason)}</div>` : ''}
    </td>
    <td class="cell-text-sm">${escapeHtml(co.ceo||'-')}</td>
    <td class="cell-text-sm">${escapeHtml(co.staff||'-')}</td>
@@ -2748,16 +3195,22 @@ function renderRow(co){
    <td class="cell-text-sm">${escapeHtml(co.addr||'-')}</td>
    <td class="cell-products">${escapeHtml(co.products||'-')}</td>
    <td class="cell-summary">
+    ${renderNotesV2Block(co)}
+    ${hasNotesV2Content(co) 
+      ? `<button class="notes-v2-edit-btn" onclick="openNotesV2Modal('${co.id}')" title="구조화 메모 수정">✏️ 메모 수정</button>`
+      : `<button class="notes-v2-empty-btn" onclick="openNotesV2Modal('${co.id}')" title="기록일/광고개수/장단점/확장방안 등 입력">📋 상세 메모 입력</button>`
+    }
     ${co.summary && co.summary.trim() ? `
-     <div id="${summaryId}" class="${summaryLong?'cell-summary-truncate':''}">${escapeHtml(co.summary)}</div>
+     <div id="${summaryId}" class="${summaryLong?'cell-summary-truncate':''}" style="margin-top:4px">${escapeHtml(co.summary)}</div>
      ${summaryLong?`<span class="cell-summary-toggle" onclick="toggleSummary('${summaryId}',this)">▼ 더보기</span>`:''}
-    ` : '<span style="color:var(--txt3);font-style:italic">-</span>'}
+    ` : ''}
    </td>
    <td class="cell-ads">
     <div class="ads-inline">
      ${ads.map(ad=>renderAdChip(co.id, ad)).join('')}
      <button class="add-ad-btn" onclick="openAddAdModal('${co.id}')" title="광고 추가">＋ 광고</button>
     </div>
+    ${renderCellNote(co, 'adsNote', '광고 메모')}
    </td>
    <td class="cell-articles">
     <div class="ads-inline">
@@ -2765,6 +3218,7 @@ function renderRow(co){
      ${(co.articles||[]).length > 3 ? `<span class="article-chip" onclick="openArticlesModal('${co.id}')" style="background:var(--panel2);font-weight:600">+${(co.articles||[]).length-3}개 더</span>` : ''}
      <button class="add-ad-btn" onclick="openArticlesModal('${co.id}')" title="기사 관리">＋ 기사</button>
     </div>
+    ${renderCellNote(co, 'articlesNote', '기사 메모')}
    </td>
    <td class="cell-actions">
     <button class="btn btn-xs" onclick="editCompany('${co.id}')" title="수정">✏</button>
@@ -2834,7 +3288,8 @@ let editingCompanyId = null;
 function openAddCompanyModal(){
  editingCompanyId = null;
  document.getElementById('modal-company-title').textContent = '업체 추가';
- ['comp-name','comp-brand','comp-ceo','comp-staff','comp-addr','comp-products','comp-summary','comp-platform'].forEach(id=>{
+ ['comp-name','comp-brand','comp-brand-url','comp-record-reason','comp-ceo','comp-staff','comp-addr','comp-products','comp-summary','comp-platform',
+  'comp-ch-own','comp-ch-coupang','comp-ch-gmarket','comp-ch-etc'].forEach(id=>{
   const el = document.getElementById(id);
   if(el) el.value = '';
  });
@@ -2847,7 +3302,8 @@ function openAddCompanyModal(){
  editingImages = [];
  refreshImageThumbs();
  fillRevenueRowsFromData([]);  // 빈 행 1개만
- fillSubcatSelect();
+ fillCatSelect(data.activeCatId);
+ fillSubcatSelect(data.activeSubId, data.activeCatId);
  document.getElementById('modal-company').classList.add('active');
  setTimeout(()=>{
   setupImageDropZone();
@@ -2862,6 +3318,8 @@ function editCompany(id){
  document.getElementById('modal-company-title').textContent = '업체 수정';
  document.getElementById('comp-name').value = co.name||'';
  document.getElementById('comp-brand').value = co.brand||'';
+ document.getElementById('comp-brand-url').value = co.brandUrl||'';
+ document.getElementById('comp-record-reason').value = co.recordReason||'';
  document.getElementById('comp-ceo').value = co.ceo||'';
  document.getElementById('comp-staff').value = co.staff||'';
  document.getElementById('comp-addr').value = co.addr||'';
@@ -2869,6 +3327,12 @@ function editCompany(id){
  document.getElementById('comp-summary').value = co.summary||'';
  const pfEl = document.getElementById('comp-platform');
  if(pfEl) pfEl.value = co.platform||'';
+ // 판매 채널 4개 (없으면 빈 문자열)
+ const ch = co.channels || {};
+ document.getElementById('comp-ch-own').value     = ch.own     || '';
+ document.getElementById('comp-ch-coupang').value = ch.coupang || '';
+ document.getElementById('comp-ch-gmarket').value = ch.gmarket || '';
+ document.getElementById('comp-ch-etc').value     = ch.etc     || '';
  const pasteEl = document.getElementById('revenue-paste-text');
  if(pasteEl) pasteEl.value = '';
  const srcEl = document.getElementById('revenue-source');
@@ -2883,16 +3347,32 @@ function editCompany(id){
  } else {
   fillRevenueRowsFromData(co.revenueData||[]);
  }
- fillSubcatSelect(co.subId);
+ // 메인 카테고리는 회사 데이터의 catId 우선, 없으면 active
+ fillCatSelect(co.catId || data.activeCatId);
+ fillSubcatSelect(co.subId, co.catId || data.activeCatId);
  document.getElementById('modal-company').classList.add('active');
  setTimeout(()=>setupImageDropZone(),100);
 }
 
-function fillSubcatSelect(selectedId){
- const cat = data.categories.find(c=>c.id===data.activeCatId);
+function fillCatSelect(selectedCatId){
+ const sel = document.getElementById('comp-cat');
+ sel.innerHTML = data.categories.map(c=>
+  `<option value="${c.id}" ${c.id===selectedCatId?'selected':''}>${c.icon} ${escapeHtml(c.name)}</option>`
+ ).join('');
+}
+
+function onCompCatChange(){
+ // 메인 카테고리 변경 시 서브카테고리 select를 그 카테고리의 첫 항목으로 갱신
+ const newCatId = document.getElementById('comp-cat').value;
+ fillSubcatSelect(null, newCatId);
+}
+
+function fillSubcatSelect(selectedId, overrideCatId){
+ const catId = overrideCatId || document.getElementById('comp-cat')?.value || data.activeCatId;
+ const cat = data.categories.find(c=>c.id===catId);
  const sel = document.getElementById('comp-subcat');
  if(!cat){sel.innerHTML='';return}
- const target = selectedId || data.activeSubId;
+ const target = selectedId || (cat.subcats[0] && cat.subcats[0].id);
  sel.innerHTML = cat.subcats.map(s=>`<option value="${s.id}" ${s.id===target?'selected':''}>${escapeHtml(s.name)}</option>`).join('');
 }
 
@@ -2900,11 +3380,22 @@ function saveCompany(){
  const name = document.getElementById('comp-name').value.trim();
  if(!name){toast('업체명을 입력하세요','red');return}
  
+ // 메인 카테고리는 모달 select에서 (없으면 active 사용)
+ const newCatId = document.getElementById('comp-cat')?.value || data.activeCatId;
+ 
  const fields = {
-  catId: data.activeCatId,
+  catId: newCatId,
   subId: document.getElementById('comp-subcat').value,
   name,
   brand: document.getElementById('comp-brand').value.trim(),
+  brandUrl: normalizeBrandUrl(document.getElementById('comp-brand-url').value),
+  recordReason: document.getElementById('comp-record-reason').value.trim(),
+  channels: {
+   own:     normalizeBrandUrl(document.getElementById('comp-ch-own').value),
+   coupang: normalizeBrandUrl(document.getElementById('comp-ch-coupang').value),
+   gmarket: normalizeBrandUrl(document.getElementById('comp-ch-gmarket').value),
+   etc:     normalizeBrandUrl(document.getElementById('comp-ch-etc').value)
+  },
   ceo: document.getElementById('comp-ceo').value.trim(),
   staff: document.getElementById('comp-staff').value.trim(),
   revenueData: collectRevenueRows(),
@@ -2918,15 +3409,27 @@ function saveCompany(){
   updatedAt: Date.now()
  };
  
+ // 카테고리 이동 감지 (수정 시)
+ const movedCategory = editingCompanyId && (() => {
+  const orig = data.companies.find(c=>c.id===editingCompanyId);
+  return orig && orig.catId && orig.catId !== newCatId;
+ })();
+ 
  if(editingCompanyId){
   const co = data.companies.find(c=>c.id===editingCompanyId);
   Object.assign(co, fields);
   delete co.revenue;
   delete co.profit;
-  toast('업체 수정됨','grn');
+  toast(movedCategory ? '업체 수정 + 카테고리 이동됨' : '업체 수정됨','grn');
  } else {
   data.companies.push({id:'co_'+Date.now(),...fields,ads:[],articles:[],createdAt:Date.now()});
   toast('업체 추가됨','grn');
+ }
+ 
+ // 카테고리가 이동된 경우, 새 카테고리로 화면 전환 (사용자가 결과를 바로 확인할 수 있게)
+ if(movedCategory){
+  data.activeCatId = newCatId;
+  data.activeSubId = fields.subId;
  }
  
  saveData();
@@ -4215,6 +4718,7 @@ document.addEventListener('click', e=>{
 });
 
 // 시작
+checkLock();  // 비밀번호 잠금 체크 (30일 유효 시 자동 통과)
 loadData();
  if(!data.essenceCards) data.essenceCards = {};
  if(!data.pillarsOverride) data.pillarsOverride = {};
