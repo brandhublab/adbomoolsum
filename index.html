@@ -84,6 +84,20 @@ a:hover{text-decoration:underline}
 .cell-channels-edit:hover{color:var(--hi2);border-color:var(--hi);border-style:solid;background:#fdf6e8}
 .cell-channels-add-empty{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:3px;font-size:9.5px;font-weight:600;background:transparent;color:var(--txt3);border:1px dashed var(--bord);cursor:pointer;transition:.12s;margin-top:5px}
 .cell-channels-add-empty:hover{color:var(--hi2);border-color:var(--hi);border-style:solid;background:#fdf6e8}
+.chq-row{display:grid;grid-template-columns:130px 1fr 30px;gap:6px;align-items:center}
+.chq-row input{padding:6px 8px;border:1px solid var(--bord);border-radius:4px;font-size:11.5px;font-family:inherit;color:var(--txt);background:#fff;transition:.15s}
+.chq-row input:focus{outline:none;border-color:var(--hi);box-shadow:0 0 0 2px rgba(184,148,76,.12)}
+.chq-row .chq-label-input{font-weight:600;color:var(--hi2);background:#fdfaf3}
+.chq-row button{font-size:11px;padding:6px 8px;color:var(--txt3)}
+.chq-row button:hover{color:var(--red);border-color:var(--red);background:#fdf0f0}
+.cap-thumb{width:120px;height:120px;border-radius:6px;overflow:hidden;cursor:pointer;border:1px solid var(--bord);background:#f5f1e6;position:relative;transition:.15s;flex-shrink:0}
+.cap-thumb:hover{border-color:var(--hi);transform:scale(1.03);box-shadow:0 2px 8px rgba(184,148,76,.25)}
+.cap-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.cap-thumb-memo{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:9.5px;padding:14px 6px 4px;line-height:1.3;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+#cap-paste-zone:focus,#cap-paste-zone.dragover{border-color:var(--hi);background:#fdf6e8}
+.cell-captures-btn{display:inline-flex;align-items:center;gap:2px;padding:3px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#f5f1e6;color:var(--txt2);border:1px solid var(--bord);cursor:pointer;transition:.12s;margin-left:3px}
+.cell-captures-btn:hover{background:var(--hi);color:#fff;border-color:var(--hi)}
+.cell-captures-btn.has-captures{background:#fff4e8;color:var(--orng);border-color:#f4d4a8}
 .channel-chip{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;text-decoration:none;border:1px solid;transition:.12s;line-height:1.4}
 .channel-chip:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(0,0,0,.06);text-decoration:none}
 .channel-chip.ch-own     {background:#fdf6e8;color:var(--hi2);   border-color:#e8d4a8}
@@ -741,7 +755,7 @@ a:hover{text-decoration:underline}
     </div>
     <div class="brand-url-wrap">
      <span class="url-prefix">🌐</span>
-     <input type="text" id="comp-brand-url" class="form-input" placeholder="aropil.com (https:// 자동)">
+     <input type="text" id="comp-brand-url" class="form-input" placeholder="https://example.com (https:// 자동)">
     </div>
    </div>
   </div>
@@ -767,7 +781,7 @@ a:hover{text-decoration:underline}
    <div class="channel-input-grid">
     <div class="channel-input-row ch-own">
      <span class="channel-label">자사몰</span>
-     <input type="text" id="comp-ch-own" placeholder="예: aropil.com">
+     <input type="text" id="comp-ch-own" placeholder="https://example.com">
     </div>
     <div class="channel-input-row ch-coupang">
      <span class="channel-label">쿠팡</span>
@@ -1067,35 +1081,83 @@ a:hover{text-decoration:underline}
 
 <!-- 채널 빠른 편집 모달 -->
 <div class="overlay" id="modal-channels-quick">
- <div class="modal" style="max-width:500px">
+ <div class="modal" style="max-width:560px">
   <div class="modal-hd">
-   <div class="modal-title">🛒 판매 채널 빠른 편집 — <span id="chq-company-name" style="color:var(--txt)">-</span></div>
+   <div class="modal-title">🛒 판매·공구·인플루언서 채널 — <span id="chq-company-name" style="color:var(--txt)">-</span></div>
    <button class="modal-close" onclick="closeModal('modal-channels-quick')">×</button>
   </div>
-  <div style="font-size:11px;color:var(--txt3);margin-bottom:12px;line-height:1.5">
-   각 칸에 URL을 입력하세요. <code style="background:var(--panel2);padding:1px 5px;border-radius:3px">https://</code> 자동 추가됩니다. 비우면 칩이 사라집니다.
+  <div style="font-size:11px;color:var(--txt3);margin-bottom:10px;line-height:1.55">
+   라벨/URL 자유 입력. <code style="background:var(--panel2);padding:1px 5px;border-radius:3px">https://</code> 자동 추가. 빈 행은 저장 시 제거됩니다.<br>
+   라벨 예시: <span style="color:var(--hi2)">자사몰 · 쿠팡 · 지마켓 · 스마트스토어 · 협업 인플루언서 · 공구 판매 · 약국/의원 입점</span>
   </div>
-  <div class="nv2-form">
-   <div class="nv2-field">
-    <label>🏠 자사몰</label>
-    <input type="text" id="chq-own" placeholder="예: aropil.com">
-   </div>
-   <div class="nv2-field">
-    <label>📦 쿠팡</label>
-    <input type="text" id="chq-coupang" placeholder="쿠팡 상품 URL">
-   </div>
-   <div class="nv2-field">
-    <label>🟢 지마켓</label>
-    <input type="text" id="chq-gmarket" placeholder="지마켓 상품 URL">
-   </div>
-   <div class="nv2-field">
-    <label>🌐 기타 (네이버스토어/올영 등)</label>
-    <input type="text" id="chq-etc" placeholder="기타 채널 URL">
-   </div>
+  <div id="chq-rows" style="display:flex;flex-direction:column;gap:6px"></div>
+  <div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap">
+   <span style="font-size:10.5px;color:var(--txt3);align-self:center;margin-right:4px">빠른 추가:</span>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('자사몰')">＋ 자사몰</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('쿠팡')">＋ 쿠팡</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('스마트스토어')">＋ 스마트스토어</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('지마켓')">＋ 지마켓</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('협업 인플루언서')">＋ 인플루언서</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('공구 판매')">＋ 공구</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('약국/의원 입점')">＋ B2B</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow()" style="border-style:dashed">＋ 빈 행</button>
   </div>
   <div class="form-actions" style="margin-top:14px;display:flex;justify-content:flex-end;gap:6px">
    <button class="btn" onclick="closeModal('modal-channels-quick')">취소</button>
    <button class="btn btn-primary" onclick="saveChannelsQuick()">💾 저장</button>
+  </div>
+ </div>
+</div>
+
+<!-- 광고 캡처 갤러리 모달 -->
+<div class="overlay" id="modal-captures">
+ <div class="modal" style="max-width:780px">
+  <div class="modal-hd">
+   <div class="modal-title">📷 광고 캡처 — <span id="cap-company-name" style="color:var(--txt)">-</span></div>
+   <button class="modal-close" onclick="closeModal('modal-captures')">×</button>
+  </div>
+  <div style="font-size:11px;color:var(--txt3);margin-bottom:10px;line-height:1.55">
+   메타·인스타·페이스북·네이티브 광고 등 <strong>링크가 없는 광고를 이미지로 보관</strong>합니다.<br>
+   <span style="color:var(--hi2)">붙여넣기 (Ctrl+V)</span> 또는 <span style="color:var(--hi2)">파일 선택</span>으로 추가 (자동으로 800px 썸네일로 압축).
+  </div>
+  
+  <div id="cap-paste-zone" tabindex="0" style="border:2px dashed var(--bord);border-radius:6px;padding:18px;text-align:center;margin-bottom:12px;background:var(--panel2);cursor:pointer;transition:.15s;outline:none">
+   <div style="font-size:24px;margin-bottom:4px">📋</div>
+   <div style="font-size:11.5px;color:var(--txt2);font-weight:600">여기 클릭 후 <kbd style="background:#fff;border:1px solid var(--bord);border-radius:3px;padding:1px 5px;font-size:10px">Ctrl+V</kbd> 붙여넣기</div>
+   <div style="font-size:10.5px;color:var(--txt3);margin-top:3px">또는 <label for="cap-file-input" style="color:var(--hi2);text-decoration:underline;cursor:pointer">파일 선택</label></div>
+   <input type="file" id="cap-file-input" accept="image/*" multiple style="display:none">
+  </div>
+  
+  <div id="cap-gallery" style="display:flex;flex-wrap:wrap;gap:8px;min-height:100px;max-height:380px;overflow-y:auto;padding:4px">
+   <div id="cap-empty" style="width:100%;text-align:center;color:var(--txt3);font-size:11px;padding:30px 0">아직 캡처가 없습니다. 위에 붙여넣기 또는 파일 선택으로 추가하세요.</div>
+  </div>
+  
+  <div class="form-actions" style="margin-top:12px;display:flex;justify-content:flex-end;gap:6px">
+   <button class="btn" onclick="closeModal('modal-captures')">닫기</button>
+  </div>
+ </div>
+</div>
+
+<!-- 광고 캡처 단일 이미지 라이트박스 -->
+<div class="overlay" id="modal-capture-view" style="z-index:200">
+ <div class="modal" style="max-width:90vw;max-height:90vh;width:auto;padding:14px">
+  <div class="modal-hd">
+   <div class="modal-title" id="cap-view-title" style="font-size:13px">📷 캡처</div>
+   <button class="modal-close" onclick="closeModal('modal-capture-view')">×</button>
+  </div>
+  <div id="cap-view-img-wrap" style="text-align:center;max-height:65vh;overflow:auto;background:#f5f1e6;border-radius:6px;padding:10px">
+   <img id="cap-view-img" src="" style="max-width:100%;max-height:60vh;border-radius:4px">
+  </div>
+  <div style="margin-top:10px">
+   <label style="font-size:11px;color:var(--txt2);font-weight:600;margin-bottom:4px;display:block">📝 메모</label>
+   <textarea id="cap-view-memo" placeholder="이 광고의 카피·타겟·후킹 포인트..." style="width:100%;min-height:60px;padding:8px;border:1px solid var(--bord);border-radius:4px;font-family:inherit;font-size:11.5px;line-height:1.5;color:var(--txt);background:#fff;resize:vertical"></textarea>
+  </div>
+  <div style="margin-top:10px;display:flex;justify-content:space-between;gap:6px">
+   <button class="btn btn-sm" onclick="deleteCaptureFromView()" style="color:var(--red);border-color:#f0d4d4">🗑️ 삭제</button>
+   <div style="display:flex;gap:6px">
+    <button class="btn" onclick="closeModal('modal-capture-view')">취소</button>
+    <button class="btn btn-primary" onclick="saveCaptureMemo()">💾 메모 저장</button>
+   </div>
   </div>
  </div>
 </div>
@@ -3334,62 +3396,284 @@ function safeBrandUrl(url){
  return url;
 }
 
-// 판매 채널 칩 렌더링 (URL 있는 채널만 표시)
-const _CHANNEL_DEFS = [
- {key:'own',     cls:'ch-own',     label:'자사몰'},
- {key:'coupang', cls:'ch-coupang', label:'쿠팡'},
- {key:'gmarket', cls:'ch-gmarket', label:'지마켓'},
- {key:'etc',     cls:'ch-etc',     label:'기타'}
-];
+// 판매 채널 — 동적 배열 [{label, url}] (자유 라벨/개수)
+// 기존 데이터 호환: co.channels가 객체({own,coupang,...})면 자동으로 배열로 변환
+const _LEGACY_CHANNEL_LABELS = {
+ own:'자사몰', coupang:'쿠팡', gmarket:'지마켓', etc:'기타'
+};
+function _ensureChannelsArray(co){
+ if(!co) return;
+ if(Array.isArray(co.channels)) return;
+ const oldCh = co.channels || {};
+ const arr = [];
+ ['own','coupang','gmarket','etc'].forEach(k=>{
+  if(oldCh[k]) arr.push({label:_LEGACY_CHANNEL_LABELS[k], url:oldCh[k]});
+ });
+ co.channels = arr;
+}
+
+// 자주 쓰는 채널 라벨 (빠른 추가 버튼)
+const _COMMON_CHANNEL_LABELS = ['자사몰','쿠팡','지마켓','스마트스토어','네이버블로그','협업 인플루언서','공구 판매','약국/의원 입점','기타'];
+
 function renderChannelChips(co){
- const ch = co.channels || {};
- const chips = _CHANNEL_DEFS
-  .map(def => ({...def, url: safeBrandUrl(ch[def.key])}))
-  .filter(d => d.url)
-  .map(d => `<a class="channel-chip ${d.cls}" href="${escapeAttr(d.url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${escapeAttr(d.url)}">${d.label}↗</a>`)
-  .join('');
- // 칩이 하나라도 있으면 작은 ✏️ 편집 버튼, 없으면 큰 "＋ 판매링크" 버튼
- if(chips){
-  return `<div class="cell-channels">${chips}<button class="cell-channels-edit" onclick="openChannelsQuickModal('${co.id}')" title="판매 채널 수정">✏️ 수정</button></div>`;
+ _ensureChannelsArray(co);
+ const items = (co.channels||[]).filter(c => c && safeBrandUrl(c.url));
+ if(items.length === 0){
+  return `<button class="cell-channels-add-empty" onclick="openChannelsQuickModal('${co.id}')" title="판매/공구/인플루언서 링크 추가">🛒 ＋ 판매링크 추가</button>`;
  }
- return `<button class="cell-channels-add-empty" onclick="openChannelsQuickModal('${co.id}')" title="판매 채널 추가 (자사몰/쿠팡/지마켓/기타)">🛒 ＋ 판매링크 추가</button>`;
+ const chips = items.map(c => {
+  const url = safeBrandUrl(c.url);
+  const label = (c.label||'링크').trim() || '링크';
+  return `<a class="channel-chip ch-custom" href="${escapeAttr(url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${escapeAttr(label)} — ${escapeAttr(url)}">${escapeHtml(label)}↗</a>`;
+ }).join('');
+ return `<div class="cell-channels">${chips}<button class="cell-channels-edit" onclick="openChannelsQuickModal('${co.id}')" title="채널 수정">✏️ 수정</button></div>`;
 }
 
 // ============================================================
-// 채널 빠른 편집 — 셀에서 모달 띄워서 4개 채널 한꺼번에 수정
+// 채널 빠른 편집 — 동적 배열 (라벨/URL/추가/삭제)
 // ============================================================
 let _chqEditingCoId = null;
 function openChannelsQuickModal(coId){
  const co = data.companies.find(c=>c.id===coId);
  if(!co) return;
+ _ensureChannelsArray(co);
  _chqEditingCoId = coId;
- const ch = co.channels || {};
  document.getElementById('chq-company-name').textContent = co.name || '(이름없음)';
- document.getElementById('chq-own').value     = ch.own     || '';
- document.getElementById('chq-coupang').value = ch.coupang || '';
- document.getElementById('chq-gmarket').value = ch.gmarket || '';
- document.getElementById('chq-etc').value     = ch.etc     || '';
+ // 기존 채널 행 렌더
+ const rowsBox = document.getElementById('chq-rows');
+ rowsBox.innerHTML = '';
+ const list = co.channels.length ? co.channels : [{label:'자사몰', url:''}];
+ list.forEach(c => _chqAppendRow(c.label||'', c.url||''));
  document.getElementById('modal-channels-quick').classList.add('active');
- setTimeout(()=>document.getElementById('chq-own').focus(), 100);
+ setTimeout(()=>{
+  const firstUrl = document.querySelector('.chq-row .chq-url-input');
+  if(firstUrl && !firstUrl.value) firstUrl.focus();
+ }, 100);
+}
+
+function _chqAppendRow(label, url){
+ const rowsBox = document.getElementById('chq-rows');
+ const row = document.createElement('div');
+ row.className = 'chq-row';
+ row.innerHTML = `
+  <input type="text" class="chq-label-input" placeholder="라벨 (예: 자사몰)" value="${escapeAttr(label||'')}">
+  <input type="text" class="chq-url-input" placeholder="https://..." value="${escapeAttr(url||'')}">
+  <button class="btn btn-sm" onclick="this.parentNode.remove()" title="이 줄 삭제" type="button">✕</button>
+ `;
+ rowsBox.appendChild(row);
+}
+
+function chqAddRow(label){
+ _chqAppendRow(label||'', '');
+ setTimeout(()=>{
+  const rows = document.querySelectorAll('.chq-row');
+  const last = rows[rows.length-1];
+  if(last){
+   if(label) last.querySelector('.chq-url-input').focus();
+   else last.querySelector('.chq-label-input').focus();
+  }
+ }, 50);
 }
 
 function saveChannelsQuick(){
  if(!_chqEditingCoId) return;
  const co = data.companies.find(c=>c.id===_chqEditingCoId);
  if(!co) return;
- co.channels = {
-  own:     normalizeBrandUrl(document.getElementById('chq-own').value),
-  coupang: normalizeBrandUrl(document.getElementById('chq-coupang').value),
-  gmarket: normalizeBrandUrl(document.getElementById('chq-gmarket').value),
-  etc:     normalizeBrandUrl(document.getElementById('chq-etc').value)
- };
+ const rows = document.querySelectorAll('.chq-row');
+ const arr = [];
+ rows.forEach(r=>{
+  const label = r.querySelector('.chq-label-input').value.trim();
+  const url = normalizeBrandUrl(r.querySelector('.chq-url-input').value);
+  if(url) arr.push({label: label || '링크', url});
+ });
+ co.channels = arr;
  saveData();
  closeModal('modal-channels-quick');
  renderCards();
- if(typeof toast === 'function') toast('판매 채널 저장 완료','grn');
+ if(typeof toast === 'function') toast(`판매 채널 ${arr.length}개 저장`,'grn');
+}
+
+// ============================================================
+// 광고 캡처 갤러리 — 이미지를 base64로 압축 저장 (링크가 없는 광고용)
+// ============================================================
+let _capEditingCoId = null;
+let _capEditingId = null;
+
+function renderCapturesButton(co){
+ const n = (co.adCaptures||[]).length;
+ if(n === 0){
+  return `<button class="cell-captures-btn" onclick="openCapturesModal('${co.id}')" title="광고 캡처 이미지 추가">📷 캡처</button>`;
+ }
+ return `<button class="cell-captures-btn has-captures" onclick="openCapturesModal('${co.id}')" title="${n}장의 광고 캡처">📷 ${n}장</button>`;
+}
+
+function openCapturesModal(coId){
+ const co = data.companies.find(c=>c.id===coId);
+ if(!co) return;
+ _capEditingCoId = coId;
+ if(!Array.isArray(co.adCaptures)) co.adCaptures = [];
+ document.getElementById('cap-company-name').textContent = co.name || '(이름없음)';
+ _renderCaptureGallery();
+ document.getElementById('modal-captures').classList.add('active');
+ // 붙여넣기 영역 자동 포커스
+ setTimeout(()=>document.getElementById('cap-paste-zone').focus(), 100);
+}
+
+function _renderCaptureGallery(){
+ const co = data.companies.find(c=>c.id===_capEditingCoId);
+ const gallery = document.getElementById('cap-gallery');
+ const empty = document.getElementById('cap-empty');
+ if(!co || !co.adCaptures || co.adCaptures.length === 0){
+  gallery.innerHTML = '<div id="cap-empty" style="width:100%;text-align:center;color:var(--txt3);font-size:11px;padding:30px 0">아직 캡처가 없습니다. 위에 붙여넣기 또는 파일 선택으로 추가하세요.</div>';
+  return;
+ }
+ gallery.innerHTML = co.adCaptures.map(cap => `
+  <div class="cap-thumb" onclick="openCaptureView('${cap.id}')" title="${escapeAttr(cap.memo||'클릭하여 보기')}">
+   <img src="${escapeAttr(cap.dataUrl)}" alt="">
+   ${cap.memo ? `<div class="cap-thumb-memo">${escapeHtml(cap.memo)}</div>` : ''}
+  </div>
+ `).join('');
+}
+
+// 이미지를 800px 이내로 리사이즈 + JPEG 압축 → base64
+function _resizeImageToDataUrl(file, maxDim, quality){
+ return new Promise((resolve, reject)=>{
+  const reader = new FileReader();
+  reader.onload = e => {
+   const img = new Image();
+   img.onload = () => {
+    let w = img.width, h = img.height;
+    if(w > maxDim || h > maxDim){
+     if(w > h){ h = Math.round(h * maxDim / w); w = maxDim; }
+     else { w = Math.round(w * maxDim / h); h = maxDim; }
+    }
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, w, h);
+    ctx.drawImage(img, 0, 0, w, h);
+    resolve(canvas.toDataURL('image/jpeg', quality));
+   };
+   img.onerror = reject;
+   img.src = e.target.result;
+  };
+  reader.onerror = reject;
+  reader.readAsDataURL(file);
+ });
+}
+
+async function _addCaptureFromFile(file){
+ if(!file || !file.type.startsWith('image/')){
+  if(typeof toast === 'function') toast('이미지 파일만 추가 가능','red');
+  return;
+ }
+ const co = data.companies.find(c=>c.id===_capEditingCoId);
+ if(!co) return;
+ try{
+  const dataUrl = await _resizeImageToDataUrl(file, 800, 0.85);
+  if(!Array.isArray(co.adCaptures)) co.adCaptures = [];
+  co.adCaptures.push({
+   id: 'cap-' + Math.random().toString(36).slice(2,9),
+   dataUrl,
+   memo: '',
+   addedAt: new Date().toISOString()
+  });
+  try {
+   saveData();
+  } catch(e) {
+   // localStorage 용량 초과 등 대비
+   co.adCaptures.pop();
+   if(typeof toast === 'function') toast('저장 실패 — 용량 초과 가능. 오래된 캡처 삭제 권장','red');
+   return;
+  }
+  _renderCaptureGallery();
+  renderCards();
+  if(typeof toast === 'function') toast('캡처 추가됨','grn');
+ } catch(err){
+  if(typeof toast === 'function') toast('이미지 처리 실패: '+err.message,'red');
+ }
+}
+
+function openCaptureView(capId){
+ const co = data.companies.find(c=>c.id===_capEditingCoId);
+ if(!co) return;
+ const cap = (co.adCaptures||[]).find(c=>c.id===capId);
+ if(!cap) return;
+ _capEditingId = capId;
+ document.getElementById('cap-view-img').src = cap.dataUrl;
+ document.getElementById('cap-view-memo').value = cap.memo || '';
+ const dt = cap.addedAt ? new Date(cap.addedAt).toLocaleString('ko-KR') : '';
+ document.getElementById('cap-view-title').textContent = `📷 캡처 ${dt ? '· '+dt : ''}`;
+ document.getElementById('modal-capture-view').classList.add('active');
+}
+
+function saveCaptureMemo(){
+ const co = data.companies.find(c=>c.id===_capEditingCoId);
+ if(!co || !_capEditingId) return;
+ const cap = (co.adCaptures||[]).find(c=>c.id===_capEditingId);
+ if(!cap) return;
+ cap.memo = document.getElementById('cap-view-memo').value.trim();
+ saveData();
+ closeModal('modal-capture-view');
+ _renderCaptureGallery();
+ if(typeof toast === 'function') toast('메모 저장됨','grn');
+}
+
+function deleteCaptureFromView(){
+ if(!confirm('이 캡처를 삭제하시겠습니까?')) return;
+ const co = data.companies.find(c=>c.id===_capEditingCoId);
+ if(!co || !_capEditingId) return;
+ co.adCaptures = (co.adCaptures||[]).filter(c=>c.id!==_capEditingId);
+ saveData();
+ closeModal('modal-capture-view');
+ _renderCaptureGallery();
+ renderCards();
+ if(typeof toast === 'function') toast('캡처 삭제됨','red');
+}
+
+// 붙여넣기/드래그/파일 선택 이벤트 바인딩 (DOMContentLoaded 시점)
+function _bindCaptureEvents(){
+ const zone = document.getElementById('cap-paste-zone');
+ const fileInput = document.getElementById('cap-file-input');
+ if(!zone || !fileInput) return;
+ zone.addEventListener('click', ()=> fileInput.click());
+ fileInput.addEventListener('change', e => {
+  const files = Array.from(e.target.files||[]);
+  files.forEach(f => _addCaptureFromFile(f));
+  e.target.value = '';
+ });
+ zone.addEventListener('paste', e => {
+  if(!_capEditingCoId) return;
+  const items = (e.clipboardData||{}).items || [];
+  for(const item of items){
+   if(item.type.indexOf('image') === 0){
+    const blob = item.getAsFile();
+    if(blob) _addCaptureFromFile(blob);
+    e.preventDefault();
+    return;
+   }
+  }
+ });
+ // 드래그앤드롭
+ zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
+ zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+ zone.addEventListener('drop', e => {
+  e.preventDefault();
+  zone.classList.remove('dragover');
+  const files = Array.from(e.dataTransfer.files||[]);
+  files.forEach(f => _addCaptureFromFile(f));
+ });
+}
+// DOM 로드 후 캡처 이벤트 바인딩
+if(document.readyState === 'loading'){
+ document.addEventListener('DOMContentLoaded', _bindCaptureEvents);
+} else {
+ _bindCaptureEvents();
 }
 
 function renderRow(co){
+ _ensureChannelsArray(co);
  const ads = co.ads||[];
  const summaryId = 'sum-'+co.id;
  const summaryLong = (co.summary||'').length > 100;
@@ -3427,6 +3711,7 @@ function renderRow(co){
     <div class="ads-inline">
      ${ads.map(ad=>renderAdChip(co.id, ad)).join('')}
      <button class="add-ad-btn" onclick="openAddAdModal('${co.id}')" title="광고 추가">＋ 광고</button>
+     ${renderCapturesButton(co)}
     </div>
     ${renderCellNote(co, 'adsNote', '광고 메모')}
    </td>
@@ -4934,14 +5219,24 @@ function _normalizeImportedCompany(raw){
  co.catId = raw.catId || raw.cat || data.activeCatId;
  co.subId = raw.subId || raw.sub || (data.categories.find(c=>c.id===co.catId)?.subcats?.[0]?.id) || '';
  
- // 채널 (4개 표준)
- const ch = raw.channels || {};
- co.channels = {
-  own:     normalizeBrandUrl(ch.own || ch.자사몰 || ''),
-  coupang: normalizeBrandUrl(ch.coupang || ch.쿠팡 || ''),
-  gmarket: normalizeBrandUrl(ch.gmarket || ch.지마켓 || ''),
-  etc:     normalizeBrandUrl(ch.etc || ch.기타 || '')
- };
+ // 채널 — 배열 또는 객체 형태 모두 지원, 항상 배열로 정규화
+ //   허용 입력: (1) raw.channels = [{label,url}]  (2) raw.channels = {own,coupang,gmarket,etc}
+ const rawCh = raw.channels;
+ const chArr = [];
+ if(Array.isArray(rawCh)){
+  rawCh.forEach(c=>{
+   const url = normalizeBrandUrl(c.url || c.URL || '');
+   if(url) chArr.push({label: (c.label||c.name||'링크').trim() || '링크', url});
+  });
+ } else if(rawCh && typeof rawCh === 'object'){
+  // 레거시 형태 변환
+  const map = {own:'자사몰', coupang:'쿠팡', gmarket:'지마켓', etc:'기타', 자사몰:'자사몰', 쿠팡:'쿠팡', 지마켓:'지마켓', 스마트스토어:'스마트스토어', 기타:'기타'};
+  Object.keys(rawCh).forEach(k=>{
+   const url = normalizeBrandUrl(rawCh[k] || '');
+   if(url) chArr.push({label: map[k] || k, url});
+  });
+ }
+ co.channels = chArr;
  
  // 매출 데이터 변환
  //   허용 입력: (1) raw.revenueData[]  (2) raw.revenue.rows[]  (3) raw.revenue[]
@@ -5053,7 +5348,7 @@ function previewImportCompany(){
   html += row('매출 행', co.revenueData.length ? `${co.revenueData.length}년치 (${co.revenueData[0]?.year} ~ ${co.revenueData[co.revenueData.length-1]?.year})` : '');
   html += row('광고', co.ads.length ? `${co.ads.length}개` : '');
   html += row('기사', co.articles.length ? `${co.articles.length}개` : '');
-  html += row('판매 채널', Object.values(co.channels).filter(Boolean).length ? `${Object.values(co.channels).filter(Boolean).length}개` : '');
+  html += row('판매 채널', (co.channels && co.channels.length) ? `${co.channels.length}개 (${co.channels.map(c=>c.label).join(', ')})` : '');
   html += row('메모 V2', co.notesV2 ? '✅' : '');
   html += '</tbody></table>';
   if(dup){
