@@ -5031,6 +5031,9 @@ function previewImportCompany(){
   const sub = cat?.subcats?.find(s => s.id === co.subId);
   const dup = data.companies.find(c => c.id === co.id || (c.name === co.name && c.brand === co.brand));
   
+  // 카테고리 폴백 결정 (실제 추가는 confirmImportCompany에서)
+  const fallbackCat = !cat ? (data.categories.find(c => c.id === data.activeCatId) || data.categories[0]) : null;
+  
   let html = '<div style="font-weight:700;color:var(--hi2);margin-bottom:6px">📋 미리보기</div>';
   html += '<table style="width:100%;font-size:11px"><tbody>';
   const row = (k,v) => v ? `<tr><td style="color:var(--txt3);padding:2px 8px 2px 0;white-space:nowrap;vertical-align:top">${k}</td><td style="padding:2px 0">${escapeHtml(String(v))}</td></tr>` : '';
@@ -5040,7 +5043,13 @@ function previewImportCompany(){
   html += row('등록 사유', co.recordReason);
   html += row('대표', co.ceo);
   html += row('직원수', co.staff);
-  html += row('카테고리', cat ? `${cat.label || cat.name || co.catId} → ${sub?.label || sub?.name || co.subId || '(없음)'}` : `⚠️ 미존재 카테고리: ${co.catId}`);
+  if(cat){
+   html += row('카테고리', `${cat.label || cat.name || co.catId} → ${sub?.label || sub?.name || co.subId || '(첫 서브 자동)'}`);
+  } else if(fallbackCat){
+   html += row('카테고리', `⚠️ '${co.catId}' 없음 → 자동 폴백: ${fallbackCat.label || fallbackCat.name}`);
+  } else {
+   html += row('카테고리', `❌ 카테고리 0개`);
+  }
   html += row('매출 행', co.revenueData.length ? `${co.revenueData.length}년치 (${co.revenueData[0]?.year} ~ ${co.revenueData[co.revenueData.length-1]?.year})` : '');
   html += row('광고', co.ads.length ? `${co.ads.length}개` : '');
   html += row('기사', co.articles.length ? `${co.articles.length}개` : '');
@@ -5050,8 +5059,10 @@ function previewImportCompany(){
   if(dup){
    html += `<div style="margin-top:8px;padding:6px 10px;background:#fff4e8;border:1px solid var(--orng);border-radius:5px;color:var(--orng);font-weight:600">⚠️ 중복 가능성: 같은 이름의 업체가 이미 있습니다 → 추가하면 새 ID로 별도 등록됩니다.</div>`;
   }
-  if(!cat){
-   html += `<div style="margin-top:8px;padding:6px 10px;background:#fdf0f0;border:1px solid var(--red);border-radius:5px;color:var(--red);font-weight:600">⚠️ 카테고리 ${co.catId}가 존재하지 않습니다. 먼저 카테고리를 만들어주세요.</div>`;
+  if(!cat && fallbackCat){
+   html += `<div style="margin-top:8px;padding:6px 10px;background:#fff4e8;border:1px solid var(--orng);border-radius:5px;color:var(--orng);font-weight:600">⚠️ JSON에 명시된 카테고리 '${escapeHtml(co.catId)}'가 없어서 현재 카테고리 '${escapeHtml(fallbackCat.label || fallbackCat.name)}'에 추가됩니다. 야인 카테고리에 넣으려면 먼저 야인 탭으로 이동 후 추가하거나, 야인 카테고리를 만들어주세요.</div>`;
+  } else if(!cat && !fallbackCat){
+   html += `<div style="margin-top:8px;padding:6px 10px;background:#fdf0f0;border:1px solid var(--red);border-radius:5px;color:var(--red);font-weight:600">❌ 카테고리가 하나도 없습니다. 먼저 카테고리를 만들어주세요.</div>`;
   }
   prev.style.display = 'block';
   prev.innerHTML = html;
@@ -5073,9 +5084,25 @@ function confirmImportCompany(){
   return;
  }
  const cat = data.categories.find(c => c.id === co.catId);
- if(!cat){
-  toast(`카테고리 ${co.catId}가 없습니다. 먼저 만들어주세요.`,'red');
-  return;
+ let resolvedCat = cat;
+ let fallbackUsed = false;
+ if(!resolvedCat){
+  // 카테고리 매칭 실패 → 현재 활성 카테고리로 자동 폴백
+  resolvedCat = data.categories.find(c => c.id === data.activeCatId) || data.categories[0];
+  if(!resolvedCat){
+   toast('카테고리가 하나도 없습니다. 먼저 만들어주세요.','red');
+   return;
+  }
+  const oldCatId = co.catId;
+  co.catId = resolvedCat.id;
+  // 서브카테고리도 매칭 안 되면 첫 번째 서브로 폴백
+  const matchedSub = resolvedCat.subcats?.find(s => s.id === co.subId);
+  if(!matchedSub) co.subId = resolvedCat.subcats?.[0]?.id || '';
+  fallbackUsed = oldCatId;
+ } else {
+  // 카테고리는 있는데 서브카테고리가 없으면 첫 번째로 폴백
+  const matchedSub = resolvedCat.subcats?.find(s => s.id === co.subId);
+  if(!matchedSub) co.subId = resolvedCat.subcats?.[0]?.id || '';
  }
  // ID 중복 회피
  while(data.companies.find(c => c.id === co.id)){
@@ -5088,7 +5115,12 @@ function confirmImportCompany(){
  data.activeCatId = co.catId;
  if(co.subId) data.activeSubId = co.subId;
  render();
- toast(`"${co.name}" 추가 완료 (${cat.label || cat.name})`,'grn');
+ const catLabel = resolvedCat.label || resolvedCat.name || resolvedCat.id;
+ if(fallbackUsed){
+  toast(`"${co.name}" 추가됨 (⚠ '${fallbackUsed}' 카테고리 없음 → '${catLabel}'에 추가)`,'orng');
+ } else {
+  toast(`"${co.name}" 추가 완료 (${catLabel})`,'grn');
+ }
  // 추가된 행으로 스크롤
  setTimeout(()=>{
   const row = document.querySelector(`tr[data-id="${co.id}"]`);
