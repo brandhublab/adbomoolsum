@@ -251,6 +251,48 @@ a:hover{text-decoration:underline}
 .essence-user-card-d{font-size:12px;color:var(--txt);line-height:1.7;white-space:pre-wrap;word-break:keep-all}
 .essence-user-empty{font-size:12px;color:var(--txt3);text-align:center;padding:24px;font-style:italic;border:1px dashed var(--bord);border-radius:6px;background:var(--panel2)}
 
+/* 추진력 링크 영역 - 불꽃 컨셉 */
+.motivation-section{background:linear-gradient(135deg,#fff6f0 0%,#fff0e8 100%);border:1px solid #f0d4c0;border-radius:10px;padding:18px;margin-bottom:14px;position:relative;overflow:hidden}
+.motivation-section::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(216,84,72,.08) 0%,transparent 70%);pointer-events:none}
+.motivation-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f0d4c0;position:relative;z-index:1}
+.motivation-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;position:relative;z-index:1}
+.motivation-card{background:#fff;border:1px solid #f0d4c0;border-radius:10px;overflow:hidden;transition:.18s;display:flex;flex-direction:column}
+.motivation-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(216,84,72,.15);border-color:#d85448}
+.motivation-thumb-wrap{display:block;position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;text-decoration:none}
+.motivation-thumb{width:100%;height:100%;object-fit:cover;transition:.2s;display:block}
+.motivation-thumb-wrap:hover .motivation-thumb{transform:scale(1.05);opacity:.8}
+.motivation-thumb-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:rgba(255,0,0,0.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;padding-left:5px;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+.motivation-card-body{padding:12px 14px;position:relative;flex:1;display:flex;flex-direction:column}
+.motivation-card-actions{position:absolute;top:8px;right:8px;display:flex;gap:4px;opacity:0;transition:.15s;z-index:2}
+.motivation-card:hover .motivation-card-actions{opacity:1}
+.motivation-edit, .motivation-del{width:22px;height:22px;border-radius:4px;border:1px solid var(--bord);background:#fff;cursor:pointer;font-size:11px;display:inline-flex;align-items:center;justify-content:center;transition:.1s}
+.motivation-edit:hover{background:var(--hi);color:#fff;border-color:var(--hi)}
+.motivation-del:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.motivation-card-type{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-bottom:8px;border:1px solid;align-self:flex-start}
+.motivation-card-icon{font-size:11px}
+.motivation-card-title{display:block;font-size:13px;font-weight:700;color:var(--txt);text-decoration:none;line-height:1.4;margin-bottom:6px;padding-right:50px;transition:.1s}
+.motivation-card-title:hover{color:#d85448}
+.motivation-card-note{font-size:11px;color:var(--txt2);line-height:1.6;background:rgba(216,84,72,.05);padding:6px 8px;border-radius:5px;border-left:2px solid rgba(216,84,72,.4);margin:6px 0;font-style:italic}
+.motivation-card-url{font-size:10px;color:var(--txt3);margin-top:auto;padding-top:6px;font-family:'SF Mono',monospace;word-break:break-all}
+.motivation-empty{grid-column:1/-1;font-size:12px;color:var(--txt3);text-align:center;padding:30px 20px;font-style:italic;border:2px dashed #f0d4c0;border-radius:8px;line-height:1.7;background:rgba(255,255,255,.5)}
+@media(max-width:768px){
+ .motivation-list{grid-template-columns:1fr}
+}
+
+/* 핵심 원칙(pillar) 카드 편집 가능 */
+.essence-pillars-wrap{margin-bottom:24px}
+.essence-pillars-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--bord)}
+.essence-pillar{position:relative}
+.essence-pillar-actions{position:absolute;top:8px;right:8px;display:flex;gap:4px;opacity:0;transition:.15s;z-index:2}
+.essence-pillar:hover .essence-pillar-actions{opacity:1}
+.essence-pillar-edit, .essence-pillar-del, .essence-pillar-reset{width:24px;height:24px;border-radius:5px;border:1px solid var(--bord);background:#fff;cursor:pointer;font-size:11px;display:inline-flex;align-items:center;justify-content:center;transition:.1s}
+.essence-pillar-edit:hover{background:var(--hi);color:#fff;border-color:var(--hi)}
+.essence-pillar-del:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.essence-pillar-reset:hover{background:var(--blu);color:#fff;border-color:var(--blu)}
+.essence-pillar-badge{display:inline-block;font-size:9px;font-weight:600;color:var(--hi2);background:rgba(200,153,104,.15);border:1px solid rgba(200,153,104,.4);padding:1px 6px;border-radius:3px;margin-bottom:6px}
+.essence-pillar-badge.new{color:#3a7a4a;background:rgba(90,154,106,.15);border-color:rgba(90,154,106,.4)}
+.essence-pillar-h{padding-right:80px}
+
 .essence-footer{padding:24px 20px;background:linear-gradient(180deg,transparent,rgba(200,153,104,.08));border-radius:10px;margin-top:8px}
 
 /* 브랜드 선정 기준 - 벤다이어그램 + 결과 카드 */
@@ -877,6 +919,11 @@ const DEFAULT_DATA = {
     {id:'sub_grooming',name:'그루밍'},
     {id:'sub_fetc',name:'기타'}
    ]},
+  {id:'cat_living',name:'생활용품/기타',icon:'🏠',
+   subcats:[
+    {id:'sub_pillow',name:'베개'},
+    {id:'sub_letc',name:'기타'}
+   ]},
   {id:'cat_pet',name:'애견',icon:'🐶',
    subcats:[
     {id:'sub_pet_food',name:'사료/간식'},
@@ -885,11 +932,6 @@ const DEFAULT_DATA = {
     {id:'sub_pet_eye',name:'눈물/안구'},
     {id:'sub_pet_play',name:'장난감/노즈워크'},
     {id:'sub_pet_etc',name:'기타'}
-   ]},
-  {id:'cat_living',name:'생활용품/기타',icon:'🏠',
-   subcats:[
-    {id:'sub_pillow',name:'베개'},
-    {id:'sub_letc',name:'기타'}
    ]},
   {id:'cat_yainn',name:'야인 (野人)',icon:'⚠️',
    subcats:[
@@ -903,6 +945,14 @@ const DEFAULT_DATA = {
  essenceCards: {
   // 키 = subId, 값 = [{title, content, createdAt}]
   // 사용자가 업의 본질 탭에 추가하는 자유 메모 카드들
+ },
+ pillarsOverride: {
+  // 키 = subId, 값 = [{h, d, edited:bool, deleted:bool, isNew:bool}]
+  // 기본 pillar 카드를 사용자가 수정/삭제/추가한 상태
+ },
+ motivationLinks: {
+  // 키 = subId, 값 = [{title, url, type, note, createdAt}]
+  // 흔들릴 때 자극받기 위한 추진력 링크 (유튜브, 기사, 트윗 등)
  },
  companies: [
   {
@@ -1927,6 +1977,9 @@ function renderEssenceBoard(){
   return renderCriteriaVenn();
  }
  
+ // pillars 머지: 기본값 + 사용자 오버라이드
+ const effectivePillars = mergePillars(sub, d.pillars);
+ 
  return `
   <div class="essence-board">
    <div class="essence-flow">
@@ -1945,14 +1998,27 @@ function renderEssenceBoard(){
     <div class="essence-subtitle">${escapeHtml(d.subtitle)}</div>
    </div>
    
-   ${d.pillars.length>0?`
-    <div class="essence-pillars">
-     ${d.pillars.map(p=>`
-      <div class="essence-pillar">
-       <div class="essence-pillar-h">${escapeHtml(p.h)}</div>
-       <div class="essence-pillar-d">${escapeHtml(p.d)}</div>
-      </div>
-     `).join('')}
+   ${effectivePillars.length>0 || sub!=='sub_essence_etc'?`
+    <div class="essence-pillars-wrap">
+     <div class="essence-pillars-header">
+      <span style="font-size:13px;font-weight:700;color:var(--hi2)">⭐ 핵심 원칙</span>
+      <button class="btn btn-sm btn-grn" onclick="addPillar('${sub}')">＋ 원칙 추가</button>
+     </div>
+     <div class="essence-pillars">
+      ${effectivePillars.map((p, idx)=>`
+       <div class="essence-pillar" data-sub="${sub}" data-idx="${idx}">
+        <div class="essence-pillar-actions">
+         <button class="essence-pillar-edit" onclick="editPillar('${sub}', ${idx})" title="편집">✏</button>
+         <button class="essence-pillar-del" onclick="deletePillar('${sub}', ${idx})" title="삭제">×</button>
+         ${p._reset?`<button class="essence-pillar-reset" onclick="resetPillar('${sub}', ${idx})" title="원본으로 되돌리기">↺</button>`:''}
+        </div>
+        ${p._edited?'<div class="essence-pillar-badge">수정됨</div>':''}
+        ${p._isNew?'<div class="essence-pillar-badge new">새로 추가</div>':''}
+        <div class="essence-pillar-h">${escapeHtml(p.h)}</div>
+        <div class="essence-pillar-d">${escapeHtml(p.d).replace(/\n/g,'<br>')}</div>
+       </div>
+      `).join('')}
+     </div>
     </div>
    `:''}
    
@@ -1964,6 +2030,20 @@ function renderEssenceBoard(){
     </div>
     <div class="essence-user-cards" id="essence-user-cards">
      ${renderUserEssenceCards(sub)}
+    </div>
+   </div>
+   
+   <!-- 흔들릴 때 추진력 받는 링크 영역 -->
+   <div class="motivation-section">
+    <div class="motivation-header">
+     <div>
+      <span style="font-size:13px;font-weight:700;color:#c84838">🔥 추진력 링크</span>
+      <span style="font-size:10px;color:var(--txt3);margin-left:8px">흔들릴 때 다시 보는 영상·기사·트윗</span>
+     </div>
+     <button class="btn btn-sm btn-grn" onclick="addMotivationLink('${sub}')">＋ 링크 추가</button>
+    </div>
+    <div class="motivation-list">
+     ${renderMotivationLinks(sub)}
     </div>
    </div>
    
@@ -2125,9 +2205,324 @@ function renderCriteriaVenn(){
  `;
 }
 
+// 기본 pillar + 사용자 오버라이드 머지
+function mergePillars(subId, defaultPillars){
+ if(!data.pillarsOverride) data.pillarsOverride = {};
+ const ov = data.pillarsOverride[subId] || {};
+ // ov.edits[idx] = {h, d} - 기본 pillar 수정 (idx 기준)
+ // ov.deleted = [idx, ...] - 기본 pillar 삭제
+ // ov.added = [{h, d}, ...] - 사용자가 추가한 pillar
+ const edits = ov.edits || {};
+ const deleted = new Set(ov.deleted || []);
+ const added = ov.added || [];
+ 
+ const result = [];
+ // 기본 pillars 처리 (수정/삭제 반영)
+ (defaultPillars||[]).forEach((p, i)=>{
+  if(deleted.has(i)) return;  // 삭제된 것 skip
+  if(edits[i]){
+   result.push({h:edits[i].h, d:edits[i].d, _origIdx:i, _edited:true, _reset:true});
+  } else {
+   result.push({h:p.h, d:p.d, _origIdx:i});
+  }
+ });
+ // 사용자 추가분
+ added.forEach((p, j)=>{
+  result.push({h:p.h, d:p.d, _addedIdx:j, _isNew:true});
+ });
+ return result;
+}
+
+// pillar 편집
+function editPillar(subId, mergedIdx){
+ const subData = getSubDataPillars(subId);
+ const merged = mergePillars(subId, subData);
+ const target = merged[mergedIdx];
+ if(!target) return;
+ 
+ const newH = prompt('제목:', target.h);
+ if(newH === null) return;
+ const newD = prompt('내용 (줄바꿈 가능):', target.d);
+ if(newD === null) return;
+ 
+ if(!data.pillarsOverride) data.pillarsOverride = {};
+ if(!data.pillarsOverride[subId]) data.pillarsOverride[subId] = {edits:{},deleted:[],added:[]};
+ const ov = data.pillarsOverride[subId];
+ if(!ov.edits) ov.edits = {};
+ if(!ov.deleted) ov.deleted = [];
+ if(!ov.added) ov.added = [];
+ 
+ if(typeof target._origIdx === 'number'){
+  // 기본 pillar 수정
+  ov.edits[target._origIdx] = {h:newH.trim(), d:newD.trim()};
+ } else if(typeof target._addedIdx === 'number'){
+  // 사용자 추가 pillar 수정
+  ov.added[target._addedIdx] = {h:newH.trim(), d:newD.trim()};
+ }
+ saveData();
+ render();
+ toast('원칙 수정 완료','grn');
+}
+
+// pillar 삭제
+function deletePillar(subId, mergedIdx){
+ const subData = getSubDataPillars(subId);
+ const merged = mergePillars(subId, subData);
+ const target = merged[mergedIdx];
+ if(!target) return;
+ if(!confirm(`"${target.h}" 원칙을 삭제하시겠습니까?\n\n(기본 원칙은 ↺ 버튼으로 되돌릴 수 있어요)`)) return;
+ 
+ if(!data.pillarsOverride) data.pillarsOverride = {};
+ if(!data.pillarsOverride[subId]) data.pillarsOverride[subId] = {edits:{},deleted:[],added:[]};
+ const ov = data.pillarsOverride[subId];
+ if(!ov.edits) ov.edits = {};
+ if(!ov.deleted) ov.deleted = [];
+ if(!ov.added) ov.added = [];
+ 
+ if(typeof target._origIdx === 'number'){
+  // 기본 pillar 삭제 마킹
+  if(!ov.deleted.includes(target._origIdx)) ov.deleted.push(target._origIdx);
+  // edits 도 정리
+  delete ov.edits[target._origIdx];
+ } else if(typeof target._addedIdx === 'number'){
+  // 사용자 추가 pillar는 배열에서 제거
+  ov.added.splice(target._addedIdx, 1);
+ }
+ saveData();
+ render();
+ toast('삭제됨','red');
+}
+
+// pillar 추가
+function addPillar(subId){
+ const newH = prompt('새 원칙 제목:', '');
+ if(newH === null || !newH.trim()) return;
+ const newD = prompt('내용 (줄바꿈 가능):', '');
+ if(newD === null) return;
+ 
+ if(!data.pillarsOverride) data.pillarsOverride = {};
+ if(!data.pillarsOverride[subId]) data.pillarsOverride[subId] = {edits:{},deleted:[],added:[]};
+ if(!data.pillarsOverride[subId].added) data.pillarsOverride[subId].added = [];
+ data.pillarsOverride[subId].added.push({h:newH.trim(), d:newD.trim()});
+ saveData();
+ render();
+ toast('새 원칙 추가됨','grn');
+}
+
+// pillar 원본 복원
+function resetPillar(subId, mergedIdx){
+ const subData = getSubDataPillars(subId);
+ const merged = mergePillars(subId, subData);
+ const target = merged[mergedIdx];
+ if(!target || typeof target._origIdx !== 'number') return;
+ if(!confirm('이 원칙을 기본값으로 되돌리시겠습니까?')) return;
+ 
+ const ov = data.pillarsOverride?.[subId];
+ if(ov?.edits) delete ov.edits[target._origIdx];
+ saveData();
+ render();
+ toast('기본값으로 복원됨','grn');
+}
+
+// subId별 기본 pillars 가져오기 (renderEssenceBoard 안의 subData와 동기화)
+function getSubDataPillars(subId){
+ const subData = {
+  'sub_mc': [
+   {h:'스토리텔링이 자산',d:'우리는 광고로 매출을 만든다. 영상·카피·후킹이 자본보다 먼저다.'},
+   {h:'데이터로 검증',d:'감(感)이 아닌 ROAS·CTR·후킹률·러닝일수로 의사결정한다.'},
+   {h:'장기 러닝 광고는 진짜다',d:'1년+ 러닝 광고 = 검증된 위너. 보물섬에서 ⭐⭐⭐로 표시한다.'},
+   {h:'카피만 다르고 본질은 같다',d:'펜트라민·벤타스·포아크네 = 같은 운영자, 같은 모델. 패턴을 읽는다.'}
+  ],
+  'sub_dist': [
+   {h:'D2C 자사몰이 기본',d:'그누보드+영카트 같은 자체 호스팅으로 광고 소재별 LP 운영도 가능하다.'},
+   {h:'멀티브랜드 전략',d:'뷰티에어포트(로리앤첼+브릭커), 스테이튠드(헤레카+닥터헨로) - 한 회사 다수 브랜드.'},
+   {h:'채널 다각화',d:'자사몰 · 올리브영 · 쿠팡 · 큐텐 · 아마존 · 세포라 - 어디서 시작하고 어디로 갈지 정한다.'},
+   {h:'재고 = 현금흐름',d:'멋진 매출보다 견고한 재고관리·운영비 통제가 생존을 결정한다.'}
+  ],
+  'sub_loved': [
+   {h:'세계관이 있다',d:'아누아의 한국 약초, 헤레카의 위스키우드, 퐁당의 한글 디자인 - 광고 너머의 정체성.'},
+   {h:'재구매가 광고보다 강하다',d:'광고로 1번 사게 만드는 건 누구나 한다. 5번 사게 만드는 건 브랜드만 한다.'},
+   {h:'리스크를 안다',d:'의약품 네이밍 차용·사업자 갈아타기는 단기 매출은 만들 수 있어도 사랑받지 못한다.'},
+   {h:'고객을 직접 본다',d:'정성영(퐁당)이 모든 신제품 직접 테스트하듯, 고객의 얼굴이 보이는 운영을 한다.'}
+  ],
+  'sub_essence_etc': []
+ };
+ return subData[subId] || [];
+}
+
+// ============================================================
+// 추진력 링크 (Motivation Links) - 흔들릴 때 보는 자극용 콘텐츠
+// ============================================================
+
+// URL에서 링크 종류 자동 감지
+function detectLinkType(url){
+ url = (url||'').toLowerCase();
+ if(/youtube\.com|youtu\.be/.test(url)) return {type:'youtube', icon:'▶️', label:'YouTube', color:'#ff0000'};
+ if(/twitter\.com|x\.com/.test(url)) return {type:'twitter', icon:'𝕏', label:'X (Twitter)', color:'#000'};
+ if(/instagram\.com/.test(url)) return {type:'instagram', icon:'📷', label:'Instagram', color:'#e1306c'};
+ if(/threads\.net/.test(url)) return {type:'threads', icon:'@', label:'Threads', color:'#000'};
+ if(/linkedin\.com/.test(url)) return {type:'linkedin', icon:'💼', label:'LinkedIn', color:'#0077b5'};
+ if(/tiktok\.com/.test(url)) return {type:'tiktok', icon:'🎵', label:'TikTok', color:'#000'};
+ if(/medium\.com|brunch\.co\.kr/.test(url)) return {type:'blog', icon:'📝', label:'블로그', color:'#5a7da8'};
+ if(/news|news\.|\.news|article|기사/.test(url)) return {type:'news', icon:'📰', label:'기사', color:'#3a5a8a'};
+ if(/podcast|spotify\.com\/show|apple\.com\/.*podcast/.test(url)) return {type:'podcast', icon:'🎙️', label:'팟캐스트', color:'#7a4aa8'};
+ return {type:'other', icon:'🔗', label:'링크', color:'#8a7560'};
+}
+
+// YouTube 영상 ID 추출
+function extractYoutubeId(url){
+ const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
+ return m ? m[1] : null;
+}
+
+function renderMotivationLinks(subId){
+ if(!data.motivationLinks) data.motivationLinks = {};
+ const links = data.motivationLinks[subId] || [];
+ if(links.length === 0){
+  return `<div class="motivation-empty">＋ 링크 추가 버튼을 눌러서<br>흔들릴 때 다시 볼 영상·기사·트윗 등을 모아두세요</div>`;
+ }
+ 
+ return links.map((link, idx)=>{
+  const info = detectLinkType(link.url);
+  const ytId = info.type === 'youtube' ? extractYoutubeId(link.url) : null;
+  const thumb = ytId ? `https://img.youtube.com/vi/${ytId}/mqdefault.jpg` : null;
+  
+  return `
+   <div class="motivation-card" data-idx="${idx}">
+    ${thumb ? `<a href="${escapeAttr(link.url)}" target="_blank" rel="noopener" class="motivation-thumb-wrap" onclick="event.stopPropagation()">
+     <img src="${thumb}" class="motivation-thumb" alt="thumbnail" onerror="this.style.display='none'">
+     <div class="motivation-thumb-play">▶</div>
+    </a>` : ''}
+    <div class="motivation-card-body">
+     <div class="motivation-card-actions">
+      <button class="motivation-edit" onclick="editMotivationLink('${subId}', ${idx})" title="편집">✏</button>
+      <button class="motivation-del" onclick="deleteMotivationLink('${subId}', ${idx})" title="삭제">×</button>
+     </div>
+     <div class="motivation-card-type" style="background:${info.color}15;color:${info.color};border-color:${info.color}40">
+      <span class="motivation-card-icon">${info.icon}</span>
+      <span>${info.label}</span>
+     </div>
+     <a href="${escapeAttr(link.url)}" target="_blank" rel="noopener" class="motivation-card-title" onclick="event.stopPropagation()">
+      ${escapeHtml(link.title || '(제목 없음)')}
+     </a>
+     ${link.note ? `<div class="motivation-card-note">${escapeHtml(link.note).replace(/\n/g,'<br>')}</div>` : ''}
+     <div class="motivation-card-url" title="${escapeAttr(link.url)}">${escapeHtml((link.url||'').replace(/^https?:\/\//,'').slice(0,60))}${(link.url||'').length>60?'…':''}</div>
+    </div>
+   </div>
+  `;
+ }).join('');
+}
+
+function addMotivationLink(subId){
+ const url = prompt('링크 URL (유튜브, 기사, 트윗 등):', '');
+ if(url === null || !url.trim()) return;
+ const title = prompt('제목 (어떤 콘텐츠인지):', '');
+ if(title === null) return;
+ const note = prompt('이 링크가 왜 추진력이 되는지 (선택):', '');
+ if(note === null) return;
+ 
+ if(!data.motivationLinks) data.motivationLinks = {};
+ if(!data.motivationLinks[subId]) data.motivationLinks[subId] = [];
+ 
+ const info = detectLinkType(url.trim());
+ data.motivationLinks[subId].push({
+  title: title.trim(),
+  url: url.trim(),
+  type: info.type,
+  note: note.trim(),
+  createdAt: Date.now()
+ });
+ saveData();
+ render();
+ toast('🔥 추진력 링크 추가됨','grn');
+}
+
+function editMotivationLink(subId, idx){
+ const link = data.motivationLinks?.[subId]?.[idx];
+ if(!link) return;
+ const url = prompt('URL (Cancel=현재 유지):', link.url||'');
+ if(url === null) return;
+ const title = prompt('제목:', link.title||'');
+ if(title === null) return;
+ const note = prompt('메모/이유:', link.note||'');
+ if(note === null) return;
+ 
+ link.url = url.trim();
+ link.title = title.trim();
+ link.note = note.trim();
+ link.type = detectLinkType(url.trim()).type;
+ link.updatedAt = Date.now();
+ saveData();
+ render();
+ toast('수정됨','grn');
+}
+
+function deleteMotivationLink(subId, idx){
+ const link = data.motivationLinks?.[subId]?.[idx];
+ if(!link) return;
+ if(!confirm(`"${link.title||'이 링크'}" 를 삭제하시겠습니까?`)) return;
+ data.motivationLinks[subId].splice(idx, 1);
+ saveData();
+ render();
+ toast('삭제됨','red');
+}
+
 // 사용자 메모 카드 렌더링
 function renderUserEssenceCards(subId){
  if(!data.essenceCards) data.essenceCards = {};
+ if(!data.pillarsOverride) data.pillarsOverride = {};
+ if(!data.motivationLinks) data.motivationLinks = {};
+ // 카테고리 마이그레이션: localStorage에 저장된 구버전 data에 새 카테고리(cat_pet, cat_yainn 등) 없으면 추가
+ if(data.categories && Array.isArray(data.categories)){
+  const existingIds = new Set(data.categories.map(c=>c.id));
+  const requiredCats = [
+   {id:'cat_pet',name:'애견',icon:'🐶',
+    subcats:[
+     {id:'sub_pet_food',name:'사료/간식'},
+     {id:'sub_pet_supplies',name:'용품'},
+     {id:'sub_pet_dental',name:'덴탈/구강'},
+     {id:'sub_pet_eye',name:'눈물/안구'},
+     {id:'sub_pet_play',name:'장난감/노즈워크'},
+     {id:'sub_pet_etc',name:'기타'}
+    ]},
+   {id:'cat_yainn',name:'야인 (野人)',icon:'⚠️',
+    subcats:[
+     {id:'sub_y_diet',name:'다이어트'},
+     {id:'sub_y_diet_cream',name:'다이어트크림'},
+     {id:'sub_y_acne',name:'여드름'},
+     {id:'sub_y_hair',name:'탈모'},
+     {id:'sub_y_etc',name:'기타'}
+    ]}
+  ];
+  // 누락된 카테고리만 추가 (cat_living 뒤에 cat_pet, 그 뒤에 cat_yainn)
+  requiredCats.forEach(reqCat=>{
+   if(!existingIds.has(reqCat.id)){
+    data.categories.push(reqCat);
+   } else {
+    // 이미 존재하면 subcats만 보강 (누락된 sub 추가)
+    const existCat = data.categories.find(c=>c.id===reqCat.id);
+    if(existCat){
+     const existSubIds = new Set((existCat.subcats||[]).map(s=>s.id));
+     reqCat.subcats.forEach(reqSub=>{
+      if(!existSubIds.has(reqSub.id)){
+       existCat.subcats = existCat.subcats || [];
+       existCat.subcats.push(reqSub);
+      }
+     });
+    }
+   }
+  });
+  // 카테고리 순서 재정렬: essence → cosmetic → health → supplement → fragrance → living → pet → yainn
+  const desiredOrder = ['cat_essence','cat_cosmetic','cat_health','cat_supplement','cat_fragrance','cat_living','cat_pet','cat_yainn'];
+  data.categories.sort((a,b)=>{
+   const ai = desiredOrder.indexOf(a.id);
+   const bi = desiredOrder.indexOf(b.id);
+   if(ai === -1 && bi === -1) return 0;
+   if(ai === -1) return 1;
+   if(bi === -1) return -1;
+   return ai - bi;
+  });
+ }
  const cards = data.essenceCards[subId] || [];
  if(cards.length === 0){
   return `<div class="essence-user-empty">＋ 메모 카드 추가 버튼을 눌러서 자유롭게 정리하세요</div>`;
@@ -2147,6 +2542,8 @@ function renderUserEssenceCards(subId){
 // 메모 카드 추가
 function addUserEssenceCard(subId){
  if(!data.essenceCards) data.essenceCards = {};
+ if(!data.pillarsOverride) data.pillarsOverride = {};
+ if(!data.motivationLinks) data.motivationLinks = {};
  if(!data.essenceCards[subId]) data.essenceCards[subId] = [];
  const title = prompt('메모 카드 제목을 입력하세요:', '');
  if(title === null) return;
@@ -3820,6 +4217,8 @@ document.addEventListener('click', e=>{
 // 시작
 loadData();
  if(!data.essenceCards) data.essenceCards = {};
+ if(!data.pillarsOverride) data.pillarsOverride = {};
+ if(!data.motivationLinks) data.motivationLinks = {};
 render();
 setupCmdIntercept();
 </script>
