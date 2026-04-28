@@ -669,6 +669,7 @@ a:hover{text-decoration:underline}
    <button class="btn" onclick="openBackupModal()">💾 백업</button>
    <button class="btn btn-sm" onclick="exportJSON()">⬇ JSON</button>
    <button class="btn btn-sm" onclick="document.getElementById('import-file').click()">⬆ 가져오기</button>
+   <button class="btn btn-sm btn-grn" onclick="openImportCompanyModal()" title="회사 1건 JSON 붙여넣기로 빠르게 추가">📋 회사 JSON</button>
    <button class="btn btn-sm" onclick="openHelpModal()" title="명령어 단축키 보기">❓ 명령어</button>
    <button class="btn btn-sm btn-grn" onclick="openClaudePromptModal()" title="클로드에게 조사 의뢰하기">🤖 클로드 요청</button>
    <input type="file" id="import-file" accept=".json" style="display:none" onchange="importJSON(event)">
@@ -1095,6 +1096,42 @@ a:hover{text-decoration:underline}
   <div class="form-actions" style="margin-top:14px;display:flex;justify-content:flex-end;gap:6px">
    <button class="btn" onclick="closeModal('modal-channels-quick')">취소</button>
    <button class="btn btn-primary" onclick="saveChannelsQuick()">💾 저장</button>
+  </div>
+ </div>
+</div>
+
+<!-- 회사 1건 JSON 추가 모달 -->
+<div class="overlay" id="modal-import-company">
+ <div class="modal" style="max-width:780px">
+  <div class="modal-hd">
+   <div class="modal-title">📋 회사 1건 JSON으로 추가</div>
+   <button class="modal-close" onclick="closeModal('modal-import-company')">×</button>
+  </div>
+  <div style="font-size:11.5px;color:var(--txt2);margin-bottom:12px;line-height:1.65;background:var(--panel2);padding:10px 12px;border-radius:6px;border-left:3px solid var(--hi)">
+   클로드가 조사해준 회사 JSON을 그대로 붙여넣으세요.<br>
+   <span style="color:var(--hi2);font-weight:600">자동 변환 지원</span> — <code style="background:#fff;padding:1px 5px;border-radius:3px">revenue.rows</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">sales</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">operatingProfit</code> 같은 필드명도 자동으로 보물섬 형식으로 변환됩니다. <code style="background:#fff;padding:1px 5px;border-radius:3px">biz</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">globalSites</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">social</code> 같은 추가 필드는 그대로 보존됩니다.<br>
+   <span style="color:var(--txt3)">※ <code style="background:#fff;padding:1px 5px;border-radius:3px">catId</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">subId</code> 미지정 시 현재 활성 카테고리에 추가됩니다.</span>
+  </div>
+  
+  <div class="nv2-field" style="margin-bottom:12px">
+   <label style="font-size:11px;color:var(--txt2);font-weight:600;margin-bottom:4px;display:block">JSON 데이터</label>
+   <textarea id="import-company-json" placeholder='{
+  "name": "주식회사 셀바이셀",
+  "brand": "셀바이셀",
+  "brandUrl": "https://cellbycell.co.kr",
+  "recordReason": "유튜버 우린 추천",
+  ...
+}' style="width:100%;min-height:280px;font-family:SFMono-Regular,Consolas,Monaco,monospace;font-size:11.5px;line-height:1.55;background:#fdfaf3;border:1px solid var(--bord);border-radius:6px;padding:10px 12px;resize:vertical;color:var(--txt)"></textarea>
+  </div>
+  
+  <div id="import-company-preview" style="display:none;background:#fff;border:1px solid var(--bord);border-radius:6px;padding:10px 12px;margin-bottom:12px;font-size:11.5px;line-height:1.65;max-height:200px;overflow-y:auto"></div>
+  
+  <div class="form-actions" style="display:flex;justify-content:space-between;align-items:center;gap:6px">
+   <button class="btn btn-sm" onclick="previewImportCompany()" type="button">🔍 미리보기</button>
+   <div style="display:flex;gap:6px">
+    <button class="btn" onclick="closeModal('modal-import-company')">취소</button>
+    <button class="btn btn-primary" onclick="confirmImportCompany()">💾 추가</button>
+   </div>
   </div>
  </div>
 </div>
@@ -4859,6 +4896,208 @@ function resetAll(){
  closeModal('modal-backup');
  render();
  toast('초기화 완료','red');
+}
+
+// ============================================================
+// 회사 1건 JSON 추가 (클로드 조사 결과 빠르게 입력용)
+// ============================================================
+function openImportCompanyModal(){
+ document.getElementById('import-company-json').value = '';
+ const prev = document.getElementById('import-company-preview');
+ prev.style.display = 'none';
+ prev.innerHTML = '';
+ document.getElementById('modal-import-company').classList.add('active');
+}
+
+// 다양한 JSON 스키마를 보물섬 회사 객체로 변환
+function _normalizeImportedCompany(raw){
+ if(!raw || typeof raw !== 'object') throw new Error('객체 형식이 아닙니다');
+ if(!raw.name || !String(raw.name).trim()) throw new Error('"name" 필드가 비어있습니다');
+ 
+ const co = {};
+ // 필수/기본 필드 (보물섬 표준 스키마와 1:1 매핑)
+ co.id = raw.id || ('co-' + Math.random().toString(36).slice(2,9));
+ co.name = String(raw.name).trim();
+ co.brand = String(raw.brand || '').trim();
+ co.brandUrl = String(raw.brandUrl || raw.brand_url || raw.url || '').trim();
+ co.recordReason = String(raw.recordReason || raw.record_reason || raw.기록사유 || raw.등록사유 || '').trim();
+ co.ceo = String(raw.ceo || raw.대표 || raw.대표자 || '').trim();
+ co.staff = String(raw.staff || raw.직원수 || '').trim();
+ co.addr = String(raw.addr || raw.address || raw.주소 || '').trim();
+ co.products = String(raw.products || raw.제품 || '').trim();
+ co.platform = String(raw.platform || raw.플랫폼 || '').trim();
+ co.summary = String(raw.summary || '').trim();
+ co.adsNote = String(raw.adsNote || '').trim();
+ co.articlesNote = String(raw.articlesNote || '').trim();
+ 
+ // 카테고리 / 서브카테고리 (없으면 현재 활성)
+ co.catId = raw.catId || raw.cat || data.activeCatId;
+ co.subId = raw.subId || raw.sub || (data.categories.find(c=>c.id===co.catId)?.subcats?.[0]?.id) || '';
+ 
+ // 채널 (4개 표준)
+ const ch = raw.channels || {};
+ co.channels = {
+  own:     normalizeBrandUrl(ch.own || ch.자사몰 || ''),
+  coupang: normalizeBrandUrl(ch.coupang || ch.쿠팡 || ''),
+  gmarket: normalizeBrandUrl(ch.gmarket || ch.지마켓 || ''),
+  etc:     normalizeBrandUrl(ch.etc || ch.기타 || '')
+ };
+ 
+ // 매출 데이터 변환
+ //   허용 입력: (1) raw.revenueData[]  (2) raw.revenue.rows[]  (3) raw.revenue[]
+ //   각 row 키: year/sales/operatingProfit/netProfit  →  year/revenue/opIncome/netProfit
+ let rows = [];
+ if(Array.isArray(raw.revenueData)){
+  rows = raw.revenueData;
+ } else if(raw.revenue && Array.isArray(raw.revenue.rows)){
+  rows = raw.revenue.rows;
+ } else if(Array.isArray(raw.revenue)){
+  rows = raw.revenue;
+ }
+ co.revenueData = rows.map(r => ({
+  year: String(r.year || r.결산년도 || r.date || '').trim(),
+  totalAssets: String(r.totalAssets || r.총자산 || ''),
+  capital: String(r.capital || r.자본금 || ''),
+  totalCapital: String(r.totalCapital || r.자본총계 || ''),
+  revenue: String(r.revenue || r.sales || r.매출액 || ''),
+  opIncome: String(r.opIncome || r.operatingProfit || r.영업이익 || ''),
+  netProfit: String(r.netProfit || r.당기순이익 || '')
+ })).filter(r => r.year || r.revenue);
+ 
+ // 매출 출처
+ if(raw.revenue && typeof raw.revenue === 'object' && !Array.isArray(raw.revenue)){
+  co.revenueSource = String(raw.revenue.source || raw.revenueSource || '').trim();
+  co.revenueSourceUrl = String(raw.revenue.sourceLink || raw.revenue.sourceUrl || raw.revenueSourceUrl || '').trim();
+ } else {
+  co.revenueSource = String(raw.revenueSource || '').trim();
+  co.revenueSourceUrl = String(raw.revenueSourceUrl || raw.revenueSourceLink || '').trim();
+ }
+ 
+ // 광고 / 기사 (배열 그대로, URL 정규화만)
+ co.ads = Array.isArray(raw.ads) ? raw.ads.map(a => ({
+  ...a,
+  url: normalizeBrandUrl(a.url || '')
+ })) : [];
+ co.articles = Array.isArray(raw.articles) ? raw.articles.map(a => ({
+  title: String(a.title || ''),
+  url: normalizeBrandUrl(a.url || ''),
+  memo: String(a.memo || a.summary || '')
+ })) : [];
+ 
+ // 메모 V2
+ if(raw.notesV2 && typeof raw.notesV2 === 'object'){
+  co.notesV2 = {
+   recordDate: String(raw.notesV2.recordDate || ''),
+   currentAdCount: String(raw.notesV2.currentAdCount || ''),
+   firstAdDate: String(raw.notesV2.firstAdDate || ''),
+   pros: String(raw.notesV2.pros || ''),
+   cons: String(raw.notesV2.cons || ''),
+   expansion: String(raw.notesV2.expansion || ''),
+   etc: String(raw.notesV2.etc || '')
+  };
+ }
+ 
+ // 4기준 매칭 (있으면 그대로)
+ if(raw.pillarsMatch && typeof raw.pillarsMatch === 'object') co.pillarsMatch = {...raw.pillarsMatch};
+ 
+ // 보물섬 표준 외 추가 필드(biz/globalSites/social/influencers 등)는 모두 그대로 보존
+ const STANDARD_KEYS = new Set([
+  'id','name','brand','brandUrl','brand_url','url','recordReason','record_reason','기록사유','등록사유',
+  'ceo','대표','대표자','staff','직원수','addr','address','주소','products','제품','platform','플랫폼',
+  'summary','adsNote','articlesNote','catId','cat','subId','sub','channels','revenueData','revenue',
+  'revenueSource','revenueSourceUrl','revenueSourceLink','ads','articles','notesV2','pillarsMatch'
+ ]);
+ Object.keys(raw).forEach(k => {
+  if(!STANDARD_KEYS.has(k) && co[k] === undefined){
+   co[k] = raw[k];
+  }
+ });
+ 
+ return co;
+}
+
+function previewImportCompany(){
+ const txt = document.getElementById('import-company-json').value.trim();
+ const prev = document.getElementById('import-company-preview');
+ if(!txt){
+  prev.style.display = 'block';
+  prev.innerHTML = '<span style="color:var(--red)">⚠️ JSON을 붙여넣어주세요.</span>';
+  return;
+ }
+ try{
+  const raw = JSON.parse(txt);
+  const co = _normalizeImportedCompany(raw);
+  const cat = data.categories.find(c => c.id === co.catId);
+  const sub = cat?.subcats?.find(s => s.id === co.subId);
+  const dup = data.companies.find(c => c.id === co.id || (c.name === co.name && c.brand === co.brand));
+  
+  let html = '<div style="font-weight:700;color:var(--hi2);margin-bottom:6px">📋 미리보기</div>';
+  html += '<table style="width:100%;font-size:11px"><tbody>';
+  const row = (k,v) => v ? `<tr><td style="color:var(--txt3);padding:2px 8px 2px 0;white-space:nowrap;vertical-align:top">${k}</td><td style="padding:2px 0">${escapeHtml(String(v))}</td></tr>` : '';
+  html += row('업체명', co.name);
+  html += row('브랜드', co.brand);
+  html += row('브랜드 URL', co.brandUrl);
+  html += row('등록 사유', co.recordReason);
+  html += row('대표', co.ceo);
+  html += row('직원수', co.staff);
+  html += row('카테고리', cat ? `${cat.label || cat.name || co.catId} → ${sub?.label || sub?.name || co.subId || '(없음)'}` : `⚠️ 미존재 카테고리: ${co.catId}`);
+  html += row('매출 행', co.revenueData.length ? `${co.revenueData.length}년치 (${co.revenueData[0]?.year} ~ ${co.revenueData[co.revenueData.length-1]?.year})` : '');
+  html += row('광고', co.ads.length ? `${co.ads.length}개` : '');
+  html += row('기사', co.articles.length ? `${co.articles.length}개` : '');
+  html += row('판매 채널', Object.values(co.channels).filter(Boolean).length ? `${Object.values(co.channels).filter(Boolean).length}개` : '');
+  html += row('메모 V2', co.notesV2 ? '✅' : '');
+  html += '</tbody></table>';
+  if(dup){
+   html += `<div style="margin-top:8px;padding:6px 10px;background:#fff4e8;border:1px solid var(--orng);border-radius:5px;color:var(--orng);font-weight:600">⚠️ 중복 가능성: 같은 이름의 업체가 이미 있습니다 → 추가하면 새 ID로 별도 등록됩니다.</div>`;
+  }
+  if(!cat){
+   html += `<div style="margin-top:8px;padding:6px 10px;background:#fdf0f0;border:1px solid var(--red);border-radius:5px;color:var(--red);font-weight:600">⚠️ 카테고리 ${co.catId}가 존재하지 않습니다. 먼저 카테고리를 만들어주세요.</div>`;
+  }
+  prev.style.display = 'block';
+  prev.innerHTML = html;
+ }catch(err){
+  prev.style.display = 'block';
+  prev.innerHTML = `<span style="color:var(--red)">❌ JSON 파싱 실패: ${escapeHtml(err.message)}</span>`;
+ }
+}
+
+function confirmImportCompany(){
+ const txt = document.getElementById('import-company-json').value.trim();
+ if(!txt){ toast('JSON을 붙여넣어주세요','red'); return; }
+ let co;
+ try{
+  const raw = JSON.parse(txt);
+  co = _normalizeImportedCompany(raw);
+ }catch(err){
+  toast('파싱 실패: '+err.message,'red');
+  return;
+ }
+ const cat = data.categories.find(c => c.id === co.catId);
+ if(!cat){
+  toast(`카테고리 ${co.catId}가 없습니다. 먼저 만들어주세요.`,'red');
+  return;
+ }
+ // ID 중복 회피
+ while(data.companies.find(c => c.id === co.id)){
+  co.id = 'co-' + Math.random().toString(36).slice(2,9);
+ }
+ data.companies.push(co);
+ saveData();
+ closeModal('modal-import-company');
+ // 추가된 회사가 있는 카테고리/서브로 이동
+ data.activeCatId = co.catId;
+ if(co.subId) data.activeSubId = co.subId;
+ render();
+ toast(`"${co.name}" 추가 완료 (${cat.label || cat.name})`,'grn');
+ // 추가된 행으로 스크롤
+ setTimeout(()=>{
+  const row = document.querySelector(`tr[data-id="${co.id}"]`);
+  if(row){
+   row.scrollIntoView({behavior:'smooth', block:'center'});
+   row.style.background = 'rgba(90,154,106,0.15)';
+   setTimeout(()=>row.style.background = '', 2500);
+  }
+ }, 250);
 }
 
 // ============================================================
