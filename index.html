@@ -72,118 +72,22 @@ a:hover{text-decoration:underline}
 /* 셀 별 스타일 */
 .cell-name{font-weight:700;color:var(--hi2);min-width:120px;max-width:180px}
 .cell-name .name-main{font-size:13px;line-height:1.3}
-.cell-name .name-brand{font-size:12.5px;color:var(--hi2);font-weight:600;margin-top:4px;display:inline-flex;align-items:center;gap:3px;line-height:1.3;text-decoration:none;letter-spacing:.2px}
-.cell-name a.name-brand{cursor:pointer;border-radius:3px;padding:1px 0;transition:.12s}
-.cell-name a.name-brand:hover{color:var(--hi);text-decoration:underline}
-.cell-name a.name-brand .brand-ext{font-size:10px;opacity:.55;margin-left:1px;transition:.12s}
-.cell-name a.name-brand:hover .brand-ext{opacity:1;transform:translate(1px,-1px)}
-
-/* 판매 채널 칩 (브랜드명 아래 표시) */
-.cell-channels{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px;align-items:center}
-.cell-channels-edit{display:inline-flex;align-items:center;gap:2px;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;background:transparent;color:var(--txt3);border:1px dashed var(--bord);cursor:pointer;transition:.12s}
-.cell-channels-edit:hover{color:var(--hi2);border-color:var(--hi);border-style:solid;background:#fdf6e8}
-.cell-channels-add-empty{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:3px;font-size:9.5px;font-weight:600;background:transparent;color:var(--txt3);border:1px dashed var(--bord);cursor:pointer;transition:.12s;margin-top:5px}
-.cell-channels-add-empty:hover{color:var(--hi2);border-color:var(--hi);border-style:solid;background:#fdf6e8}
-.chq-row{display:grid;grid-template-columns:130px 1fr 30px;gap:6px;align-items:center}
-.chq-row input{padding:6px 8px;border:1px solid var(--bord);border-radius:4px;font-size:11.5px;font-family:inherit;color:var(--txt);background:#fff;transition:.15s}
-.chq-row input:focus{outline:none;border-color:var(--hi);box-shadow:0 0 0 2px rgba(184,148,76,.12)}
-.chq-row .chq-label-input{font-weight:600;color:var(--hi2);background:#fdfaf3}
-.chq-row button{font-size:11px;padding:6px 8px;color:var(--txt3)}
-.chq-row button:hover{color:var(--red);border-color:var(--red);background:#fdf0f0}
-.cap-thumb{width:120px;height:120px;border-radius:6px;overflow:hidden;cursor:pointer;border:1px solid var(--bord);background:#f5f1e6;position:relative;transition:.15s;flex-shrink:0}
-.cap-thumb:hover{border-color:var(--hi);transform:scale(1.03);box-shadow:0 2px 8px rgba(184,148,76,.25)}
-.cap-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.cap-thumb-memo{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:9.5px;padding:14px 6px 4px;line-height:1.3;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
-#cap-paste-zone:focus,#cap-paste-zone.dragover{border-color:var(--hi);background:#fdf6e8}
-.cell-captures-btn{display:inline-flex;align-items:center;gap:2px;padding:3px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#f5f1e6;color:var(--txt2);border:1px solid var(--bord);cursor:pointer;transition:.12s;margin-left:3px}
-.cell-captures-btn:hover{background:var(--hi);color:#fff;border-color:var(--hi)}
-.cell-captures-btn.has-captures{background:#fff4e8;color:var(--orng);border-color:#f4d4a8}
-.channel-chip{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;text-decoration:none;border:1px solid;transition:.12s;line-height:1.4}
-.channel-chip:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(0,0,0,.06);text-decoration:none}
-.channel-chip.ch-own     {background:#fdf6e8;color:var(--hi2);   border-color:#e8d4a8}
-.channel-chip.ch-own:hover{background:#fff;color:var(--hi)}
-.channel-chip.ch-coupang {background:#fff0ed;color:#c0392b;       border-color:#f0c8c0}
-.channel-chip.ch-coupang:hover{background:#fff;color:#a02018}
-.channel-chip.ch-gmarket {background:#eaf6ec;color:#2d7d3a;       border-color:#c0e0c8}
-.channel-chip.ch-gmarket:hover{background:#fff;color:#1f5e2a}
-.channel-chip.ch-etc     {background:var(--panel2);color:var(--txt2);border-color:var(--bord)}
-.channel-chip.ch-etc:hover{background:#fff;color:var(--txt)}
-
-/* 모달: 브랜드명 + URL 인라인 행 */
-.brand-inline-row{display:flex;gap:8px;align-items:stretch}
-.brand-inline-row .brand-name-wrap{flex:0 0 38%}
-.brand-inline-row .brand-url-wrap{flex:1;display:flex;align-items:stretch;gap:0}
-.brand-inline-row .brand-url-wrap .url-prefix{display:inline-flex;align-items:center;padding:0 9px;background:var(--panel2);border:1px solid var(--bord);border-right:none;border-radius:5px 0 0 5px;font-size:13px;color:var(--hi2);font-weight:600;flex-shrink:0}
-.brand-inline-row .brand-url-wrap input{border-radius:0 5px 5px 0;flex:1}
-@media(max-width:600px){.brand-inline-row{flex-direction:column}.brand-inline-row .brand-name-wrap,.brand-inline-row .brand-url-wrap{flex:1 1 100%}}
-
-/* 모달: 판매 채널 입력 섹션 */
-.channel-input-section{background:var(--panel2);border:1px solid var(--bord);border-radius:6px;padding:10px 12px;margin-bottom:12px}
-.channel-input-section-hd{font-size:11px;color:var(--hi2);font-weight:700;margin-bottom:8px;letter-spacing:.3px}
-.channel-input-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(max-width:600px){.channel-input-grid{grid-template-columns:1fr}}
-.channel-input-row{display:flex;align-items:stretch}
-.channel-input-row .channel-label{display:inline-flex;align-items:center;justify-content:center;padding:0 10px;border:1px solid var(--bord);border-right:none;border-radius:5px 0 0 5px;font-size:11px;font-weight:700;flex-shrink:0;min-width:62px}
-.channel-input-row.ch-own .channel-label    {background:#fdf6e8;color:var(--hi2);   border-color:#e8d4a8}
-.channel-input-row.ch-coupang .channel-label{background:#fff0ed;color:#c0392b;       border-color:#f0c8c0}
-.channel-input-row.ch-gmarket .channel-label{background:#eaf6ec;color:#2d7d3a;       border-color:#c0e0c8}
-.channel-input-row.ch-etc .channel-label    {background:var(--panel2);color:var(--txt2);border-color:var(--bord)}
-.channel-input-row input{flex:1;background:#fff;border:1px solid var(--bord);border-radius:0 5px 5px 0;padding:7px 9px;font-size:12px;color:var(--txt);font-family:inherit;min-width:0}
-.channel-input-row input:focus{outline:none;border-color:var(--hi);box-shadow:0 0 0 2px rgba(200,153,104,.1)}
+.cell-name .name-brand{font-size:10px;color:var(--txt3);font-weight:500;margin-top:2px}
 .cell-name .name-platform{font-size:9px;color:var(--prp);font-weight:500;margin-top:2px;background:#f0eaf6;padding:1px 5px;border-radius:3px;display:inline-block;border:1px solid #d8c8e8}
-.cell-name .name-record-reason{font-size:10.5px;color:var(--txt2);font-weight:400;margin-top:5px;padding:4px 7px 4px 10px;background:#fdfaf3;border-left:2px solid var(--hi);border-radius:0 3px 3px 0;font-style:italic;line-height:1.45;word-break:break-word;overflow-wrap:anywhere}
-.cell-name .name-record-reason::before{content:"💭 ";font-style:normal;opacity:.7;margin-right:1px}
 .cell-text{min-width:100px;max-width:160px;font-size:11px;color:var(--txt2);word-break:break-word}
 .cell-text-sm{min-width:80px;max-width:130px;font-size:11px;color:var(--txt2)}
 .cell-products{min-width:150px;max-width:220px;font-size:11px;color:var(--txt2);line-height:1.5}
-.cell-summary{min-width:200px;max-width:300px;width:300px;font-size:11px;color:var(--txt2);line-height:1.5;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere}
+.cell-summary{min-width:200px;max-width:300px;font-size:11px;color:var(--txt2);line-height:1.5;white-space:pre-wrap}
 .cell-summary-truncate{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .cell-summary-truncate.expanded{-webkit-line-clamp:unset}
 .cell-summary-toggle{font-size:10px;color:var(--blu);cursor:pointer;margin-top:3px;display:inline-block}
 
-/* 셀 메모 (광고/기사 셀에 추가되는 자유 메모) */
-.cell-note{margin-top:8px;padding:6px 8px;background:#fff8ec;border:1px dashed #e8d4a8;border-radius:5px;font-size:10px;color:var(--txt2);line-height:1.5;cursor:pointer;transition:.15s;word-break:break-word;overflow-wrap:anywhere;white-space:pre-wrap}
-.cell-note:hover{background:#fff;border-color:var(--hi);border-style:solid;box-shadow:0 1px 3px rgba(168,124,74,.08)}
-.cell-note-label{font-size:9px;color:var(--hi2);font-weight:700;display:block;margin-bottom:3px;letter-spacing:.3px}
-.cell-note-empty{margin-top:8px;padding:4px 8px;background:transparent;border:1px dashed var(--bord);border-radius:5px;font-size:10px;color:var(--txt3);font-style:italic;text-align:center;cursor:pointer;transition:.15s}
-.cell-note-empty:hover{background:#fff8ec;border-color:#e8d4a8;color:var(--hi2);font-style:normal}
-
-/* 구조화 메모 (notes-v2) - 메모 열에 표시 */
-.notes-v2-block{margin-bottom:8px;padding:8px 10px;background:linear-gradient(180deg,#fff8ec 0%,#faf2dc 100%);border:1px solid #e8d4a8;border-radius:6px;cursor:pointer;transition:.15s;font-size:10px;line-height:1.5}
-.notes-v2-block:hover{box-shadow:0 2px 6px rgba(168,124,74,.15);border-color:var(--hi)}
-.notes-v2-row{display:flex;gap:6px;margin-bottom:3px;align-items:flex-start}
-.notes-v2-row:last-child{margin-bottom:0}
-.notes-v2-label{font-size:9px;color:var(--hi2);font-weight:700;flex-shrink:0;min-width:48px;letter-spacing:.2px}
-.notes-v2-value{color:var(--txt);flex:1;word-break:break-word;overflow-wrap:anywhere;white-space:pre-wrap}
-.notes-v2-record{font-size:9px;color:var(--txt3);text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed var(--bord2);font-style:italic}
-.notes-v2-empty-btn{display:block;width:100%;padding:8px 10px;background:#fff8ec;border:1px dashed #e8d4a8;border-radius:6px;font-size:11px;color:var(--hi2);font-weight:600;cursor:pointer;transition:.15s;margin-bottom:8px;text-align:center}
-.notes-v2-empty-btn:hover{background:#fff;border-color:var(--hi);border-style:solid;box-shadow:0 1px 3px rgba(168,124,74,.1)}
-.notes-v2-edit-btn{display:inline-block;padding:3px 9px;background:var(--hi);color:#fff;border:none;border-radius:4px;font-size:10px;font-weight:600;cursor:pointer;margin-bottom:6px;transition:.15s}
-.notes-v2-edit-btn:hover{background:var(--hi2)}
-
-/* 구조화 메모 모달 폼 */
-.nv2-form{display:flex;flex-direction:column;gap:14px}
-.nv2-section{background:var(--panel2);border:1px solid var(--bord);border-radius:6px;padding:10px 12px}
-.nv2-section-hd{font-size:11px;color:var(--hi2);font-weight:700;margin-bottom:8px;letter-spacing:.3px;display:flex;align-items:center;gap:6px}
-.nv2-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-@media(max-width:600px){.nv2-grid3{grid-template-columns:1fr}}
-.nv2-field label{display:block;font-size:10px;color:var(--txt2);font-weight:600;margin-bottom:3px}
-.nv2-field input,.nv2-field textarea{width:100%;background:#fff;border:1px solid var(--bord);border-radius:4px;padding:6px 8px;font-size:12px;color:var(--txt);font-family:inherit;transition:.15s}
-.nv2-field input:focus,.nv2-field textarea:focus{outline:none;border-color:var(--hi);box-shadow:0 0 0 3px rgba(200,153,104,.1)}
-.nv2-field textarea{min-height:60px;line-height:1.5;resize:vertical}
-.nv2-field-pros textarea{border-color:#cce8d4;background:#f4faf6}
-.nv2-field-pros textarea:focus{border-color:var(--grn);box-shadow:0 0 0 3px rgba(90,154,106,.1)}
-.nv2-field-cons textarea{border-color:#f0d0d0;background:#fdf6f6}
-.nv2-field-cons textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,90,90,.1)}
-.nv2-field-expansion textarea{border-color:#d8c8e8;background:#faf6fd}
-.nv2-field-expansion textarea:focus{border-color:var(--prp);box-shadow:0 0 0 3px rgba(138,106,154,.1)}
-
-.cell-ads{min-width:200px;max-width:280px;width:280px;word-break:break-word;overflow-wrap:anywhere}
+.cell-ads{min-width:200px;max-width:280px}
 .cell-actions{min-width:80px;text-align:right;white-space:nowrap}
 
 /* 광고 인라인 표시 */
-.ads-inline{display:flex;flex-wrap:wrap;gap:4px;align-items:flex-start;width:100%;min-width:0}
-.ad-chip{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;padding:3px 6px;border-radius:4px;font-size:10px;background:var(--panel2);border:1px solid var(--bord);transition:.1s;cursor:pointer;position:relative;max-width:100%;min-width:0}
+.ads-inline{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.ad-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 6px;border-radius:4px;font-size:10px;background:var(--panel2);border:1px solid var(--bord);transition:.1s;cursor:pointer;position:relative}
 .ad-chip:hover{background:#fff;border-color:var(--hi);transform:translateY(-1px);box-shadow:0 2px 4px rgba(0,0,0,.06)}
 .ad-chip-plat{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
 .ad-chip-link{color:var(--blu);text-decoration:none;font-size:10px}
@@ -212,7 +116,7 @@ a:hover{text-decoration:underline}
 .article-chip-del:hover{color:var(--red)}
 .article-chip-link{color:var(--blu);text-decoration:none;font-size:11px;flex-shrink:0}
 
-.cell-articles{min-width:180px;max-width:260px;width:260px;word-break:break-word;overflow-wrap:anywhere}
+.cell-articles{min-width:180px;max-width:260px}
 
 /* 기사 관리 모달 */
 .articles-list{max-height:340px;overflow-y:auto;margin-bottom:10px}
@@ -468,7 +372,9 @@ a:hover{text-decoration:underline}
 /* 모달 */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
 .overlay.active{display:flex}
-.modal{background:var(--panel);border:1px solid var(--bord);border-radius:10px;max-width:680px;width:100%;max-height:90vh;overflow-y:auto;padding:20px;box-shadow:0 10px 40px rgba(120,100,60,.15)}
+.modal{background:var(--panel);border:1px solid var(--bord);border-radius:10px;max-width:680px;width:100%;max-height:90vh;overflow-y:auto;padding:20px;box-shadow:0 10px 40px rgba(120,100,60,.15);position:relative;user-select:text;-webkit-user-select:text}
+.modal *{user-select:text;-webkit-user-select:text}
+.modal input,.modal textarea,.modal select{user-select:text !important;-webkit-user-select:text !important}
 .modal-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bord)}
 .modal-title{font-size:16px;font-weight:700;color:var(--hi2)}
 .modal-close{background:transparent;color:var(--txt2);font-size:20px;padding:0 8px}
@@ -483,7 +389,36 @@ a:hover{text-decoration:underline}
 .form-textarea{min-height:80px;resize:vertical;font-family:inherit;line-height:1.5}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .form-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;padding-top:12px;border-top:1px solid var(--bord)}
+.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;padding:12px 20px;border-top:1px solid var(--bord);position:sticky;bottom:-20px;background:var(--panel);z-index:5;margin-left:-20px;margin-right:-20px;margin-bottom:-20px;box-shadow:0 -2px 8px rgba(0,0,0,.04)}
+
+/* 채널 칩 (사용자 요청 디자인 #2) */
+.cell-channels{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px;align-items:center}
+.cell-channels-edit{display:inline-flex;align-items:center;gap:2px;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;background:transparent;color:var(--txt3);border:1px dashed var(--bord);cursor:pointer;transition:.12s}
+.cell-channels-edit:hover{color:var(--hi2);border-color:var(--hi);border-style:solid;background:#fdf6e8}
+.cell-channels-add-empty{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:3px;font-size:9.5px;font-weight:600;background:transparent;color:var(--txt3);border:1px dashed var(--bord);cursor:pointer;transition:.12s;margin-top:5px}
+.cell-channels-add-empty:hover{color:var(--hi2);border-color:var(--hi);border-style:solid;background:#fdf6e8}
+.channel-chip{display:inline-flex;align-items:center;gap:2px;padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:600;background:#f5f1e6;color:var(--hi2);border:1px solid var(--bord);text-decoration:none;transition:.12s;white-space:nowrap}
+.channel-chip:hover{background:var(--hi);color:#fff;border-color:var(--hi)}
+.channel-chip.ch-custom{background:#fdfaf3}
+.chq-row{display:grid;grid-template-columns:140px 1fr 36px;gap:6px;align-items:center}
+.chq-row input{padding:6px 8px;border:1px solid var(--bord);border-radius:4px;font-size:11.5px;font-family:inherit;color:var(--txt);background:#fff;transition:.15s}
+.chq-row input:focus{outline:none;border-color:var(--hi);box-shadow:0 0 0 2px rgba(184,148,76,.12)}
+.chq-row .chq-label-input{font-weight:600;color:var(--hi2);background:#fdfaf3}
+.chq-row button{font-size:11px;padding:6px 8px;color:var(--txt3)}
+.chq-row button:hover{color:var(--red);border-color:var(--red);background:#fdf0f0}
+
+/* 광고 캡처 (사용자 요청 #2,#3) */
+.cap-thumb{width:140px;height:140px;border-radius:6px;overflow:hidden;cursor:pointer;border:1px solid var(--bord);background:#f5f1e6;position:relative;transition:.15s;flex-shrink:0}
+.cap-thumb:hover{border-color:var(--hi);transform:scale(1.03);box-shadow:0 2px 8px rgba(184,148,76,.25)}
+.cap-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.cap-thumb-memo{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:9.5px;padding:14px 6px 4px;line-height:1.3;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.cap-thumb-del{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;border:none;cursor:pointer;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0;opacity:0;transition:.15s;line-height:1}
+.cap-thumb:hover .cap-thumb-del{opacity:1}
+.cap-thumb-del:hover{background:var(--red);transform:scale(1.15)}
+#cap-paste-zone:focus,#cap-paste-zone.dragover{border-color:var(--hi)!important;background:#fdf6e8!important}
+.cell-captures-btn{display:inline-flex;align-items:center;gap:2px;padding:3px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#f5f1e6;color:var(--txt2);border:1px solid var(--bord);cursor:pointer;transition:.12s;margin-left:3px}
+.cell-captures-btn:hover{background:var(--hi);color:#fff;border-color:var(--hi)}
+.cell-captures-btn.has-captures{background:#fff4e8;color:var(--orng);border-color:#f4d4a8}
 
 /* 광고 추가 폼 - 카드 안에 인라인 */
 .ad-add-form{background:var(--panel2);border:1px dashed var(--bord);border-radius:5px;padding:8px;margin-top:6px;display:none}
@@ -509,6 +444,9 @@ a:hover{text-decoration:underline}
 /* 통계 바 */
 .stats-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;font-size:11px;color:var(--txt3)}
 .stat-item{background:var(--panel2);border:1px solid var(--bord);border-radius:4px;padding:5px 10px}
+.stat-item.stat-clickable{cursor:pointer;transition:.15s}
+.stat-item.stat-clickable:hover{background:var(--hi);color:#fff;border-color:var(--hi);transform:translateY(-1px);box-shadow:0 2px 6px rgba(184,148,76,.2)}
+.stat-item.stat-clickable:hover b{color:#fff}
 .stat-item b{color:var(--hi2);font-weight:700}
 
 /* 클로드 조사 모달 */
@@ -530,149 +468,9 @@ a:hover{text-decoration:underline}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--bord);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--bord2)}
-
-/* 비밀번호 잠금 화면 */
-.lock-screen{position:fixed;inset:0;background:linear-gradient(135deg,#f7f5f1 0%,#f0ece4 50%,#e8dfc8 100%);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px}
-.lock-screen.hidden{display:none}
-.lock-card{background:linear-gradient(180deg,#ffffff 0%,#faf8f3 100%);border:1px solid var(--bord2);border-radius:14px;padding:36px 32px;max-width:380px;width:100%;box-shadow:0 20px 60px rgba(120,100,60,.18),0 8px 20px rgba(168,124,74,.08);text-align:center}
-.lock-emoji{font-size:48px;margin-bottom:6px;display:block;filter:drop-shadow(0 4px 8px rgba(168,124,74,.15))}
-.lock-title{font-size:20px;font-weight:700;color:var(--hi2);margin-bottom:4px;letter-spacing:.5px}
-.lock-tagline{font-size:10px;color:var(--txt3);margin-bottom:6px;letter-spacing:.5px}
-.lock-sub{font-size:12px;color:var(--txt2);margin-bottom:22px;line-height:1.6}
-.lock-input{width:100%;background:var(--panel2);border:2px solid var(--bord);border-radius:8px;padding:14px 16px;color:var(--txt);font-size:20px;text-align:center;letter-spacing:10px;font-weight:600;margin-bottom:8px;transition:.2s}
-.lock-input:focus{border-color:var(--hi);box-shadow:0 0 0 4px rgba(200,153,104,.12);background:#fff}
-.lock-input.err{border-color:var(--red);box-shadow:0 0 0 4px rgba(200,90,90,.12);animation:lock-shake .4s}
-@keyframes lock-shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
-.lock-err-msg{font-size:11px;color:var(--red);margin-bottom:10px;min-height:14px;font-weight:500}
-.lock-check{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:18px;font-size:12px;color:var(--txt2);cursor:pointer;user-select:none}
-.lock-check input{width:15px;height:15px;cursor:pointer;accent-color:var(--hi)}
-.lock-btn{width:100%;background:linear-gradient(180deg,var(--hi) 0%,var(--hi2) 100%);color:#fff;font-weight:700;font-size:14px;padding:13px;border-radius:8px;border:none;cursor:pointer;letter-spacing:2px;transition:.15s;box-shadow:0 2px 6px rgba(168,124,74,.25)}
-.lock-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(168,124,74,.35)}
-.lock-btn:active{transform:translateY(0)}
-.lock-status{font-size:10px;color:var(--txt3);margin-top:16px;padding-top:14px;border-top:1px dashed var(--bord);letter-spacing:.3px}
-
-/* ========================================================== */
-/* 📱 모바일/태블릿 반응형 (≤900px: 테이블 → 카드 레이아웃)    */
-/* ========================================================== */
-@media(max-width:900px){
- /* 헤더 압축 */
- .hdr{padding:8px 10px}
- .hdr h1{font-size:15px;line-height:1.2}
- .hdr h1 span{display:block;font-size:9px;margin-left:0;margin-top:2px}
- .hdr-actions{gap:4px;margin-left:0;margin-top:6px;width:100%}
- .hdr-actions .btn{padding:5px 8px;font-size:11px}
- .hdr-actions .btn-sm{padding:3px 6px;font-size:10px}
- 
- /* 카테고리/서브탭 압축 */
- .cat-bar{padding:6px 8px;gap:4px}
- .cat-tab{padding:5px 10px;font-size:12px}
- .subtab-bar{padding:6px 8px;gap:4px}
- .subtab{padding:4px 9px;font-size:11px}
- 
- /* 메인 컨테이너 */
- .main{padding:8px}
- .toolbar{flex-direction:column;align-items:stretch;gap:6px}
- .search-input{min-width:0;width:100%}
- 
- /* 통계바 압축 */
- .stats-bar{flex-wrap:wrap;gap:6px}
- 
- /* 핵심: 테이블 → 카드 변환 */
- .table-wrap{overflow:visible;border:none;background:transparent;box-shadow:none;border-radius:0}
- .comp-table{min-width:0;display:block;border-collapse:separate}
- .comp-table thead{display:none}
- .comp-table tbody, .comp-table tr, .comp-table td{display:block;width:100%;max-width:none}
- .comp-table tr{
-  background:var(--panel);
-  border:1px solid var(--bord);
-  border-radius:10px;
-  margin-bottom:14px;
-  padding:14px 14px 10px;
-  box-shadow:0 2px 6px rgba(120,100,60,.06);
- }
- .comp-table tr:hover{background:var(--panel)}
- .comp-table td{
-  padding:8px 0 !important;
-  border-bottom:1px dashed var(--bord) !important;
-  vertical-align:top;
-  min-width:0 !important;
-  width:100% !important;
-  word-break:break-word;
-  overflow-wrap:anywhere;
- }
- .comp-table td:last-child{border-bottom:none !important;padding-bottom:0 !important}
- /* 라벨 (data-label 속성 사용) */
- .comp-table td[data-label]:not(.cell-name)::before{
-  content:attr(data-label);
-  display:block;
-  font-size:9.5px;
-  color:var(--hi2);
-  font-weight:700;
-  margin-bottom:4px;
-  letter-spacing:.4px;
-  text-transform:uppercase;
- }
- /* 빈 td는 숨김 (cell-actions에 라벨 없을 때) */
- .comp-table td:empty{display:none}
- /* 업체명 셀은 라벨 없이 강조 */
- .cell-name{padding-bottom:12px !important;border-bottom:2px solid var(--hi) !important;margin-bottom:2px}
- .cell-name .name-main{font-size:15px}
- .cell-name .name-brand{font-size:13px}
- /* 액션 버튼 행 */
- .cell-actions{text-align:right !important;padding-top:10px !important}
- .cell-actions .btn-xs{padding:5px 10px;font-size:12px}
- 
- /* 모달 풀스크린 가깝게 */
- .overlay{padding:10px;align-items:flex-start}
- .modal{padding:14px;max-height:95vh;max-width:100%}
- .form-grid{grid-template-columns:1fr !important;gap:8px !important}
- .modal-title{font-size:14px}
- 
- /* 광고 칩 영역 더 컴팩트 */
- .ad-chip{font-size:10.5px;padding:4px 7px}
- .ad-chip-plat{font-size:9.5px}
- .ad-chip-running, .ad-chip-count, .ad-chip-startdate{font-size:9.5px;padding:1px 5px}
- 
- /* 매출 미니 차트 */
- .revenue-mini-chart{height:34px}
- 
- /* 잠금 화면 모바일 최적화 */
- .lock-card{padding:28px 22px}
- .lock-emoji{font-size:42px}
- .lock-title{font-size:18px}
- .lock-input{font-size:18px;letter-spacing:8px;padding:12px 14px}
- 
- /* 메모 V2 모달 */
- .nv2-grid3{grid-template-columns:1fr !important}
-}
-
-@media(max-width:480px){
- /* 더 작은 모바일 (옵션) */
- .hdr-actions .btn{padding:4px 6px;font-size:10px}
- .hdr-actions .btn-sm{font-size:9.5px}
- .cat-tab{padding:4px 8px;font-size:11px}
- .subtab{padding:3px 7px;font-size:10px}
- .comp-table tr{padding:12px 10px 8px}
- .cell-name .name-main{font-size:14px}
-}
 </style>
 </head>
 <body>
-
-<!-- 비밀번호 잠금 화면 -->
-<div class="lock-screen" id="lock-screen">
- <div class="lock-card">
-  <span class="lock-emoji">🏝️</span>
-  <div class="lock-title">미디어 보물섬</div>
-  <div class="lock-tagline">미디어 커머스 To 유통 To 사랑받는 브랜드</div>
-  <div class="lock-sub">보물섬에 들어가려면<br>비밀번호를 입력하세요</div>
-  <input type="password" id="lock-input" class="lock-input" maxlength="20" placeholder="••••" autocomplete="off">
-  <div class="lock-err-msg" id="lock-err-msg"></div>
-  <label class="lock-check"><input type="checkbox" id="lock-remember" checked> 30일 동안 잠금해제 유지</label>
-  <button class="lock-btn" onclick="tryUnlock()">🗝️ 열&nbsp;&nbsp;기</button>
-  <div class="lock-status" id="lock-status">🔒 잠금 상태</div>
- </div>
-</div>
 
 <!-- 헤더 -->
 <div class="hdr">
@@ -681,9 +479,10 @@ a:hover{text-decoration:underline}
   <div class="hdr-actions">
    <button class="btn" onclick="openAddCategoryModal()">＋ 카테고리</button>
    <button class="btn" onclick="openBackupModal()">💾 백업</button>
+   <button class="btn btn-sm" onclick="openGithubSettings()" title="GitHub 자동 저장 설정">☁️ GitHub</button>
+   <a class="btn btn-sm" href="https://github.com/brandhublab/adbomoolsum/graphs/traffic" target="_blank" title="GitHub Traffic - 방문자 통계 (코드 추가 0줄, GitHub 자체 기능)">📊 Traffic</a>
    <button class="btn btn-sm" onclick="exportJSON()">⬇ JSON</button>
    <button class="btn btn-sm" onclick="document.getElementById('import-file').click()">⬆ 가져오기</button>
-   <button class="btn btn-sm btn-grn" onclick="openImportCompanyModal()" title="회사 1건 JSON 붙여넣기로 빠르게 추가">📋 회사 JSON</button>
    <button class="btn btn-sm" onclick="openHelpModal()" title="명령어 단축키 보기">❓ 명령어</button>
    <button class="btn btn-sm btn-grn" onclick="openClaudePromptModal()" title="클로드에게 조사 의뢰하기">🤖 클로드 요청</button>
    <input type="file" id="import-file" accept=".json" style="display:none" onchange="importJSON(event)">
@@ -703,9 +502,10 @@ a:hover{text-decoration:underline}
  <div class="stats-bar" id="stats-bar"></div>
  
  <!-- 툴바 -->
- <div class="toolbar">
+ <div class="toolbar" id="main-toolbar">
   <input type="text" id="search-input" class="search-input" placeholder="🔍 업체/브랜드/제품 검색..." oninput="renderCards()">
-  <button class="btn btn-primary" onclick="openAddCompanyModal()">＋ 업체 추가</button>
+  <button class="btn btn-primary" id="btn-add-company" onclick="openAddCompanyModal()">＋ 업체 추가</button>
+  <button class="btn btn-grn" id="btn-essence-filter" style="display:none" onclick="openEssenceFilterModal()" title="다른 카테고리의 업체를 골라서 이 본질에 매핑">🔍 업체 필터/매핑</button>
  </div>
  
  <!-- 카드 그리드 -->
@@ -742,60 +542,20 @@ a:hover{text-decoration:underline}
    <button class="modal-close" onclick="closeModal('modal-company')">×</button>
   </div>
   
-  <div class="form-row">
-   <label class="form-label req">업체명</label>
-   <input type="text" id="comp-name" class="form-input">
-  </div>
-  
-  <div class="form-row">
-   <label class="form-label">브랜드명 + 🌐 웹사이트 <span style="color:var(--txt3);font-weight:400">(브랜드명 클릭 시 이 주소로 이동)</span></label>
-   <div class="brand-inline-row">
-    <div class="brand-name-wrap">
-     <input type="text" id="comp-brand" class="form-input" placeholder="브랜드명">
-    </div>
-    <div class="brand-url-wrap">
-     <span class="url-prefix">🌐</span>
-     <input type="text" id="comp-brand-url" class="form-input" placeholder="https://example.com (https:// 자동)">
-    </div>
-   </div>
-  </div>
-  
-  <div class="form-row">
-   <label class="form-label">📌 등록 사유 <span style="color:var(--txt3);font-weight:400">(이 업체를 왜 기록하기 시작했나? · 짧게 한 줄)</span></label>
-   <input type="text" id="comp-record-reason" class="form-input" placeholder="예: 메타광고 입돌출 키워드 발견 / 야인 패턴 의심 / 정공 모델 본받을 점 多">
-  </div>
-  
   <div class="form-grid">
    <div class="form-row">
-    <label class="form-label">메인 카테고리</label>
-    <select id="comp-cat" class="form-select" onchange="onCompCatChange()"></select>
+    <label class="form-label req">업체명</label>
+    <input type="text" id="comp-name" class="form-input">
    </div>
    <div class="form-row">
-    <label class="form-label">서브카테고리</label>
-    <select id="comp-subcat" class="form-select"></select>
+    <label class="form-label">브랜드명</label>
+    <input type="text" id="comp-brand" class="form-input">
    </div>
   </div>
   
-  <div class="channel-input-section">
-   <div class="channel-input-section-hd">🛒 판매 채널 (URL 입력 시 브랜드명 아래에 칩으로 표시됨)</div>
-   <div class="channel-input-grid">
-    <div class="channel-input-row ch-own">
-     <span class="channel-label">자사몰</span>
-     <input type="text" id="comp-ch-own" placeholder="https://example.com">
-    </div>
-    <div class="channel-input-row ch-coupang">
-     <span class="channel-label">쿠팡</span>
-     <input type="text" id="comp-ch-coupang" placeholder="쿠팡 상품 URL">
-    </div>
-    <div class="channel-input-row ch-gmarket">
-     <span class="channel-label">지마켓</span>
-     <input type="text" id="comp-ch-gmarket" placeholder="지마켓 상품 URL">
-    </div>
-    <div class="channel-input-row ch-etc">
-     <span class="channel-label">기타</span>
-     <input type="text" id="comp-ch-etc" placeholder="기타 채널 URL">
-    </div>
-   </div>
+  <div class="form-row">
+   <label class="form-label">서브카테고리</label>
+   <select id="comp-subcat" class="form-select"></select>
   </div>
   
   <div class="form-grid">
@@ -815,9 +575,10 @@ a:hover{text-decoration:underline}
    <!-- 출처 선택 -->
    <div class="revenue-source-row">
     <label>출처:</label>
-    <select id="revenue-source" class="revenue-source-select">
+    <select id="revenue-source" class="revenue-source-select" onchange="onRevenueSourceChange()">
      <option value="">(미지정)</option>
-     <option value="smb">중소기업현황</option>
+     <option value="smb">중소기업현황 (단위: 천원)</option>
+     <option value="cretop">크레탑 / Cretop (단위: 백만원 → 자동 변환)</option>
      <option value="dart">DART/공시</option>
      <option value="nice">NICE평가정보</option>
      <option value="saramin">사람인/잡코리아</option>
@@ -1008,196 +769,6 @@ a:hover{text-decoration:underline}
  </div>
 </div>
 
-<!-- 구조화 메모 모달 (notes-v2) -->
-<div class="overlay" id="modal-notes-v2">
- <div class="modal" style="max-width:720px">
-  <div class="modal-hd">
-   <div class="modal-title">📋 광고/특징 메모 — <span id="nv2-company-name" style="color:var(--txt)">-</span></div>
-   <button class="modal-close" onclick="closeModal('modal-notes-v2')">×</button>
-  </div>
-  <div class="nv2-form">
-   <!-- 기록 메타 -->
-   <div class="nv2-section">
-    <div class="nv2-section-hd">📅 기록 정보</div>
-    <div class="nv2-grid3">
-     <div class="nv2-field">
-      <label>기록일</label>
-      <input type="date" id="nv2-recordDate">
-     </div>
-     <div class="nv2-field">
-      <label>현재 돌아가는 광고 개수</label>
-      <input type="text" id="nv2-currentAdCount" placeholder="예: 12, 30+, 5종 운영">
-     </div>
-     <div class="nv2-field">
-      <label>최초 돌아가는 광고 날짜</label>
-      <input type="text" id="nv2-firstAdDate" placeholder="예: 2024-03 또는 2024-03-15">
-     </div>
-    </div>
-   </div>
-   
-   <!-- 장단점 -->
-   <div class="nv2-section">
-    <div class="nv2-section-hd">⚖️ 분석</div>
-    <div class="nv2-field nv2-field-pros" style="margin-bottom:10px">
-     <label>✅ 장점</label>
-     <textarea id="nv2-pros" placeholder="강점, 잘하는 것, 본받을 만한 점..."></textarea>
-    </div>
-    <div class="nv2-field nv2-field-cons">
-     <label>⚠️ 단점</label>
-     <textarea id="nv2-cons" placeholder="약점, 리스크, 피해야 할 것..."></textarea>
-    </div>
-   </div>
-   
-   <!-- 확장 가능성 + 기타 -->
-   <div class="nv2-section">
-    <div class="nv2-section-hd">🚀 확장 / 기타</div>
-    <div class="nv2-field nv2-field-expansion" style="margin-bottom:10px">
-     <label>확장하면 어떻게? (라인 확장·카테고리 확장·해외 진출 등)</label>
-     <textarea id="nv2-expansion" placeholder="이 브랜드/모델이 확장한다면 어떤 방향으로 갈까?"></textarea>
-    </div>
-    <div class="nv2-field">
-     <label>📌 기타 기록</label>
-     <textarea id="nv2-etc" placeholder="자유 메모, 인사이트, 후속 조사 항목..."></textarea>
-    </div>
-   </div>
-   
-   <!-- 자유 메모 (기존 summary) -->
-   <div class="nv2-section">
-    <div class="nv2-section-hd">📝 자유 메모 (요약)</div>
-    <div class="nv2-field">
-     <textarea id="nv2-summary" placeholder="한 줄 요약, 광고 소구점, 후킹 포인트... (셀에 우선 표시)" style="min-height:50px"></textarea>
-    </div>
-   </div>
-  </div>
-  <div class="form-actions" style="margin-top:14px;display:flex;justify-content:space-between;align-items:center">
-   <button class="btn btn-sm btn-danger" onclick="clearNotesV2()" title="구조화 메모 7개 항목 모두 비우기">🗑 비우기</button>
-   <div style="display:flex;gap:6px">
-    <button class="btn" onclick="closeModal('modal-notes-v2')">취소</button>
-    <button class="btn btn-primary" onclick="saveNotesV2()">💾 저장</button>
-   </div>
-  </div>
- </div>
-</div>
-
-<!-- 채널 빠른 편집 모달 -->
-<div class="overlay" id="modal-channels-quick">
- <div class="modal" style="max-width:560px">
-  <div class="modal-hd">
-   <div class="modal-title">🛒 판매·공구·인플루언서 채널 — <span id="chq-company-name" style="color:var(--txt)">-</span></div>
-   <button class="modal-close" onclick="closeModal('modal-channels-quick')">×</button>
-  </div>
-  <div style="font-size:11px;color:var(--txt3);margin-bottom:10px;line-height:1.55">
-   라벨/URL 자유 입력. <code style="background:var(--panel2);padding:1px 5px;border-radius:3px">https://</code> 자동 추가. 빈 행은 저장 시 제거됩니다.<br>
-   라벨 예시: <span style="color:var(--hi2)">자사몰 · 쿠팡 · 지마켓 · 스마트스토어 · 협업 인플루언서 · 공구 판매 · 약국/의원 입점</span>
-  </div>
-  <div id="chq-rows" style="display:flex;flex-direction:column;gap:6px"></div>
-  <div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap">
-   <span style="font-size:10.5px;color:var(--txt3);align-self:center;margin-right:4px">빠른 추가:</span>
-   <button class="btn btn-sm" type="button" onclick="chqAddRow('자사몰')">＋ 자사몰</button>
-   <button class="btn btn-sm" type="button" onclick="chqAddRow('쿠팡')">＋ 쿠팡</button>
-   <button class="btn btn-sm" type="button" onclick="chqAddRow('스마트스토어')">＋ 스마트스토어</button>
-   <button class="btn btn-sm" type="button" onclick="chqAddRow('지마켓')">＋ 지마켓</button>
-   <button class="btn btn-sm" type="button" onclick="chqAddRow('협업 인플루언서')">＋ 인플루언서</button>
-   <button class="btn btn-sm" type="button" onclick="chqAddRow('공구 판매')">＋ 공구</button>
-   <button class="btn btn-sm" type="button" onclick="chqAddRow('약국/의원 입점')">＋ B2B</button>
-   <button class="btn btn-sm" type="button" onclick="chqAddRow()" style="border-style:dashed">＋ 빈 행</button>
-  </div>
-  <div class="form-actions" style="margin-top:14px;display:flex;justify-content:flex-end;gap:6px">
-   <button class="btn" onclick="closeModal('modal-channels-quick')">취소</button>
-   <button class="btn btn-primary" onclick="saveChannelsQuick()">💾 저장</button>
-  </div>
- </div>
-</div>
-
-<!-- 광고 캡처 갤러리 모달 -->
-<div class="overlay" id="modal-captures">
- <div class="modal" style="max-width:780px">
-  <div class="modal-hd">
-   <div class="modal-title">📷 광고 캡처 — <span id="cap-company-name" style="color:var(--txt)">-</span></div>
-   <button class="modal-close" onclick="closeModal('modal-captures')">×</button>
-  </div>
-  <div style="font-size:11px;color:var(--txt3);margin-bottom:10px;line-height:1.55">
-   메타·인스타·페이스북·네이티브 광고 등 <strong>링크가 없는 광고를 이미지로 보관</strong>합니다.<br>
-   <span style="color:var(--hi2)">붙여넣기 (Ctrl+V)</span> 또는 <span style="color:var(--hi2)">파일 선택</span>으로 추가 (자동으로 800px 썸네일로 압축).
-  </div>
-  
-  <div id="cap-paste-zone" tabindex="0" style="border:2px dashed var(--bord);border-radius:6px;padding:18px;text-align:center;margin-bottom:12px;background:var(--panel2);cursor:pointer;transition:.15s;outline:none">
-   <div style="font-size:24px;margin-bottom:4px">📋</div>
-   <div style="font-size:11.5px;color:var(--txt2);font-weight:600">여기 클릭 후 <kbd style="background:#fff;border:1px solid var(--bord);border-radius:3px;padding:1px 5px;font-size:10px">Ctrl+V</kbd> 붙여넣기</div>
-   <div style="font-size:10.5px;color:var(--txt3);margin-top:3px">또는 <label for="cap-file-input" style="color:var(--hi2);text-decoration:underline;cursor:pointer">파일 선택</label></div>
-   <input type="file" id="cap-file-input" accept="image/*" multiple style="display:none">
-  </div>
-  
-  <div id="cap-gallery" style="display:flex;flex-wrap:wrap;gap:8px;min-height:100px;max-height:380px;overflow-y:auto;padding:4px">
-   <div id="cap-empty" style="width:100%;text-align:center;color:var(--txt3);font-size:11px;padding:30px 0">아직 캡처가 없습니다. 위에 붙여넣기 또는 파일 선택으로 추가하세요.</div>
-  </div>
-  
-  <div class="form-actions" style="margin-top:12px;display:flex;justify-content:flex-end;gap:6px">
-   <button class="btn" onclick="closeModal('modal-captures')">닫기</button>
-  </div>
- </div>
-</div>
-
-<!-- 광고 캡처 단일 이미지 라이트박스 -->
-<div class="overlay" id="modal-capture-view" style="z-index:200">
- <div class="modal" style="max-width:90vw;max-height:90vh;width:auto;padding:14px">
-  <div class="modal-hd">
-   <div class="modal-title" id="cap-view-title" style="font-size:13px">📷 캡처</div>
-   <button class="modal-close" onclick="closeModal('modal-capture-view')">×</button>
-  </div>
-  <div id="cap-view-img-wrap" style="text-align:center;max-height:65vh;overflow:auto;background:#f5f1e6;border-radius:6px;padding:10px">
-   <img id="cap-view-img" src="" style="max-width:100%;max-height:60vh;border-radius:4px">
-  </div>
-  <div style="margin-top:10px">
-   <label style="font-size:11px;color:var(--txt2);font-weight:600;margin-bottom:4px;display:block">📝 메모</label>
-   <textarea id="cap-view-memo" placeholder="이 광고의 카피·타겟·후킹 포인트..." style="width:100%;min-height:60px;padding:8px;border:1px solid var(--bord);border-radius:4px;font-family:inherit;font-size:11.5px;line-height:1.5;color:var(--txt);background:#fff;resize:vertical"></textarea>
-  </div>
-  <div style="margin-top:10px;display:flex;justify-content:space-between;gap:6px">
-   <button class="btn btn-sm" onclick="deleteCaptureFromView()" style="color:var(--red);border-color:#f0d4d4">🗑️ 삭제</button>
-   <div style="display:flex;gap:6px">
-    <button class="btn" onclick="closeModal('modal-capture-view')">취소</button>
-    <button class="btn btn-primary" onclick="saveCaptureMemo()">💾 메모 저장</button>
-   </div>
-  </div>
- </div>
-</div>
-
-<!-- 회사 1건 JSON 추가 모달 -->
-<div class="overlay" id="modal-import-company">
- <div class="modal" style="max-width:780px">
-  <div class="modal-hd">
-   <div class="modal-title">📋 회사 1건 JSON으로 추가</div>
-   <button class="modal-close" onclick="closeModal('modal-import-company')">×</button>
-  </div>
-  <div style="font-size:11.5px;color:var(--txt2);margin-bottom:12px;line-height:1.65;background:var(--panel2);padding:10px 12px;border-radius:6px;border-left:3px solid var(--hi)">
-   클로드가 조사해준 회사 JSON을 그대로 붙여넣으세요.<br>
-   <span style="color:var(--hi2);font-weight:600">자동 변환 지원</span> — <code style="background:#fff;padding:1px 5px;border-radius:3px">revenue.rows</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">sales</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">operatingProfit</code> 같은 필드명도 자동으로 보물섬 형식으로 변환됩니다. <code style="background:#fff;padding:1px 5px;border-radius:3px">biz</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">globalSites</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">social</code> 같은 추가 필드는 그대로 보존됩니다.<br>
-   <span style="color:var(--txt3)">※ <code style="background:#fff;padding:1px 5px;border-radius:3px">catId</code>·<code style="background:#fff;padding:1px 5px;border-radius:3px">subId</code> 미지정 시 현재 활성 카테고리에 추가됩니다.</span>
-  </div>
-  
-  <div class="nv2-field" style="margin-bottom:12px">
-   <label style="font-size:11px;color:var(--txt2);font-weight:600;margin-bottom:4px;display:block">JSON 데이터</label>
-   <textarea id="import-company-json" placeholder='{
-  "name": "주식회사 셀바이셀",
-  "brand": "셀바이셀",
-  "brandUrl": "https://cellbycell.co.kr",
-  "recordReason": "유튜버 우린 추천",
-  ...
-}' style="width:100%;min-height:280px;font-family:SFMono-Regular,Consolas,Monaco,monospace;font-size:11.5px;line-height:1.55;background:#fdfaf3;border:1px solid var(--bord);border-radius:6px;padding:10px 12px;resize:vertical;color:var(--txt)"></textarea>
-  </div>
-  
-  <div id="import-company-preview" style="display:none;background:#fff;border:1px solid var(--bord);border-radius:6px;padding:10px 12px;margin-bottom:12px;font-size:11.5px;line-height:1.65;max-height:200px;overflow-y:auto"></div>
-  
-  <div class="form-actions" style="display:flex;justify-content:space-between;align-items:center;gap:6px">
-   <button class="btn btn-sm" onclick="previewImportCompany()" type="button">🔍 미리보기</button>
-   <div style="display:flex;gap:6px">
-    <button class="btn" onclick="closeModal('modal-import-company')">취소</button>
-    <button class="btn btn-primary" onclick="confirmImportCompany()">💾 추가</button>
-   </div>
-  </div>
- </div>
-</div>
-
 <!-- 메모 팝오버 (광고 메모 인라인 편집) -->
 <div id="memo-popover" class="memo-popover">
  <div class="memo-popover-hd">
@@ -1235,17 +806,131 @@ a:hover{text-decoration:underline}
 <div class="overlay" id="modal-backup">
  <div class="modal" style="max-width:480px">
   <div class="modal-hd">
-   <div class="modal-title">💾 데이터 관리</div>
+   <div class="modal-title">💾 데이터 관리 / 자동 백업</div>
    <button class="modal-close" onclick="closeModal('modal-backup')">×</button>
   </div>
   <div style="font-size:12px;color:var(--txt2);line-height:1.7;margin-bottom:14px">
    <p><b>저장소:</b> 브라우저 localStorage (이 PC에만 저장)</p>
-   <p><b>키:</b> <code style="background:var(--panel2);padding:2px 5px;border-radius:3px">adlibkit-v1</code> <span style="font-size:10px;color:var(--txt3)">(키 이름은 호환성 유지를 위해 변경 X)</span></p>
+   <p><b>키:</b> <code style="background:var(--panel2);padding:2px 5px;border-radius:3px">adlibkit-v1</code> <span style="font-size:10px;color:var(--txt3)">(호환성 유지)</span></p>
    <p><b>현재 데이터:</b> <span id="backup-stats"></span></p>
+  </div>
+  <div style="background:#fff4e8;border-left:3px solid var(--orng);padding:10px 12px;border-radius:6px;margin-bottom:12px;font-size:11.5px;line-height:1.55;color:var(--txt2)">
+   ✨ <strong>자동 백업 활성화</strong><br>
+   • 변경 5회마다 자동 스냅샷 (최대 5개 보관)<br>
+   • 변경 20회마다 JSON 다운로드 권장 알림<br>
+   • Dropbox/Google Drive 폴더에 JSON 저장하면 클라우드 자동 동기화
+  </div>
+  <div style="background:#fdfaf3;border-left:3px solid var(--hi);padding:10px 12px;border-radius:6px;margin-bottom:12px;font-size:11px;line-height:1.55;color:var(--txt2)">
+   📦 <strong>이 HTML에 내장된 백업</strong> — 2026-04-29 10:47 시점 24개 회사 데이터<br>
+   <button class="btn btn-xs" onclick="closeModal('modal-backup');restoreEmbeddedData()" style="margin-top:6px">🔁 내장 데이터로 복원 (긴급용)</button>
   </div>
   <div class="form-actions">
    <button class="btn btn-danger" onclick="resetAll()">⚠ 전체 초기화</button>
-   <button class="btn btn-primary" onclick="exportJSON()">⬇ JSON 다운로드</button>
+   <button class="btn" onclick="closeModal('modal-backup');openSnapshotsModal()">📦 스냅샷 / 복원</button>
+   <button class="btn btn-primary" onclick="exportJSON();markBackupDone();">⬇ JSON 다운로드</button>
+  </div>
+ </div>
+</div>
+
+<!-- 채널 빠른 편집 모달 -->
+<div class="overlay" id="modal-channels-quick">
+ <div class="modal" style="max-width:560px">
+  <div class="modal-hd">
+   <div class="modal-title">🛒 판매·공구·인플루언서 채널 — <span id="chq-company-name" style="color:var(--txt)">-</span></div>
+   <button class="modal-close" onclick="closeModal('modal-channels-quick')">×</button>
+  </div>
+  <div style="font-size:11px;color:var(--txt3);margin-bottom:10px;line-height:1.55">
+   라벨/URL 자유 입력. <code style="background:var(--panel2);padding:1px 5px;border-radius:3px">https://</code> 자동 추가. 빈 행은 저장 시 제거됩니다.
+  </div>
+  <div id="chq-rows" style="display:flex;flex-direction:column;gap:6px"></div>
+  <div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap">
+   <span style="font-size:10.5px;color:var(--txt3);align-self:center;margin-right:4px">빠른 추가:</span>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('자사몰')">＋ 자사몰</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('쿠팡')">＋ 쿠팡</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('스마트스토어')">＋ 스마트스토어</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('올리브영')">＋ 올리브영</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('협업 인플루언서')">＋ 인플루언서</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('공구 판매')">＋ 공구</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow('약국/의원 입점')">＋ B2B</button>
+   <button class="btn btn-sm" type="button" onclick="chqAddRow()" style="border-style:dashed">＋ 빈 행</button>
+  </div>
+  <div class="form-actions">
+   <button class="btn" onclick="closeModal('modal-channels-quick')">취소</button>
+   <button class="btn btn-primary" onclick="saveChannelsQuick()">💾 저장</button>
+  </div>
+ </div>
+</div>
+
+<!-- 광고 캡처 갤러리 모달 -->
+<div class="overlay" id="modal-captures">
+ <div class="modal" style="max-width:780px">
+  <div class="modal-hd">
+   <div class="modal-title">📷 광고 캡처 — <span id="cap-company-name" style="color:var(--txt)">-</span></div>
+   <button class="modal-close" onclick="closeModal('modal-captures')">×</button>
+  </div>
+  <div style="font-size:11px;color:var(--txt3);margin-bottom:10px;line-height:1.55">
+   메타·인스타·페이스북·네이티브 광고 등 <strong>링크가 없는 광고를 이미지로 보관</strong>합니다. 자동으로 1280px 품질로 압축 (글자 가독성 유지).
+  </div>
+  
+  <!-- ★ 사용자 요청 #2: 클릭 시 파일다이얼로그 안 뜨고 포커스만 → 안내 명확 -->
+  <div id="cap-paste-zone" tabindex="0" style="border:2px dashed var(--bord);border-radius:6px;padding:18px;text-align:center;margin-bottom:12px;background:var(--panel2);outline:none;transition:.15s">
+   <div style="font-size:24px;margin-bottom:4px">📋</div>
+   <div style="font-size:12px;color:var(--txt2);font-weight:700;margin-bottom:4px">
+    1️⃣ 이 영역을 <span style="color:var(--hi2);text-decoration:underline">한 번 클릭</span>해서 활성화
+   </div>
+   <div style="font-size:12px;color:var(--txt2);font-weight:700;margin-bottom:8px">
+    2️⃣ 그 다음 <kbd style="background:#fff;border:1px solid var(--bord);border-radius:3px;padding:2px 7px;font-size:11px;font-weight:600">Ctrl + V</kbd> 또는 <kbd style="background:#fff;border:1px solid var(--bord);border-radius:3px;padding:2px 7px;font-size:11px;font-weight:600">⌘ + V</kbd> 로 붙여넣기
+   </div>
+   <div style="font-size:10.5px;color:var(--txt3);padding-top:6px;border-top:1px dashed var(--bord)">
+    또는 이미지를 이 영역으로 <strong>드래그</strong> · 
+    <button id="cap-file-btn" type="button" class="btn btn-sm" style="display:inline-block;margin-left:4px">📁 파일 선택</button>
+   </div>
+   <input type="file" id="cap-file-input" accept="image/*" multiple style="display:none">
+  </div>
+  
+  <div id="cap-gallery" style="display:flex;flex-wrap:wrap;gap:8px;min-height:100px;max-height:380px;overflow-y:auto;padding:4px"></div>
+  
+  <div class="form-actions">
+   <button class="btn" onclick="closeModal('modal-captures')">닫기</button>
+  </div>
+ </div>
+</div>
+
+<!-- 광고 캡처 단일 라이트박스 -->
+<div class="overlay" id="modal-capture-view" style="z-index:300">
+ <div class="modal" style="max-width:90vw;max-height:90vh;width:auto">
+  <div class="modal-hd">
+   <div class="modal-title" id="cap-view-title" style="font-size:13px">📷 캡처</div>
+   <button class="modal-close" onclick="closeModal('modal-capture-view')">×</button>
+  </div>
+  <div style="text-align:center;max-height:60vh;overflow:auto;background:#f5f1e6;border-radius:6px;padding:10px">
+   <img id="cap-view-img" src="" style="max-width:100%;max-height:55vh;border-radius:4px">
+  </div>
+  <div style="margin-top:10px">
+   <label style="font-size:11px;color:var(--txt2);font-weight:600;margin-bottom:4px;display:block">📝 메모</label>
+   <textarea id="cap-view-memo" placeholder="이 광고의 카피·타겟·후킹 포인트..." style="width:100%;min-height:60px;padding:8px;border:1px solid var(--bord);border-radius:4px;font-family:inherit;font-size:11.5px;line-height:1.5;color:var(--txt);background:#fff;resize:vertical"></textarea>
+  </div>
+  <div class="form-actions" style="justify-content:space-between">
+   <button class="btn btn-sm btn-danger" onclick="deleteCaptureFromView()">🗑️ 삭제</button>
+   <div style="display:flex;gap:6px">
+    <button class="btn" onclick="closeModal('modal-capture-view')">취소</button>
+    <button class="btn btn-primary" onclick="saveCaptureMemo()">💾 메모 저장</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+<!-- 메모 편집 모달 (광고/특징 메모) - 디자인 요청 #1 -->
+<div class="overlay" id="modal-summary-edit">
+ <div class="modal" style="max-width:560px">
+  <div class="modal-hd">
+   <div class="modal-title">📝 광고/특징 메모 — <span id="sm-company-name" style="color:var(--txt)">-</span></div>
+   <button class="modal-close" onclick="closeModal('modal-summary-edit')">×</button>
+  </div>
+  <textarea id="sm-textarea" style="width:100%;min-height:300px;padding:10px;border:1px solid var(--bord);border-radius:5px;font-family:inherit;font-size:12.5px;line-height:1.6;color:var(--txt);background:#fff;resize:vertical" placeholder="광고 전략, 주요 소구점, 카피, 후킹 포인트, 학습 시사점 등을 자유롭게 입력하세요..."></textarea>
+  <div class="form-actions">
+   <button class="btn" onclick="closeModal('modal-summary-edit')">취소</button>
+   <button class="btn btn-primary" onclick="saveSummaryEdit()">💾 저장</button>
   </div>
  </div>
 </div>
@@ -1331,76 +1016,46 @@ a:hover{text-decoration:underline}
 // ============================================================
 const STORAGE_KEY = 'adlibkit-v1';
 
-// ============================================================
-// 비밀번호 잠금 (30일 유지 옵션)
-// ============================================================
-const LOCK_KEY = 'adlibkit-unlock-until';
-const _PWD_HASH = 'MjAyOQ=='; // base64('2029') - 우연한 노출 방지용 가벼운 난독화
-const LOCK_DAYS = 30;
-const LOCK_MS = LOCK_DAYS * 24 * 60 * 60 * 1000;
-
-function checkLock(){
- const screen = document.getElementById('lock-screen');
- const until = parseInt(localStorage.getItem(LOCK_KEY) || '0', 10);
- const now = Date.now();
- if(until > now){
-  // 잠금해제 유효 → 화면 즉시 숨김
-  screen.classList.add('hidden');
+// 사용자 최근 백업 (2026-04-29 10:47) — 24개 회사 + 8개 카테고리
+// 처음 열 때 또는 localStorage가 비어있을 때만 적용. 기존 데이터는 보호
+const EMBEDDED_DATA = {"categories":[{"id":"cat_essence","name":"업의 본질","icon":"⭐","subcats":[{"id":"sub_mc","name":"미디어 커머스"},{"id":"sub_dist","name":"유통"},{"id":"sub_loved","name":"사랑받는 브랜드"},{"id":"sub_criteria","name":"브랜드 선정 기준"},{"id":"sub_essence_etc","name":"기타"}]},{"id":"cat_cosmetic","name":"화장품","icon":"🧴","subcats":[{"id":"sub_kimi","name":"기미"},{"id":"sub_white","name":"미백"},{"id":"sub_dark","name":"흑자"},{"id":"sub_acne","name":"여드름"},{"id":"sub_pore","name":"모공"},{"id":"sub_anti","name":"안티에이징"},{"id":"sub_lift","name":"리프트업"},{"id":"sub_cleansing","name":"클렌징"},{"id":"sub_base","name":"베이스/파운데이션"},{"id":"sub_diet_cream","name":"다이어트크림"},{"id":"sub_etc","name":"기타"}]},{"id":"cat_health","name":"건기식","icon":"💊","subcats":[{"id":"sub_diet","name":"다이어트"},{"id":"sub_diabetes","name":"당뇨"},{"id":"sub_bp","name":"혈압"},{"id":"sub_hair","name":"탈모"},{"id":"sub_grey","name":"새치"},{"id":"sub_h_acne","name":"여드름"},{"id":"sub_h_ingredient","name":"성분강조"},{"id":"sub_hetc","name":"기타"}]},{"id":"cat_supplement","name":"영양제","icon":"🥗","subcats":[{"id":"sub_ssugar","name":"혈당/당뇨"},{"id":"sub_sdiet","name":"다이어트"},{"id":"sub_sacne","name":"여드름"},{"id":"sub_sgrey","name":"새치"},{"id":"sub_shair","name":"탈모"},{"id":"sub_sweat","name":"다한증"},{"id":"sub_setc","name":"기타"}]},{"id":"cat_fragrance","name":"향기","icon":"🌸","subcats":[{"id":"sub_perfume","name":"향수"},{"id":"sub_fabric_perfume","name":"섬유향수"},{"id":"sub_diffuser","name":"디퓨저/사쉐"},{"id":"sub_candle","name":"캔들"},{"id":"sub_grooming","name":"그루밍"},{"id":"sub_fetc","name":"기타"}]},{"id":"cat_living","name":"생활용품/기타","icon":"🏠","subcats":[{"id":"sub_pillow","name":"베개"},{"id":"sub_letc","name":"기타"}]},{"id":"cat_pet","name":"애견","icon":"🐶","subcats":[{"id":"sub_pet_food","name":"사료/간식"},{"id":"sub_pet_supplies","name":"용품"},{"id":"sub_pet_dental","name":"덴탈/구강"},{"id":"sub_pet_eye","name":"눈물/안구"},{"id":"sub_pet_play","name":"장난감/노즈워크"},{"id":"sub_pet_etc","name":"기타"}]},{"id":"cat_yainn","name":"야인 (野人)","icon":"⚠️","subcats":[{"id":"sub_y_diet","name":"다이어트"},{"id":"sub_y_diet_cream","name":"다이어트크림"},{"id":"sub_y_acne","name":"여드름"},{"id":"sub_y_hair","name":"탈모"},{"id":"sub_y_etc","name":"기타"}]}],"essenceCards":{"sub_mc":[{"title":"혼자서 하면 리스크는 줄겠지만, 시간이나 구조를 키울 수 없다. 구조를 만들어가야한다. 그러면 투자를 해야한다. 사람에.","content":"투자는 서서히 회수하는게 아니다, 한 번에 회수할 기회가 오고, 계속해서 자금을 끌어올 수 있어야 한다.","createdAt":1777459632276}]},"pillarsOverride":{"sub_mc":{"edits":{"3":{"h":"카피만 다르고 본질은 같다","d":"펜트라민·벤타스·포아크네 = 같은 운영자, 같은 모델. 패턴을 읽는다. 아이리스브라이트/브랜드501/이삼오구/바이트랩/같은개념"}},"deleted":[],"added":[]}},"motivationLinks":{"sub_mc":[{"title":"오늘부터회계사-미디어커머스1부-개념","url":"https://youtu.be/VNbgdLZsldQ?si=wHZO5aiL_QmZTVHz","type":"youtube","note":"미디어 커머스 바라보는 관점 - 자본 없는 초기 창업가의 선택이 아닌 필수 영역","createdAt":1777459402647},{"title":"오늘부터회계사-미디어커머스2부-벽을 뚫은 업체","url":"https://youtu.be/NR2cPtn6ofE?si=ej82WeyKS-dQEbVM","type":"youtube","note":"미디어커머스-유통-브랜드로 진입해서 인식이 된 업체들","createdAt":1777459434006},{"title":"오늘부터회계사-케이뷰티2부","url":"https://youtu.be/xt69Kd6hyAs?si=QgLF5abPFX6G77RY","type":"youtube","note":"보기 전","createdAt":1777459505393},{"title":"오늘부터회계사-구다이글로벌1부","url":"https://youtu.be/M6EBmVS2ydg?si=_z73bb8cdkxIhYTZ","type":"youtube","note":"해외 유통으로 성공한 업체","createdAt":1777459547146},{"title":"오늘부터회계사-구다이글로벌2부","url":"https://youtu.be/V4i_b_zF-fo?si=87zLON1SMz24_zpE","type":"youtube","note":"유통으로 성공한 업체","createdAt":1777459571419}]},"companies":[{"id":"co_apr_sample","catId":"cat_cosmetic","subId":"sub_anti","name":"주식회사 에이피알 (APR)","brand":"메디큐브 (medicube)","ceo":"김병훈","staff":"648명 (2026.01)","revenueData":[{"year":"2022-12-31","revenue":"500000000","opIncome":"29400000","netProfit":"24700000"},{"year":"2023-12-31","revenue":"523800000","opIncome":"104200000","netProfit":"90000000"},{"year":"2024-12-31","revenue":"722800000","opIncome":"122700000","netProfit":"100000000"},{"year":"2025-12-31","revenue":"1527300000","opIncome":"365400000","netProfit":"310000000"}],"addr":"서울특별시","products":"제로모공패드, 콜라겐 나이트 랩핑 마스크, PDRN 핑크 콜라겐 겔, 부스터 프로(에이지알), 하이 포커스 샷, 울트라튠 40.68","summary":"■ 주요 브랜드: 메디큐브·에이지알·에이프릴스킨·널디·포맨트·글램디바이오·포토그레이\n■ 메디큐브 단일 브랜드 매출 1조 4천억 (국내 1위)\n■ 해외 매출 비중 80% (미국 39%, 일본 큐텐 1위)\n■ 코스피 상장 (KOSPI:278470, 2024.02)\n■ 핵심 전략: 화장품 + 뷰티 디바이스 통합, 글로벌 D2C 직판 강화\n■ 광고 소구: 효과 즉각성·임상 결과·미국 아마존 1위·디바이스 효능\n■ 시사점: 단일 브랜드 집중 + 디바이스+소비재 결합 모델, 해외 D2C 직판 비중 절대적","ads":[{"id":"ad_sample_1","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%EB%A9%94%EB%94%94%ED%81%90%EB%B8%8C","note":"메타 광고 라이브러리 - 메디큐브 검색 결과 (현재 러닝 중인 광고 모음)","createdAt":1777459264729},{"id":"ad_sample_2","platform":"meta-page","url":"https://www.facebook.com/medicube.korea/","note":"메디큐브 공식 페이스북 페이지","createdAt":1777459264729},{"id":"ad_sample_3","platform":"instagram","url":"https://www.instagram.com/medicube_official/","note":"공식 인스타그램 - 디바이스+화장품 사용 영상 위주","createdAt":1777459264729},{"id":"ad_sample_4","platform":"youtube","url":"https://www.youtube.com/@medicube_official","note":"유튜브 공식 채널 - 김희선 모델 부스터프로 광고","createdAt":1777459264729}],"articles":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_founderz_sample","catId":"cat_cosmetic","subId":"sub_anti","name":"주식회사 더파운더즈 (The Founderz)","brand":"아누아 (Anua) · 프롬랩스 (FROMLABS) · 프로젝트21","ceo":"김진호 (대표) · 정준호 (CEO 스태프 리드)","staff":"중견 인디 (정확한 직원수 비공개)","revenueData":[{"year":"2021-12-31","revenue":"20000000","opIncome":"","netProfit":""},{"year":"2022-12-31","revenue":"66000000","opIncome":"","netProfit":""},{"year":"2023-12-31","revenue":"143200000","opIncome":"","netProfit":""},{"year":"2024-12-31","revenue":"427800000","opIncome":"","netProfit":""}],"addr":"서울특별시","products":"아누아 어성초 토너, 어성초 77 수딩 토너, 복숭아 70% 나이아신아마이드 세럼, 프롬랩스 헤어케어 라인, 프로젝트21 고양이 선인장 정수기","summary":"■ 2017년 스타트업 출범 → 2019년 아누아 론칭 → 2021년 일본 진출 → 2024년 매출 4,278억\n■ 해외 매출 70% (미국·일본 중심, 세포라·울타뷰티 1,400여개 매장 입점)\n■ \"고객 중심 빠른 의사결정\" + \"역발상\" 전략 - 외부 투자 대신 크라우드펀딩으로 시작\n■ 넥스트 아누아 = 프롬랩스(헤어케어) - 한국의 P&G 비전\n■ 광고 소구: 어성초·복숭아·자작나무 등 자연 성분 + 글래스스킨 + K-뷰티 헤리티지\n■ 시사점: ① 첫 제품(반려동물 정수기)→피봇→스킨케어 성공 ② 인접시장(일본)부터 시작 후 미국 ③ 200회+ 샘플 테스트, 고객 자문단 운영","ads":[{"id":"ad_founderz_h1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1647225839800858","note":"아누아 히든 광고 #1 (히트 광고로 추정)","stars":3,"running":"","createdAt":1777459264729},{"id":"ad_founderz_h2","platform":"meta","url":"https://www.facebook.com/ads/library/?id=710123135368953","note":"아누아 히든 광고 #2","stars":3,"running":"","createdAt":1777459264729},{"id":"ad_founderz_h3","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1413046297189619","note":"아누아 히든 광고 #3","stars":3,"running":"","createdAt":1777459264729},{"id":"ad_founderz_1","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&search_type=keyword_unordered&q=anua","note":"미국 메타 광고 라이브러리 - Anua 검색","createdAt":1777459264729},{"id":"ad_founderz_2","platform":"meta-page","url":"https://www.facebook.com/anua.kr/","note":"아누아 공식 페이스북 페이지","createdAt":1777459264729},{"id":"ad_founderz_3","platform":"instagram","url":"https://www.instagram.com/anua_official/","note":"아누아 공식 인스타그램 - 글래스스킨 비주얼 강조","createdAt":1777459264729},{"id":"ad_founderz_4","platform":"tiktok","url":"https://www.tiktok.com/@anua_official","note":"아누아 틱톡 - 미국·일본 시장 타겟 콘텐츠","createdAt":1777459264729},{"id":"ad_founderz_5","platform":"youtube","url":"https://www.youtube.com/@anua_official","note":"아누아 유튜브 공식 채널","createdAt":1777459264729}],"articles":[{"id":"art_founderz_1","url":"https://news.bizwatch.co.kr/article/consumer/2025/02/21/0043","title":"[비즈人워치]미국·일본 휩쓴 아누아, 성공 비결은 '역발상'","summary":"정준호 더파운더즈 CEO 스태프 리드 인터뷰. 핵심 내용:\n\n[배경]\n• 더파운더즈는 2017년 반려동물 브랜드 '프로젝트21'으로 출발 → 2019년 아누아 론칭\n• 외부 투자 대신 크라우드펀딩(첫 제품 1억원 선주문)으로 자본 확보\n• 2021년 일본 화장품 시장 진출 → 현재 해외 매출 약 70%\n\n[성공 전략]\n• \"역발상\" - A→Z 단계적 의사결정이 아닌 유연하고 신속한 문제 해결\n• 인접 시장(일본)부터 진출 후 미국 공략 - 일본 화장품 시장은 한국의 2배, 미국은 7배\n• 미국에선 '글래스스킨' 트렌드 활용, 세포라·울타뷰티 1,400여개 매장 입점\n• 한국은 4~5개 제품 사용, 미국은 2~3개 → 빠른 침투 가능\n\n[차세대 전략]\n• 다음 타자: 헤어케어 브랜드 '프롬랩스' (200회 이상 샘플 테스트, 고객 자문단)\n• 목표: 한국의 P&G - 미국 헤어케어 시장 공략\n• 핵심 인재 전략: 직원 '온보딩' 강조, 고객 관점으로 일하면 순서 파괴 가능\n\n[시사점]\n• 인디 브랜드의 성공 방정식 = 빠른 의사결정 + 고객 중심 제품 개발\n• K-뷰티 인프라(ODM, 에이전시, 벤더) 발달로 자본 적은 신생 브랜드도 글로벌 진출 가능\n• \"K뷰티의 영향력이 커질수록 견고한 인프라가 구축돼 글로벌 접근이 더 수월해진다\"","createdAt":1777459264729}],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_beautyairport_sample","catId":"cat_cosmetic","subId":"sub_cleansing","name":"(주)뷰티에어포트","brand":"로리앤첼 (Lory & Chel)","ceo":"임영광","staff":"중소 (정확한 직원수 비공개)","addr":"인천 연수구 인천타워대로 323, B동 2601호 (송도동, 송도센트로드)","products":"로리앤첼 글로리어스 에센스 앰플 세럼 80g, 글로리어스 재생 수분크림, 클렌징 라인, 헤어케어, 바디 라인","summary":"■ 2016.12 설립 / 화장품 제조업 / 자본금 5천만원(2024.11 증자)\n■ 사업목적에 의학·약학 연구개발업 추가 (2021.07) - R&D 강화\n■ 메인 브랜드: 로리앤첼 - \"사랑하는 이의 빛나는 얼굴빛에 영감받은 브랜드\"\n■ 카테고리: 스킨케어(클렌징/토너/세럼/크림/팩) + 헤어 + 바디 + 향수 + 메이크업\n■ 매출 성장: 2021년 58.5억 → 2025년 107억 (5년간 약 1.8배), 영업이익률 29% (2025)\n■ 당기순이익률 17.6% (2025) - 인디 브랜드 중 매우 우수한 수익성\n■ 광고 소구: 자연광에서 빛나는 피부, 결·광·색의 변주, 민감성 친화\n■ 시사점: 화장품 제조업 직접 운영(자체공장 본사), 외부 투자 없이 안정적 성장 5년+ 흑자 지속","ads":[{"id":"ad_ba_avoca","platform":"meta","url":"https://www.facebook.com/ads/library/?id=749479073835226","note":"⭐⭐⭐ 아보카모헤어팩 - 2년 러닝중 (장기 위너 광고)","stars":3,"running":"2년 러닝중","createdAt":1777459264729},{"id":"ad_ba_1","platform":"meta-page","url":"https://www.facebook.com/loryandchel/","note":"로리앤첼 공식 페이스북","createdAt":1777459264729},{"id":"ad_ba_2","platform":"instagram","url":"https://www.instagram.com/loryandchel_official/","note":"로리앤첼 공식 인스타그램 - \"찬란한 빛\" 비주얼","createdAt":1777459264729},{"id":"ad_ba_3","platform":"other","url":"https://loryandchel.com/","note":"공식 자사몰 (메이크샵 호스팅)","createdAt":1777459264729},{"id":"ad_ba_4","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%EB%A1%9C%EB%A6%AC%EC%95%A4%EC%B2%BC","note":"메타 광고 라이브러리 - 로리앤첼 검색","createdAt":1777459264729}],"articles":[],"revenueData":[{"year":"2021-12-31","revenue":"5858076","opIncome":"1155612","netProfit":"935467"},{"year":"2022-12-31","revenue":"5297204","opIncome":"903501","netProfit":"587390"},{"year":"2023-12-31","revenue":"7486955","opIncome":"1608147","netProfit":"1183385"},{"year":"2024-12-31","revenue":"11059183","opIncome":"2712713","netProfit":"2070126"},{"year":"2025-12-31","revenue":"10713650","opIncome":"3140608","netProfit":"1884105"}],"revenueSource":"smb","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_peoples_sample","catId":"cat_cosmetic","subId":"sub_cleansing","name":"(주)피플스","brand":"퐁당 (PONGDANG)","ceo":"박용민","staff":"12명 (사람인 NICE평가)","addr":"인천 연수구 인천타워대로 323, A동 901-903호 (송도동, 송도센트로드)","products":"퐁당 셀카 크림, 동키 밀크 클렌징 폼, 당나귀 밀크 마스크 시트, 탄산수 마스크 시트, 사막장미 바디로션, 핸드크림, 스팟 앰플, PRE/PRO/POST CARE 라인","summary":"■ 2015.06 설립 / 2013년부터 온라인 화장품 브랜드 '퐁당' 런칭 / 화장품 제조업\n■ 콘셉트: \"지친 피부를 위한 저자극 고기능성 더마코스메틱\"\n■ 차별점: 광고 거의 없음, 자발적 입소문 마케팅, 정성영(전 대표)이 모든 신제품 사용감 직접 테스트\n■ 디자인 전략: \"유행을 따르지 않는 간결한 디자인\" + \"순수 한글 로고\" → 유럽·미주 수출 호응\n■ 친환경 가치: 최소한의 화학성분, 재사용 가능한 친환경 포장재\n■ 매출 성장: 2021년 59.2억 → 2025년 126억 (5년간 약 2.1배), 영업이익률 9.9% (2025)\n■ 매출 출처: 중소기업현황 (이미지 첨부)\n■ 광고 소구: 친환경, 저자극, 한글 로고, 더마코스메틱, 자발적 추천\n■ 시사점: ① 유행 안 따르는 디자인으로 5년+ 매출 안정 성장 ② 광고 없이 입소문으로 성장 ③ 유럽 시장 선호도 ↑ ④ 더마 + 친환경 결합 (JS MGS와 결이 비슷)","ads":[{"id":"ad_p_1","platform":"meta-page","url":"https://www.facebook.com/freshpongdang/","note":"퐁당 공식 페이스북","createdAt":1777459264729},{"id":"ad_p_2","platform":"instagram","url":"https://www.instagram.com/pongdang_official/","note":"퐁당 공식 인스타그램","createdAt":1777459264729},{"id":"ad_p_3","platform":"other","url":"https://pongdangshop.com/","note":"퐁당 공식 자사몰 (Cafe24)","createdAt":1777459264729},{"id":"ad_p_4","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%ED%8D%BD%EB%8B%B9","note":"메타 광고 라이브러리 - 퐁당 검색 (광고 거의 없음 = 입소문 마케팅 중심)","createdAt":1777459264729}],"articles":[{"id":"art_p_1","url":"https://biz.heraldcorp.com/article/702530","title":"온라인 화장품 브랜드 '퐁당', 무엇이 고객의 마음을 사로잡았나","summary":"헤럴드경제 인터뷰 (2015). 핵심 내용:\n\n[성공 비결]\n• 정성영 대표: \"광고 전혀 진행하지 않았음에도 자체 브랜드 '퐁당'이 인기\"\n• 두 가지 핵심: 제품 디자인 + 품질력 → 자발적 입소문\n• \"유행을 따르지 않는 간결한 디자인\" - 환경 영향 최소화 + 유행 타지 않음\n\n[해외 진출 전략]\n• 유럽·미주 수출 - 동남아보다 유럽 선호도가 더 높음\n• 이유: 순수 한글 로고 + 간결한 유럽형 디자인\n\n[운영 철학]\n• 오프라인 매장 ✗, 고비용 스타마케팅 ✗ → 절감 비용 모두 제품 개발 투자\n• 정성영 대표가 모든 신제품 사용감 테스트 직접 참여\n• 모든 제품 소량 생산, 재생산 시 소비자 건의사항 적극 반영\n\n[시사점]\n• JS MGS와 결이 유사: 더마 + 친환경 + 디자인 절제 + 자발적 추천\n• 단 광고 의존도가 낮음 = 퐁당의 모델은 입소문 의존이라 JS 퍼포먼스 광고 모델과 다름","createdAt":1777459264729}],"revenueData":[{"year":"2021-12-31","revenue":"5917412","opIncome":"908861","netProfit":"827301"},{"year":"2022-12-31","revenue":"5793458","opIncome":"847568","netProfit":"779810"},{"year":"2023-12-31","revenue":"6965436","opIncome":"754604","netProfit":"764252"},{"year":"2024-12-31","revenue":"8563072","opIncome":"1298888","netProfit":"1251578"},{"year":"2025-12-31","revenue":"12630938","opIncome":"1251182","netProfit":"1220885"}],"revenueSource":"smb","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_hereka_sample","catId":"cat_fragrance","subId":"sub_fabric_perfume","name":"문도야(주) / (주)스테이튠드","brand":"헤레카 (HEREKA)","ceo":"최재운","staff":"9명 (2023, NICE평가)","addr":"서울 마포구 연남동 369-17, 302호","products":"헤레카 패브릭퍼퓸 위스키우드향 섬유향수, 텍스쳐크림 머스크엠버향, 알럼스틱 애프터쉐이브, 헤어브러쉬 포마드빗, 그루밍 라인 (헤어/면도/향수)","summary":"■ 운영사 변천: (주)스테이튠드(2020.03 설립) → 문도야(주)로 변경 (사업자번호 326-88-01267 동일)\n■ 주소: 서울 마포구 연남동 369-17, 302호\n■ 카테고리 포지션: \"프래그런스 그루밍 브랜드\" - 향기 + 그루밍 결합\n■ 핵심 제품 라인: 섬유향수(위스키우드향), 헤어 텍스쳐크림(머스크엠버향), 면도 그루밍, 헤어 스타일링\n■ 가격: 정가 28,900~29,900원 → 판매가 19,900원 (약 30% 할인)\n■ 광고 소구: 옷에 뿌리는 섬유향수, 향이 오래 지속, 그루밍 라이프스타일, 위스키우드/머스크엠버 같은 남성 친화 향\n■ 메타 광고 라이브러리에 활성 광고 운영 중\n■ 시사점: 향기 카테고리에서 \"섬유향수+그루밍\" 결합 포지셔닝, 남성 타겟, B2B 도매 채널 운영 (sales@staytuned.co.kr)","ads":[{"id":"ad_h_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1820609571827662","note":"메타 광고 라이브러리 - 헤레카 섬유향수 광고 ID","createdAt":1777459264729},{"id":"ad_h_2","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%ED%97%A4%EB%A0%88%EC%B9%B4","note":"메타 광고 라이브러리 - 헤레카 검색 결과 (러닝 광고 모음)","createdAt":1777459264729},{"id":"ad_h_3","platform":"other","url":"https://hereka.co.kr/","note":"헤레카 공식 자사몰 (Cafe24)","createdAt":1777459264729},{"id":"ad_h_4","platform":"instagram","url":"https://www.instagram.com/hereka_official/","note":"헤레카 공식 인스타그램 (그루밍 라이프스타일 콘텐츠)","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"web","revenueSourceUrl":"https://bizno.net/article/3268801267","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_pentramin_sample","catId":"cat_yainn","subId":"sub_y_diet","name":"(주)투웨니투센추리 ← (前) (주)패스트트랙","brand":"펜트라민 (Pentramin)","ceo":"이상훈","staff":"신생/소규모 (사업자 갈아타기 중)","addr":"(현) 서울 강남구 역삼로 310, 1층 92호 / (前) 서울 관악구 남부순환로 1921-1, 401-E8호","platform":"그누보드+영카트(자체호스팅) - 광고소재별 다른 it_id 운영","products":"펜트라민 마름모정 (다이어트 식품보조제) - 인디안바베리열매 추출분말(베르베린 5%), 비타민B12, 글루코만난, 흰강낭콩 추출분말, 발효율피, 브로멜라인, 콜레우스포스콜리 등 함유","summary":"■ 🚨 사업자 갈아타기 확인됨:\n   - (前) (주)패스트트랙: 288-88-03245 / 통신판매업 2025-서울관악-0765\n   - (現) (주)투웨니투센추리: 531-88-03528 / 통신판매업 2026-서울강남-00073\n   - 대표는 동일: 이상훈\n   → 같은 사이트(pentramin.kr) 운영하면서 법인만 갈아끼움 (식약처 행정처분 회피용 추정)\n   → 최근 사업자가 추가로 '벤타스' 운영도 확인됨 (vantas.kr - 동일 사업자번호)\n\n■ 🛠️ 사이트 코드 분석 결과:\n   - 그누보드5(GNUBOARD 5) + 영카트5(YC5) 자체 호스팅\n   - 카페24, 아임웹, 식스샵 모두 아님\n   - 결정적 단서: /shop/cscenter.php, itemuselist.php?it_id=숫자, /data/item/숫자/thumb-... 경로\n   - 자사몰 utm 트래킹: 광고 소재별 다른 it_id (1744275314, 4837117471 등)으로 LP 분리\n   - 왜 이걸 썼나: ① 의약품 오인 광고 약관 회피 ② A/B테스트 자유 ③ 수수료 0원 ④ 빠른 폐쇄/재오픈 가능\n\n■ 카테고리: 다이어트 식품보조제 (식품 = 의약품 아님)\n■ ⚠️ 네이밍 전략: 향정신성 의약품 \"펜터민(Phentermine)\" 이름 차용 → \"펜트라민\"\n   - 펜터민 = 디에타민/나비약 (마약류, 처방 4주 한정)\n   - 펜트라민 = 일반 식품보조제 (처방 불필요)\n   - 검색 트래픽 가로채기 + 의약품 오인 마케팅\n\n■ 광고 소구: \"비만크리닉 약 부작용 없이\", \"식욕 줄어듦\", \"위고비와 병행\", \"파란약/마름모정\"\n■ 가격: 1박스 60정 / 정가 157,400 → 판매 58,900\n\n■ JS 시사점:\n   ① 신생회사 빠른 메타 광고 진입 모델 (참고 O)\n   ② 그누보드+영카트 자체호스팅 = 광고 소재별 LP 운영 비기 (참고 O)\n   ③ 의약품 네이밍 차용 = 카피 절대 금지 (식약처 단속 + 사업자 갈아타기 = 명백한 법적 리스크)\n   ④ 차별화 가능: \"안전한 식품\" + \"검증된 성분\" + \"투명한 임상\" + \"법인 신뢰도\" 프레임","ads":[{"id":"ad_pen_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=865693336243164","note":"메타 광고 라이브러리 - 펜트라민 활성 광고 #1","stars":2,"running":"","createdAt":1777459264729},{"id":"ad_pen_5","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1462855488144100","note":"메타 광고 라이브러리 - 펜트라민 활성 광고 #2","stars":2,"running":"","createdAt":1777459264729},{"id":"ad_pen_6","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1624756082270356","note":"메타 광고 라이브러리 - 펜트라민 활성 광고 #3","stars":2,"running":"","createdAt":1777459264729},{"id":"ad_pen_2","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%ED%8E%9C%ED%8A%B8%EB%9D%BC%EB%AF%BC","note":"메타 광고 라이브러리 - 펜트라민 검색 결과","createdAt":1777459264729},{"id":"ad_pen_3","platform":"other","url":"https://pentramin.kr/shop/1744275314?utm_source=meta&utm_medium=da&utm_campaign=traffic&utm_content=260127_7%281205_video_1_t%29","note":"자사몰 광고 랜딩 - utm 광고소재별 트래킹 (260127_7 = 1205_video_1_t)","createdAt":1777459264729},{"id":"ad_pen_7","platform":"other","url":"https://pentramin.kr/shop/4837117471?utm_source=meta&utm_medium=da&utm_campaign=traffic&utm_content=260127_2(1103_video_2_t)","note":"자사몰 광고 랜딩 - 다른 it_id로 같은 상품 분리 운영 (1103_video_2_t)","createdAt":1777459264729},{"id":"ad_pen_4","platform":"other","url":"https://pentramin.kr","note":"펜트라민 메인 자사몰","createdAt":1777459264729}],"articles":[{"id":"art_pen_1","url":"https://medichacha.co.kr/View.aspx?No=3402432","title":"펜터민 등 향정신성의약품, 최근 5년간 다이어트약으로 10억 8천만여 개 처방","summary":"안티에이징뉴스 기사. 핵심:\n\n[시장 규모]\n• 최근 5년간 펜터민 성분 다이어트약 → 835만 명 환자에 10억 8천만 개 처방\n• 디에타민(펜터민) + 펜디라(펜디메트라진) 합 9억 9천만 개 = 전체 92%\n• 시장이 매우 큼 → 일반 식품보조제 수요 폭발 가능\n\n[규제 리스크]\n• 펜터민 = 향정신성 의약품 (마약류)\n• 4주 단기 처방만 허용\n• 정신과적 부작용 신고 多 → 정부 관리 강화 추세\n\n[펜트라민 입장]\n• 펜터민 처방을 꺼리거나 못 받는 사람들이 대안으로 식품보조제 검색\n• \"펜트라민\" 네이밍은 그 검색 트래픽을 가로채기 위한 것으로 추정\n• 식약처가 \"의약품 오인 광고\"로 단속 가능 (실제 단속 사례 다수)\n\n[JS 시사점]\n• 식품보조제 카테고리에서 D2C + 메타 광고 단일 모델로 빠르게 매출 일으키는 케이스\n• 단 의약품 네이밍 차용은 법적 리스크 큼 - JS가 참고는 하되 카피하면 안 됨\n• 차별화 가능: \"안전한 식품\" + \"검증된 성분\" + \"투명한 임상\" 프레임으로 같은 시장 진입","createdAt":1777459264729}],"revenueData":[],"revenueSource":"web","revenueSourceUrl":"https://pentramin.kr","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_bricker","catId":"cat_cosmetic","subId":"sub_cleansing","name":"(주)뷰티에어포트","brand":"브릭커 (BRICKER)","ceo":"임영광","staff":"(뷰티에어포트와 동일)","addr":"인천 연수구 인천타워대로 323, B동 2601호","products":"브릭커 검정콩 속눈썹영양제 워터프루프 마스카라 8ml, 루트풀 나이트 연어단백질 속눈썹영양제 12ml, 머디 어성초 천연비누 140g, 피기 어성초 천연비누 140g","platform":"카페24/메이크샵 (자사몰 + 비셀럽 입점)","summary":"■ 운영사: (주)뷰티에어포트 = 로리앤첼 운영사와 동일\n■ 메인 제품: 속눈썹 영양제 마스카라 (속눈썹 부문 18~19위, 화해 4.75)\n■ 가격: 정가 29,500~35,000 → 판매 17,500~19,500 (50%대 할인)\n■ 카테고리 분류: JS 지시대로 클렌징 탭에 등록 (실제로는 아이메이크업 + 천연비누 라인)\n■ 광고 소구: 검정콩/연어단백질 (속눈썹) + 어성초 (비누) 자연 성분 강조\n■ 시사점: 뷰티에어포트(인천)이 로리앤첼 외에 멀티브랜드 전략 → 본사 1개 + 브랜드 다수 운영 모델","ads":[{"id":"ad_bk_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1535589150299250","note":"메타 광고 라이브러리 - 브릭커 활성 광고","stars":2,"running":"","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_vantas","catId":"cat_yainn","subId":"sub_y_hair","name":"(주)투웨니투센추리","brand":"벤타스 (Vantas) / 반타스","ceo":"이상훈","staff":"(펜트라민과 동일 사업자)","addr":"서울 강남구 역삼로 310, 1층 92호","products":"벤타스 미녹산정37.5 (특허 유산균 37.5%, 빈틈케어 솔루션)","platform":"그누보드+영카트 (펜트라민과 동일 코드 베이스)","summary":"■ 🚨 펜트라민과 100% 동일 운영사 확인:\n   - 사업자번호 531-88-03528 (동일)\n   - 대표 이상훈 (동일)\n   - 주소 서울 강남구 역삼로 310 (동일)\n   - 통신판매업 2026-서울강남-00073 (동일)\n   - 사이트 구조: pentramin.kr 와 동일한 그누보드+영카트 자체호스팅\n   - URL 패턴: vantas.kr/shop/{숫자ID} (같은 형식)\n\n■ ⚠️ 네이밍 전략: 의약품 \"미녹시딜(Minoxidil)\" 연상 → \"미녹산정\"\n   - 미녹시딜 = 탈모 치료제 (의약품)\n   - 벤타스 미녹산정 = 식품보조제 (특허 유산균 함유)\n   - 펜트라민과 똑같은 패턴 = \"의약품 검색 트래픽 가로채기\"\n\n■ 카테고리: 탈모/모발 관리 식품보조제\n■ 광고 소구: \"특허 유산균 37.5%\", \"빈틈케어 솔루션\", \"BEST\"\n■ 사업 패턴: 한 사업자(이상훈)가 여러 식품보조제 브랜드 멀티 런칭 - 다이어트(펜트라민) + 탈모(벤타스) + a","ads":[],"articles":[],"revenueData":[],"revenueSource":"web","revenueSourceUrl":"https://vantas.kr","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_foracne","catId":"cat_yainn","subId":"sub_y_acne","name":"(미확인 - foracne2.kr)","brand":"포아크네 (For Acne) / 포락 / 이소틴정","ceo":"(조사 필요)","staff":"(조사 필요)","addr":"(조사 필요)","products":"포아크네 이소틴정 (여드름/피부 컨디션 케어 식품보조제) - \"단 두 알로 속부터 관리\"","platform":"그누보드+영카트 자체호스팅 (펜트라민/벤타스와 동일 패턴 추정)","summary":"■ 카테고리: 건기식-여드름 (정확)\n\n■ ⚠️ 네이밍 전략: 의약품 \"이소트레티노인(Isotretinoin)\" 연상 → \"이소틴정\"\n   - 이소트레티노인 = 중증 여드름 치료제 (전문의약품, 임산부 금기)\n   - 포아크네 이소틴정 = 일반 식품보조제\n   - 펜트라민/벤타스와 똑같은 패턴 = \"의약품 네이밍 차용 + 식품보조제 판매\"\n\n■ 사이트 구조: foracne2.kr/shop/{숫자ID} (펜트라민과 동일 영카트 패턴)\n■ 마케팅 카피: \"미국 1위 진정 레시피 92% 일치\"\n\n■ 시사점: 펜트라민/벤타스/포아크네 - 한국에 \"의약품 네이밍 차용 식품보조제\" 신생 브랜드들이 동일 비즈니스 모델로 우후죽순 등장 중\n   → JS가 참고할 점: 이 모델은 ① 빠른 매출 ② 높은 리스크 ③ 사업자 갈아타기 필수 패턴","ads":[{"id":"ad_fa_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=610363148790484","note":"포아크네 메타 광고","stars":2,"running":"","createdAt":1777459264729},{"id":"ad_fa_2","platform":"other","url":"https://foracne2.kr/shop/1703651485?utm_source=meta&utm_medium=da&utm_campaign=traffic&utm_content=0917_4(0808_video_2)","note":"자사몰 광고 랜딩 (0917_4 = 0808_video_2)","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"web","revenueSourceUrl":"https://foracne2.kr","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_legpill","catId":"cat_yainn","subId":"sub_y_diet_cream","name":"주식회사 닥터릿","brand":"레그필 (Legpill)","ceo":"(조사 필요)","staff":"(조사 필요)","addr":"서울 강남구 테헤란로 52길 21, 1502호","products":"레그필 (600mg x 60정, 과채가공품) - 다리 부종/저림/정맥류 케어 정","platform":"카페24 (legpill.kr - product/detail.html 패턴)","summary":"■ ⚠️ 카테고리 분류 알림: JS가 \"다이어트크림 탭\" 요청 - 실제로는 정(타블렛) 형태의 다리부종 보조제. \"다이어트크림\"이 아니지만 다이어트크림 탭에 등록함.\n\n■ 운영사: (주)닥터릿 (약사 개발 강조)\n■ 컨셉: \"약사개발, 레그필\" - 약사 신뢰감 마케팅\n■ 제품 유형: 과채가공품 (식품보조제, 의약품 아님)\n■ 핵심 성분: 제이인산칼륨, 탱자열매분말, 늙은호박, 소나무껍질, 천궁뿌리줄기, 회향, 병풀잎, 은행, 민들레, 헤스페리딘, 토마토(FRUITFLOW II SD)\n■ 효과 (사용자 리뷰 기반): 붓기 개선 77%, 저림 개선 44%, 정맥류 개선 16%\n■ 부작용: 효과없음 33%, 속안좋음 5%, 변비 5%\n■ 가격대: \"비밀링크\" 한정 + 레그크림 증정 마케팅\n\n■ 광고 소구: \"약사가 만든\", \"152차 누적\", \"다리 부종/저림\", \"오후로 갈수록 다리 붓는 사람\"\n■ 시사점: 약사 개발 = 신뢰 프레이밍, 비밀링크/한정수량 = 긴급성 마케팅","ads":[{"id":"ad_lp_1","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&id=845087697955039&is_targeted_country=false&media_type=all&search_type=page&sort_data[mode]=total_impressions&sort_data[direction]=desc&view_all_page_id=435183116355251","note":"메타 광고 라이브러리 - 페이지 전체 광고 (노출수 정렬)","stars":2,"running":"","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"web","revenueSourceUrl":"https://legpill.kr","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_zeniscent","catId":"cat_fragrance","subId":"sub_diffuser","name":"(주)제니센트","brand":"제니센트 (Zeniscent)","ceo":"(추가 조사 필요)","staff":"소규모 (위시버킷·11번가·자사몰 입점)","addr":"(추가 조사 필요 - cafe24 자사몰 운영)","products":"제니센트 무드 디퓨저 (실내 방향제) 그리너리 500ml, 퍼퓸 사쉐 (옷장/서랍/차량용), 무드 퍼퓸 사쉐, 드레스 퍼퓸 (5가지 향), 홀리데이 에디션 오너먼트 사쉐","platform":"카페24","summary":"■ 카테고리 포지션: \"넓은 공간 매꿔주는 무드 디퓨저\" + \"옷장/서랍/차량 어디든 퍼퓸 사쉐\"\n■ 핵심 라인: 무드 디퓨저, 퍼퓸 사쉐, 드레스 퍼퓸 (3개 라인)\n■ 가격대: 디퓨저 9,900원~ (가성비 라인업)\n■ 광고 소구: \"감각적 무드\", \"5가지 향의 무드\", \"공간을 아우르는 입체감 있는 향기\"\n■ 유통: 자사몰 + 위시버킷 등 큐레이션 플랫폼\n■ 시사점: 헤레카(섬유향수+그루밍)와 다른 포지션 - 제니센트는 \"공간/생활 디퓨저+사쉐\" 집중","ads":[{"id":"ad_zs_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1169089237930815","note":"제니센트 메타 광고","stars":2,"running":"","createdAt":1777459264729},{"id":"ad_zs_2","platform":"other","url":"https://zeniscent.com/product/%EC%A0%9C%EB%8B%88%EC%84%BC%ED%8A%B8-%EB%AC%B4%EB%93%9C-%EB%94%94%ED%93%A8%EC%A0%80-%EC%8B%A4%EB%82%B4-%EB%B0%A9%ED%96%A5%EC%A0%9C-%EA%B7%B8%EB%A6%AC%EB%84%88%EB%A6%AC-500ml/19/category/1/display/2/?cafe_mkt=ue_zs13043&utm_content=zs13043","note":"자사몰 광고 랜딩 - 무드 디퓨저 그리너리 500ml","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_yourvet","catId":"cat_pet","subId":"sub_pet_dental","name":"(조사 필요 - yourvet.kr)","brand":"유어벳 (YourVet)","ceo":"(조사 필요)","staff":"(조사 필요)","addr":"(조사 필요)","products":"덴탈 스프레이 (강아지 입냄새/치석/구강케어) 외","platform":"(조사 필요)","summary":"■ 카테고리: 애견 덴탈/구강 케어\n■ 광고 소구점: \"절대로 뽀뽀하면 안되는 강아지 특징\" - 강한 후킹 카피\n■ 광고 패턴: 1년 4개월 러닝 (2024.12~) - ⭐⭐⭐ 매우 안정적인 위너 광고\n■ utm 트래킹: campaign=dentalspray_vid_newmeltingplaque (덴탈스프레이 비디오, \"newmeltingplaque\" = 새로 녹이는 치태)\n■ utm_content=240218 (소재 ID 추정)\n■ 시사점: 애견 시장 진입 시 참고 모델 - 강한 후킹 + 장기 러닝 광고 = 검증된 위너 광고임을 의미","ads":[{"id":"ad_yv_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=552312624242042","note":"유어벳 덴탈스프레이 - \"절대로 뽀뽀하면 안되는 강아지 특징\" 후킹","stars":3,"running":"2024.12~ (1년 4개월 러닝중)","createdAt":1777459264729},{"id":"ad_yv_2","platform":"other","url":"https://yourvet.kr/surl/P/12?utm_source=FBIG&utm_medium=paid_social&utm_campaign=dentalspray_vid_newmeltingplaque_all&utm_term=%7bquery%7d&utm_content=240218","note":"자사몰 광고 랜딩 (단축 URL 형식 /surl/P/12)","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_pillows","catId":"cat_yainn","subId":"sub_y_etc","name":"서울미생물연구소","brand":"필로우즈 (Pillows)","ceo":"(조사 필요)","staff":"(조사 필요)","addr":"(조사 필요)","products":"필로우즈 베개 (조사 필요)","platform":"카페24 (product/detail.html 패턴)","summary":"■ 운영사: 서울미생물연구소 (이름 흥미로움 - 베개+미생물 결합 가능성)\n■ 광고 패턴: 4개월 이상 러닝 ⭐ - 안정적 광고\n■ utm: 1219_video_1_b (영상 소재 1번 b버전)\n■ 광고 컨셉 추정: 미생물(항균/위생) 관점에서 베개 마케팅 - 일반 베개와 차별화\n■ 시사점: \"미생물연구소\" 브랜드 네이밍 = 위생/과학 신뢰 프레이밍 (JS 약선/궁중 컨셉과 비슷한 권위 차용 전략)","ads":[{"id":"ad_pw_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1389897065915362","note":"필로우즈 베개 광고","stars":2,"running":"4개월 이상 러닝중","createdAt":1777459264729},{"id":"ad_pw_2","platform":"other","url":"https://pillows.kr/product/detail.html?product_no=9&utm_source=meta&utm_medium=da&utm_campaign=traffic&utm_content=1219_video_1_b","note":"자사몰 광고 랜딩 (1219_video_1_b)","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459756972,"channels":[],"brandUrl":"","recordReason":""},{"id":"co_humanutri","catId":"cat_health","subId":"sub_diet","name":"주식회사 그루업","brand":"휴먼뉴트리 (HumaNutri)","ceo":"(조사 필요)","staff":"(조사 필요)","addr":"(조사 필요)","products":"아보카젠(Avocagen) - 남성용 다이어트 보조제 (공복 우롱차 컨셉 추정)","platform":"(조사 필요)","summary":"■ utm: campaign=avocagen_formen / content=avocagen_formen_ver03\n■ 제품 추정: 아보카젠(Avocagen) for men - 남성 타겟 다이어트 보조제\n■ 광고 영상 ver03 = 3번째 소재 운영 중\n■ 시사점: 남성 다이어트 보조제 = 펜트라민(범용)과 다른 세그먼트 타겟팅 사례","ads":[{"id":"ad_hn_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1691021825186812","note":"휴먼뉴트리 아보카젠 메타 광고","stars":2,"running":"","createdAt":1777459264729},{"id":"ad_hn_2","platform":"other","url":"https://humanutri.kr/all/?idx=15&utm_campaign=avocagen_formen&utm_content=avocagen_formen_ver03&utm_medium=display&utm_source=meta","note":"자사몰 광고 랜딩 - 아보카젠 남성용","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_drhenlo","catId":"cat_pet","subId":"sub_pet_eye","name":"주식회사 헨로포우 (Henlo Paw)","brand":"닥터헨로 (Dr.Henlo)","ceo":"최재운 (스테이튠드와 동일 추정)","staff":"9명 (헨로포우=스테이튠드와 동일 사업자번호 326-88-01267 가능성)","addr":"서울 마포구 (헤레카와 동일 운영사 가능성)","products":"닥터헨로 강아지 눈물케어 제품 (product_no=102)","platform":"카페24 (product/detail.html 패턴)","summary":"■ 🚨 헤레카 운영사와 동일 가능성 매우 높음:\n   - henlopaw.com = 스테이튠드의 주요 도메인 중 하나로 확인됨 (앞 조사에서)\n   - (주)스테이튠드 → 문도야(주) 변경한 운영사가 펫 브랜드도 함께 운영\n   - 사업자번호 326-88-01267 동일 가능성 ★\n\n■ 운영사: (주)헨로포우 또는 (주)스테이튠드/문도야\n■ 카테고리: 애견 눈물/안구 케어\n■ utm: campaign=EX352-HN, term=HN, content=HN-220408-E (220408=2022.04.08, E=영상 추정)\n■ 시사점: 한 운영사가 향기/그루밍(헤레카) + 펫(닥터헨로) 멀티브랜드 → 헤레카에서 봤던 멀티브랜드 패턴 확장","ads":[{"id":"ad_dh_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1069441204687574","note":"닥터헨로 메타 광고","stars":2,"running":"","createdAt":1777459264729},{"id":"ad_dh_2","platform":"other","url":"https://henlopaw.com/product/detail.html?product_no=102&utm_source=facebook&utm_medium=cpc&utm_campaign=EX352-HN&utm_term=HN&utm_contents=HN-220408-E","note":"자사몰 광고 랜딩 (EX352-HN 캠페인)","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_petpening","catId":"cat_pet","subId":"sub_pet_play","name":"(조사 필요 - petpening.com)","brand":"펫프닝 (PetPening)","ceo":"(조사 필요)","staff":"(조사 필요)","addr":"(조사 필요)","products":"노즈워크 토이 / 강아지 장난감 (product_no=260)","platform":"카페24 (product/detail.html 패턴)","summary":"■ 카테고리: 애견 장난감/노즈워크\n■ 광고 소구: \"강아지가 흥미를 느낌\" - 행동학 기반 마케팅\n■ 광고 카테고리: 노즈워크 (강아지 후각 자극 → 스트레스 해소)\n■ 시사점: 펫 시장 세분화 = 사료/덴탈/눈물에 더해 \"정서적 풍부함(enrichment)\" 카테고리 진입","ads":[{"id":"ad_pp_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1154705073008420","note":"펫프닝 노즈워크 광고 - \"강아지가 흥미를 느낌\" 소구","stars":2,"running":"","createdAt":1777459264729},{"id":"ad_pp_2","platform":"other","url":"https://petpening.com/product/detail.html?product_no=260","note":"펫프닝 자사몰 상품 페이지","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_re4day","catId":"cat_health","subId":"sub_diet","name":"(주)와우바이오텍","brand":"리포데이 (RE4DAY) + 뉴칸 (NUKAN)","ceo":"조현호","staff":"(중견 - 리멤버 채용공고 운영중)","addr":"서울 영등포구 여의대방로65길 6 (여의도동) 9층","products":"리포데이 올인원 컷 다이어트 (혈당+다이어트), 올인원 맨즈팩/우먼팩 종합비타민, 올인원 가르시니아, 올인원 글루타치온, 올인원 아르갈랑(아르기닌+갈랑갈), 올인원 블러드부스터(혈당+콜레스테롤)","platform":"PHP 자체쇼핑몰 (goods/goods_view.php 패턴 - cafe24가 아닌 자체호스팅)","summary":"■ 운영사: (주)와우바이오텍 (사업자 114-88-02057, 통신판매업 2024-서울영등포-0535)\n■ 메인 브랜드: 리포데이 (RE4DAY) + 뉴칸 (NUKAN) 두 브랜드 운영\n■ 비즈니스 모델: ★★★ 정기구독 종합영양제 (★ 펜트라민·벤타스와 다른 정직한 모델)\n   - 카카오톡 회원 4만명+ 보유 → 충성 정기구독자 기반\n   - 30/35/40/45일 자동 배송 (개인 섭취 주기 맞춤)\n   - 2022 한국브랜드리더대상 건강기능식품 부문 1위\n\n■ 가격 전략 (강력한 가격 차별):\n   - 정상가: 50,000원\n   - 1회 구매: 29,000원 (42% 할인)\n   - 정기구독: 19,000원 (62% 할인) ← 정기구독 락인\n   → '정기구독'을 강하게 미는 가격 설계\n\n■ 광고 소구 (utm 분석):\n   - campaign=man (남성 타겟)\n   - content=영상_맨즈팩_aink_40대끌올다크_4대5_ig_j_연동현_251221\n   - 해석: 40대 남성 타겟, 4:5 비율 영상, 인플루언서 'aink' 활용, IG 광고\n   - 251221 = 2025.12.21 소재\n\n■ JS 시사점:\n   ① 정기구독 = LTV 극대화 모델 (1회 29k vs 정기 19k)\n   ② 카카오톡 친구 4만명 = 광고 의존도 낮춤\n   ③ 인플루언서 코드 (aink) + 연도-월-일 명확한 utm 체계 = 광고 운영 성숙도 매우 높음\n   ④ 의약품 네이밍 차용 X = 안전한 정공법 모델 (JS가 따라야 할 모델!)","ads":[{"id":"ad_re_1","platform":"meta","url":"https://www.facebook.com/ads/library/?id=1295087989308431","note":"리포데이 메타 광고 (40대 남성 타겟 맨즈팩)","stars":2,"running":"","adCount":"","createdAt":1777459264729},{"id":"ad_re_2","platform":"other","url":"https://www.re4day.co.kr/goods/goods_view.php?goodsNo=1000000020&utm_source=facebook&utm_medium=roas&utm_campaign=man&utm_content=%EC%98%81%EC%83%81_%EB%A7%A8%EC%A6%88%ED%8C%A9_aink_40%EB%8C%80%EB%81%8C%EC%98%AC%EB%8B%A4%ED%81%AC_4%EB%8C%805_ig_j_%EC%97%B0%EB%8F%99%ED%98%84_251221","note":"자사몰 광고 랜딩 - utm: 영상_맨즈팩_aink_40대끌올다크_4대5_ig_j_연동현_251221 (인플루언서 aink, 4:5 영상, IG, 2025.12.21 소재)","createdAt":1777459264729},{"id":"ad_re_3","platform":"instagram","url":"https://www.instagram.com/re4day/","note":"리포데이 공식 인스타 (359 팔로워 - 광고는 인플루언서 위주)","createdAt":1777459264729},{"id":"ad_re_4","platform":"youtube","url":"https://www.youtube.com/@-re4day","note":"리포데이 공식 유튜브","createdAt":1777459264729}],"articles":[{"id":"art_re_1","url":"https://v.daum.net/v/2bItfHsbsR","title":"㈜와우바이오텍 리포데이, 2022 한국브랜드리더대상 건강기능식품 부문 대상 수상","summary":"이데일리 기사 (2022.07). 핵심:\n\n[성장 비결]\n• 모토: \"모두를 위한 완성\"\n• 한국인 남녀 맞춤 배합 (국민건강영양조사 근거)\n• 정기구독 30/35/40/45일 자동 배송 (개인 주기 맞춤)\n• 카카오톡 회원 4만명+ 충성 기반\n\n[수상 요인]\n• 성분 배합 설계 우수\n• 다양한 제형으로 흡수 개선·편의성\n• 정기구독 서비스 편리성\n\n[JS 시사점]\n• 정기구독 모델 = 광고 의존도 낮춤 + LTV 극대화\n• 카카오톡 친구 4만명 = 광고 안 해도 매출 발생하는 안정 기반\n• \"맞춤\" 키워드 = 단순 비타민이 아닌 솔루션 포지셔닝","createdAt":1777459264729}],"revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_daybarrier","catId":"cat_health","subId":"sub_h_ingredient","name":"(주)아이리스브라이트 (IRISBRIGHT)","brand":"데이배리어 (DAYBARRIER) - ※ 자매 브랜드: 씨퓨리, 베다이트","ceo":"김민욱","staff":"200명+ (2026 매년 150% 성장, 영업이익률 30%+)","addr":"서울 (글로벌 70개국 진출)","products":"포리쥬 NMN(노화세포 컨트롤), 후코민C(100% 국내산 후코이단), 리뉴엔(비문복합물 i), 이서겐200(ER BP복합물), 프로페그라(프로페티아 BLACK 001), 셀렌톡(셀레늄), 치커트(HK나토배양물 혈전용해), 크롬컷(체지방감소), 멜라코어3X(멜라토닌), 피니톨, 브로멜라인","platform":"아임웹 (imweb) - cdn.imweb.me 호스팅","summary":"■ 운영사: (주)아이리스브라이트 (IRISBRIGHT) - 200명+ 글로벌 브랜드 하우스\n■ 사업자번호: 863-81-01831\n■ 대표: 김민욱\n■ ⭐⭐⭐ 매년 150% 성장, 영업이익률 30%+ (2026 기준)\n■ 자매 브랜드: 씨퓨리(헤어케어 - 2025 글로벌 3관왕 아마존·틱톡·올리브영), 베다이트(반달크림)\n■ 70여개국 글로벌 진출, 미국 진출 1개월만에 Amazon New Release 1위, 6개월만에 틱톡 1억뷰\n■ 컨셉: \"더 가볍고 더 건강한 내일을 위한 선택\" - 이너뷰티 브랜드\n■ 카테고리 포지션: ⭐⭐⭐ 단일 성분 강조 시리즈 (각 제품 = 하나의 핵심 성분 부각)\n   - 포리쥬 = NMN\n   - 후코민C = 후코이단\n   - 셀렌톡 = 셀레늄\n   - 크롬컷 = 크롬\n   - 치커트(전 혈행뻥) = HK나토배양물\n   - 프로페그라 = \"프로페티아 BLACK 001\" (탈모치료제 프로페시아 연상 네이밍)\n\n■ 가격 전략: \n   - 단품 35,200원 → 봄맞이 71% 할인 → 19,900원\n   - 시간한정·수량한정 마케팅 (\"이벤트 종료와 동시에 가격 인상\")\n   - 5set 이상 시 5,500원 적립금\n   - 선착순 50명 히든딜 19,900원\n\n■ 광고 소구: 단일 성분의 효능 + 함량 강조 (예: \"1일 영양성분기준치 200% 함유\")\n■ 채널: 카카오톡 플러스친구 + 자사몰 + ARS 간편주문 (전화주문)\n■ 시사점:\n   ① 성분 단위 SKU 분리 = 각 성분별 고객 명확히 타겟팅 (JS 약초/한방 컨셉과 결 비슷)\n   ② \"BLACK 001\" 같은 약품 연상 네이밍 + 단순 성분명 = 권위 + 신뢰 동시\n   ③ 봄맞이 기획전 같은 시즌 마케팅 적극 활용 (긴급성)","ads":[{"id":"ad_db_1","platform":"meta","url":"","note":"데이배리어 광고 - 메타 라이브러리에서 검색 필요 (포리쥬·NMN·아이리스브라이트 키워드)","stars":0,"running":"","adCount":"","startDate":"","createdAt":1777459264729},{"id":"ad_db_2","platform":"other","url":"https://daybarrier.co.kr/119","note":"포리쥬 NMN 자사몰 페이지 (메인 제품)","createdAt":1777459264729},{"id":"ad_db_3","platform":"other","url":"https://daybarrier.co.kr/","note":"데이배리어 메인 자사몰","createdAt":1777459264729}],"articles":[],"revenueData":[],"revenueSource":"web","revenueSourceUrl":"https://daybarrier.co.kr/","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_terafugen","catId":"cat_health","subId":"sub_h_ingredient","name":"주식회사 테라퓨젠바이오","brand":"테라퓨젠 (TERAFUGEN)","ceo":"UJIN PARK","staff":"10명+ (2026년 채용공고 진행중 - 6명 → 10명+ 성장)","addr":"서울 강남구 논현로72길 16 (역삼동) 초원빌딩 437호","products":"콜레스컷 부스터 (체지방), 헬리코컷 부스터 (위/장 6중 기능성), 콘드로칸 부스터 (특허연골), 조인트본 부스터 (뼈/관절 7중), 루테아틴 부스터 (눈건강 11중)","platform":"카페24 (cafe24img.poxo.com 호스팅 + cafe24 표준 URL 패턴)","summary":"■ 🚀 폭발 성장 케이스 ⭐⭐⭐ JS가 가장 주목할 사례:\n   - 3명이서 1년 만에 연매출 80억 달성\n   - 현재 팀 10명+, 2027년 정직원 100명 + 연매출 1,000억 목표\n   - 1년 내 5개 추가 브랜드 런칭 계획 (건기식·코스메틱·의약외품·의료기기)\n\n■ 운영사: (주)테라퓨젠바이오\n■ 사업자번호: 629-86-03025 / 통신판매업 2024-서울강남-04629\n■ 대표: UJIN PARK\n■ 비전: \"No.1 K-헬스케어\"\n■ 컨셉: \"약사가 설계한 과학적 팩트 기반 솔루션\" + \"고효능 D2C Company\"\n\n■ 카테고리 포지션: 단일 핵심 기능별 부스터 시리즈 (데이배리어와 매우 유사한 구조)\n   - 콜레스컷 부스터 = 콜레스테롤+체지방 (8중 기능성)\n   - 헬리코컷 부스터 = 위/장 (헬리코박터 연상)\n   - 콘드로칸 부스터 = 연골 (콘드로이친 연상)\n   - 조인트본 = 뼈관절\n   - 루테아틴 = 눈건강 (루테인 연상)\n   → ⭐ 의약품/성분 명칭 차용 + 차별 포지션 카피라이팅\n\n■ 가격: 정상 59,800원 → 판매 34,900~39,900원 (35~42% 할인)\n■ 차회 표시: \"64차 완판\", \"31차 완판\" 등 SOLD OUT 차수 노출 = 사회적 증명 강화\n■ 의원/약국 입점 메뉴 운영 = B2B 채널 확장\n■ ARS 주문 070-4138-0699 = 전화주문 채널\n\n■ JS 시사점 (★★★ 핵심):\n   ① 3명 → 80억 = 솔로 창업자(JS)가 봐야 할 가장 가까운 모델\n   ② \"약사 설계\" 권위 차용 (레그필과 같은 패턴)\n   ③ 의약품 연상 네이밍이지만 안전한 범위 (콘드로칸·헬리코컷·콜레스컷은 일반명사 변형)\n   ④ 단일 성분 → 멀티 SKU 확장 → 카테고리 점령 패턴\n   ⑤ \"차수 표시\" + \"완판\" + \"한정 부스터\" = 강한 긴급성 마케팅","ads":[{"id":"ad_tf_1","platform":"meta","url":"","note":"테라퓨젠 광고 - 메타 라이브러리에서 검색 필요 (테라퓨젠·콜레스컷·헬리코컷 키워드)","stars":0,"running":"","adCount":"","startDate":"","createdAt":1777459264729},{"id":"ad_tf_2","platform":"other","url":"https://terafugen.com","note":"테라퓨젠 메인 자사몰","createdAt":1777459264729},{"id":"ad_tf_3","platform":"other","url":"https://terafugen.com/brand/terafugen.html","note":"테라퓨젠 연구과정 (브랜드 스토리)","createdAt":1777459264729}],"articles":[{"id":"art_tf_1","url":"https://www.wanted.co.kr/company/49058","title":"테라퓨젠바이오 - 3명이서 1년 만에 80억 달성한 D2C 헬스케어","summary":"원티드 채용공고 페이지 (자기소개). 핵심:\n\n[성장 스토리]\n• 3명 → 1년 만에 연매출 80억 달성\n• 현재 팀원 10명+ (폭발적 성장)\n• 1년 내 5개 브랜드 런칭 계획 (건기식·코스메틱·의약외품·의료기기)\n• 2027년 정직원 100명+, 연매출 1,000억 + 해외 진출 목표\n\n[비전]\n• No.1 K-헬스케어\n• \"고효능 제품을 만드는 D2C Company\"\n\n[JS 시사점]\n• ⭐⭐⭐ 솔로/소규모 창업자가 가장 참고할 모델\n• 1년에 80억 = JS 5천만~1억 자본으로 시작 시 6~12개월 안에 검증 가능 케이스\n• \"단일 성분 부스터\" 시리즈 = SKU 확장 모델 → JS 약선/궁중 컨셉도 같은 방식 적용 가능\n• D2C 메타 광고 단일 채널로 시작 → 약국/의원 B2B 추가 = 단계별 확장","createdAt":1777459264729}],"revenueData":[{"year":"2024-12-31","revenue":"8000000","opIncome":"","netProfit":""}],"revenueSource":"web","revenueSourceUrl":"https://www.wanted.co.kr/company/49058","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[{"label":"자사몰","url":"https://terafugen.com/surl/P/80?cafe_mkt=ue_9_joint_sa_2&utm_source=google&utm_medium=sa&utm_campaign=prod9&utm_content=text&utm_term=joint_sa&gad_source=1&gad_campaignid=22934742956&gbraid=0AAAAA9XtpSQh_NY2G9IpOECteRCgCA6n1&gclid=Cj0KCQjw2MbPBhCSARIsAP3jP9yFsavZ5hV1-WC4AOSoA5pln4zBzAMcsniAxy4pKvlOMKg1hy4YJioaAq-7EALw_wcB"}]},{"id":"co_neritia","catId":"cat_cosmetic","subId":"sub_base","name":"더젊음마켓","brand":"네리티아 (NERITIA)","ceo":"이영우","staff":"(소규모 - 전주 기반)","addr":"전북특별자치도 전주시 완산구 마전3길 18 4층 401호","products":"네리티아 세럼 파운데이션 (21호 내추럴 베이지 외) - 미백+주름개선+자외선차단 3중 기능성, PGA(히알루론산 5배 수분력), 49,900원 → 29,800원","platform":"카페24 (product/detail.html 패턴)","summary":"■ 🚀 ⭐⭐⭐ 1초에 1개 꼴 완판 + 5개월+ 광고 러닝 = JS가 이전에 피봇 검토했던 그 브랜드\n   - 2025.11 론칭, 3,000개 1시간 완판\n   - 메타 광고 300개+ 운영, 5개월+ 러닝중\n\n■ 운영사: 더젊음마켓 (전주 기반)\n■ 사업자번호: 625-10-01637 (개인사업자, 통신판매업 2020-전주완산-0555)\n■ 대표: 이영우\n■ 컨셉: \"고대 여왕의 피부관리 비법을 현대 기술로 재해석\"\n   - 이집트 컨셉 (네리티아 = 고대 여왕 이미지)\n   - \"태양 아래서도 무너지지 않는 황금빛 피부\"\n\n■ 제품 포지션: ⭐⭐⭐ \"세럼 파운데이션\" - 카테고리 개척\n   - 세럼의 보습 + 파운데이션의 커버력 결합\n   - \"육각형 세럼 파운데이션\" (만능형) 평\n   - 청담 메이크업 샵 여배우 메이크업 사용 → 입소문\n   - 매트 파운데이션·쿠션팩트의 단점 보완\n\n■ 가격: 정가 49,900원 → 판매 29,800원 (40% 할인)\n■ 광고: utm 트래킹 발달 (gad_source, gad_campaignid 사용 - Google Ads 동시 운영)\n■ 14일 100% 환불 보장\n\n■ JS 시사점 (★★★ 매우 중요):\n   ① JS가 5천만~1억 자본으로 검토했던 모델 (이전 transcript 참조)\n   ② 전주 기반 개인사업자 = 솔로 창업자가 충분히 시작 가능한 규모 증명\n   ③ \"세럼 파운데이션\" = 카테고리 개척 = JS 약선·궁중 컨셉과 같은 차별화 전략\n   ④ 광고 5개월+ 러닝 = 검증된 위너 광고 보유 (광고 라이브러리에서 카피 분석 가치 큼)\n   ⑤ JS가 GO 시나리오로 들어갔다면 직접 경쟁할 브랜드","ads":[{"id":"ad_nr_1","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=neritia","note":"⭐⭐⭐ 메타 광고 라이브러리 - neritia 검색 (300개+ 광고 5개월 러닝)","stars":3,"running":"2025.11~ (5개월+ 러닝중)","adCount":"","startDate":"2025-11","createdAt":1777459264729},{"id":"ad_nr_2","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%EB%84%A4%EB%A6%AC%ED%8B%B0%EC%95%84","note":"메타 광고 라이브러리 - 네리티아 한글 검색","stars":2,"running":"","adCount":"","startDate":"","createdAt":1777459264729},{"id":"ad_nr_3","platform":"google","url":"https://neritia.com/product/detail.html?product_no=11&gad_source=5&gad_campaignid=23461452174&gclid=EAIaIQobChMI8L25rIWNlAMVdV7CBR1gRThpEAEYASABEgIomPD_BwE","note":"Google Ads 랜딩 (gad_campaignid=23461452174 - Google 광고도 동시 운영)","createdAt":1777459264729},{"id":"ad_nr_4","platform":"other","url":"https://neritia.com/","note":"네리티아 메인 자사몰","createdAt":1777459264729}],"articles":[{"id":"art_nr_1","url":"https://www.insight.co.kr/news/549933","title":"제2의 리들샷? 1초에 1개꼴로 판매 된 '네리티아 세럼 파데' 열풍 이유는?","summary":"인사이트 기사. 핵심:\n\n[완판 기록]\n• 3,000개 / 1시간만에 완판\n• 1초에 1개 꼴 판매\n• \"제2의 리들샷\"이라는 평가\n\n[성공 비결]\n• 컨셉: 고대 여왕 피부 관리 비법 → 현대 기술 재해석\n• 차별화: \"세럼 파운데이션\" 카테고리 개척 (보습+커버력 결합)\n• 청담 메이크업 샵 여배우 사용 → 입소문\n• 매트 파운데이션·쿠션팩트의 단점 보완 = \"육각형 세럼 파데\"\n\n[소비자 반응]\n• \"백화점 파운데이션 보다 낫다\"\n• \"은은한 윤광 + 자연스러운 잡티 커버\"\n• 피부 건조·각질 부각 없음\n\n[JS 시사점]\n• ⭐⭐⭐ \"기존 카테고리의 단점을 결합으로 해결\" = 차별화 핵심 공식\n• 청담 메이크업 샵 같은 \"프로 인증\" 활용 = 사회적 증명\n• \"OOO 파데\" 같은 새 카테고리명 만들기 = 브랜드 포지셔닝","createdAt":1777459264729}],"revenueData":[],"revenueSource":"web","revenueSourceUrl":"https://neritia.com","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_brand501","catId":"cat_cosmetic","subId":"sub_anti","name":"(주)브랜드501 (BRAND501)","brand":"닥터멜락신 (Dr.Melaxin) ※ 메인 + 메종드펜세, 바버501, 피그먼트미공","ceo":"유경화","staff":"110명+ (2025 기준, 사람인/잡플래닛)","addr":"서울 성동구 아차산로9길 20, B동 (성수동2가) 2층","platform":"카페24 + 자체 글로벌 자사몰 (skinagent.co.kr)","products":"닥터멜락신 - 더마 스킨케어 (비피 플럼핑 립샷, 아이팔트 아이크림, 필샷 고마쥬 앰플) / 메종드펜세 - 크림 퍼퓸 / 바버501 - 남성 그루밍","summary":"■ ⭐⭐⭐ 벤치마크급 글로벌 브랜드 하우스 (JS가 본받을 모델):\n   - 매년 200% 성장 / 매출 85%가 미국·유럽\n   - 2025년 예상 매출 3,000억+ / 2026년 1조 목표\n   - 미주·유럽·아시아 11개 법인 + 물류센터 운영\n   - 50개+ 전략 상품 / 2017년 1월 설립\n\n■ 사업자: 411-86-00693 (2017.02.13 설립, 9년차)\n■ 대표: 유경화\n\n■ 메인 브랜드 닥터멜락신 (Dr.Melaxin):\n   - 더마 코스메틱 - \"트러블·모공·기미·노화\" 4중 타겟\n   - 미국 틱톡 누적 32억 뷰 (2024 하반기)\n   - 미국 타임스퀘어 옥외광고 운영\n   - 사우디 알다와(Aldawa) 약국 입점\n   - 독일 K-뷰티 편집숍 더 코너(The Korner) 4개 거점\n   - 태국 EVEANDBOY 입점\n\n■ 멀티 브랜드 전략:\n   - 닥터멜락신 - 더마 스킨케어 (메인)\n   - 메종드펜세 - 크림 퍼퓸 (쿠팡 고체향수 1위)\n   - 바버501 - 남성 그루밍 (올리브영 TOP 10, 1020개 전지점 입점)\n\n■ JS 시사점:\n   ① 글로벌 우선 전략 = 매출 85% 해외 (K-뷰티 강점 활용)\n   ② 멀티 브랜드 + 카테고리 다각화\n   ③ 미국 틱톡 32억 뷰 = 미디어 커머스 + 글로벌 SNS 결합 모델\n   ④ 데이터 기반 + 글로벌 스탠다드 처음부터 설계\n   ⑤ \"카피하지 않고 크리에이티브와 전략으로\" 차별화","ads":[{"id":"ad_b501_1","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%EB%8B%A5%ED%84%B0%EB%A9%9C%EB%9D%BD%EC%8B%A0","note":"닥터멜락신 메타 광고 라이브러리 검색","stars":0,"running":"","adCount":"","startDate":"","createdAt":1777459264729},{"id":"ad_b501_2","platform":"tiktok","url":"https://www.tiktok.com/@drmelaxin","note":"닥터멜락신 미국 틱톡 (32억 뷰)","createdAt":1777459264729},{"id":"ad_b501_3","platform":"other","url":"https://brand501.com/","note":"(주)브랜드501 공식 사이트","createdAt":1777459264729},{"id":"ad_b501_4","platform":"other","url":"https://www.skinagent.co.kr/","note":"닥터멜락신 자사몰 (skinagent.co.kr)","createdAt":1777459264729}],"articles":[{"id":"art_b501_1","url":"https://thevc.kr/brand501","title":"브랜드501 - THE VC 기업정보","summary":"THE VC 기업정보 요약:\n\n[기업 개요]\n• 설립: 2017년 1월\n• 업력 9.1년 / 비상장 / 임직원 110명\n• 매출 (2023) - 프로 플랜 필요\n\n[글로벌 성과]\n• 2025 글로벌 3관왕 (Aldawa·EVEANDBOY·미국 등)\n• 미국 틱톡 32억 뷰 / Times Square 옥외광고\n• 50개+ 전략 상품 / 11개 해외 법인","createdAt":1777459264729}],"revenueData":[],"revenueSource":"web","revenueSourceUrl":"https://thevc.kr/brand501","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_2359","catId":"cat_cosmetic","subId":"sub_etc","name":"(주)이삼오구 (2359)","brand":"13개 멀티브랜드 (웰릿·프로뉴트리션·셀라딕스·하우스윗·클리너리·메디온·비피젠·큐리셀·트래즈·시옷·올네스트·나우그린·히든)","ceo":"(추가 조사 필요)","staff":"148명+ (2026 기준, 원티드)","addr":"서울 강남구 학동로23길 18","platform":"카페24 등 표준 플랫폼 (각 브랜드별 자사몰 운영)","products":"웰릿(건기식 알클리버 음주성 간케어) / 프로뉴트리션(스포츠 영양) / 셀라딕스(더마코스메틱 131시리즈) / 하우스윗(유아용 오트맘 핸드트리트먼트) / 클리너리(구강케어) / 메디온(셀프 페미닌) / 비피젠(비피더스균 - 비피도 협업) / 큐리셀(여성 이너케어) / 시옷(한국 전통 뷰티) / 트래즈(여행) / 나우그린","summary":"■ ⭐⭐⭐ 벤치마크급 D2C 브랜드 하우스 (JS가 본받을 모델):\n   - 2019년 하반기 창업 / 2020년 설립 (6년차)\n   - 2021년 매출 230억 → 2022년 600억 (전년比 240% 성장)\n   - 2024 매출 1,294억 (원티드 기준)\n   - 창립 후 4년간 1,000% 이상 성장\n   - 13개 멀티 브랜드 동시 운영\n\n■ 컨셉: \"23시 59분 - 일상의 마지막 순간까지 최고의 제품으로 고객의 삶을 개선\"\n■ 본사: 서울 강남구 학동로 (신사옥 이전, 유연근무제)\n\n■ 13개 브랜드 카테고리 분포:\n   - 건강기능식품: 웰릿, 프로뉴트리션, 비피젠 (마이크로바이옴 코스닥 1호 비피도 협업)\n   - 코스메틱: 셀라딕스(더마), 히든(남성), 시옷(전통), 데일리원더\n   - 구강/페미닌: 클리너리, 메디온, 큐리셀\n   - 라이프스타일: 하우스윗(유아), 트래즈(여행), 올네스트(생활), 나우그린\n\n■ 운영 방식: A to Z 직접 관리 (제품 기획부터 CS까지)\n\n■ JS 시사점:\n   ① ⭐⭐⭐ 멀티브랜드 = 카테고리 위험 분산 + 시너지 효과\n   ② 합리적 프리미엄 포지셔닝 (웰릿 등)\n   ③ 외부 협력 잘 활용 (비피도 협업으로 비피젠 출시)\n   ④ A to Z 직접 운영 = Full Value Chain 통제\n   ⑤ 빠른 신제품 런칭 + 카테고리 확장 = JS의 향수 → 화장품 → 건기식 확장 모델 참고","ads":[{"id":"ad_2359_1","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%EC%9B%B0%EB%A6%BF","note":"웰릿 메타 광고 라이브러리 검색","stars":0,"running":"","adCount":"","startDate":"","createdAt":1777459264729},{"id":"ad_2359_2","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%EC%85%80%EB%9D%BC%EB%94%95%EC%8A%A4","note":"셀라딕스 메타 광고 검색","createdAt":1777459264729},{"id":"ad_2359_3","platform":"other","url":"https://2359.co.kr/","note":"(주)이삼오구 공식 사이트"},{"id":"ad_2359_4","platform":"other","url":"https://wellit.co.kr/","note":"웰릿 자사몰 (메인 건기식 브랜드)"}],"articles":[{"id":"art_2359_1","url":"https://www.wanted.co.kr/company/22084","title":"이삼오구 - 원티드 기업정보 (148명, 1,294억 매출)","summary":"원티드 기업정보:\n\n[규모]\n• 임직원 148명 (2025-08 기준)\n• 2024 매출 1,294억\n• 평균연봉 4,039만원\n• 5개 채용 진행 중\n\n[성장]\n• 2020년 설립 (6년차)\n• 매년 폭발적 성장\n• 1년 내 인원 2배 (50명 → 100명)\n\n[Top 성과]\n• 클리너리 신제품 '오라헬시 잇몸 인텐스 겔치약' 출시\n• 셀라딕스 131 시리즈 4종 리뉴얼\n• 웰릿 '알클리버' (국내 최초 음주성 간 손상 케어)\n• 하우스윗 '오트맘 핸드트리트먼트' 흑백요리사 셰프 4인 소개","createdAt":1777459264729}],"revenueData":[{"year":"2024-12-31","revenue":"129444980","opIncome":"","netProfit":""},{"year":"2022-12-31","revenue":"60000000","opIncome":"","netProfit":""},{"year":"2021-12-31","revenue":"23000000","opIncome":"","netProfit":""}],"revenueSource":"web","revenueSourceUrl":"https://www.wanted.co.kr/company/22084","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_bitelab","catId":"cat_cosmetic","subId":"sub_etc","name":"(주)바이트랩 (BiTELAB)","brand":"멀티브랜드 (릴리이브·색동서울·바르너·보호리·먼슬리픽·색동서울·먼슬리픽)","ceo":"(추가 조사 필요)","staff":"82명+ (2025 기준, 원티드)","addr":"서울 강남구","platform":"카페24 자사몰 (각 브랜드별 분리)","products":"릴리이브 - 헤어케어 (그로우턴 히트 SKU, 올리브영 헤어케어 1위, 일본 큐텐 메가와리 1위) / 색동서울 - 스킨케어 / 바르너 - 건강용품 / 보호리 - 반려동물 / 먼슬리픽 - 다이어트","summary":"■ ⭐⭐⭐ 벤치마크급 D2C 브랜드 빌더:\n   - 2020년 창업 (5년차) / 무투자 자력 운영 (이익으로만 성장)\n   - 연 평균 2배 이상 성장\n   - 2024년 5월 누적 매출 500억 / 12월 누적 700억 돌파\n   - 2026년 매출 1,000억 목표 + 글로벌 K-뷰티 Top 10 도약\n\n■ 본사: 서울 강남구\n■ 임직원: 82명 (2025 기준)\n\n■ 멀티 브랜드 (5개 - 현재 3개로 집중):\n   - 릴리이브 (헤어케어) - 메인 / 올리브영 1위 + 큐텐 메가와리 1위 + 그로우턴 히트 SKU\n   - 색동서울 (스킨케어) - 한국 색채 컨셉\n   - 보호리 (반려동물) - 네이버 펫 영양제 3위\n   - 바르너 (건강용품) - 쿠팡 보호대 2위\n   - 먼슬리픽 (다이어트)\n\n■ 2024년 주요 성과:\n   - 24/06: 큐텐 뷰티카테고리 6위\n   - 24/07: 쿠팡 보호대/교정용품 2위\n   - 24/11: 릴리이브 메가와리 33위 / 카카오 톡딜 1위 / 네이버 펫 영양제 3위\n   - 24/12: 누적 700억 돌파\n\n■ 운영 철학 (creator 인사이트):\n   ⭐ \"조직이 소화할 수 있는 브랜드 수에 집중\" - 현재 3개로 한정\n   ⭐ \"그로우턴(히어로 SKU) 한 상품에 조직 전체가 몰입했을 때 큰 임팩트\"\n   ⭐ \"신생 브랜드는 시장 변화가 활발한 분야에서만 기회\"\n\n■ JS 시사점 (★★★ 매우 중요):\n   ① 무투자 자력 성장 = JS의 자본 5천만~1억 시작 모델과 정확히 일치\n   ② \"히어로 SKU 하나에 조직 전체 몰입\" = JS의 첫 제품 전략 핵심\n   ③ 멀티브랜드 운영 시 \"집중할 브랜드 수 한정\" = 솔로 창업자 필수 원칙\n   ④ 가중목(가장 중요한 목표) + 선행지표 프레임워크\n   ⑤ 다양한 카테고리 시도하지만 \"조직이 소화 가능한 만큼만\"","ads":[{"id":"ad_btl_1","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&search_type=keyword_unordered&q=%EB%A6%B4%EB%A6%AC%EC%9D%B4%EB%B8%8C","note":"릴리이브 메타 광고 라이브러리 검색 (메인 브랜드)","stars":0,"running":"","adCount":"","startDate":"","createdAt":1777459264729},{"id":"ad_btl_2","platform":"other","url":"https://lilyeve.kr/","note":"릴리이브 자사몰 (헤어케어 메인)","createdAt":1777459264729},{"id":"ad_btl_3","platform":"other","url":"https://saekdong.com/","note":"색동서울 자사몰 (스킨케어)","createdAt":1777459264729},{"id":"ad_btl_4","platform":"other","url":"https://bohori.com/","note":"보호리 자사몰 (반려동물)","createdAt":1777459264729},{"id":"ad_btl_5","platform":"other","url":"https://baruner.kr/","note":"바르너 자사몰 (건강용품)","createdAt":1777459264729}],"articles":[{"id":"art_btl_1","url":"https://flex.team/blog/2025/07/03/bitelab/","title":"바이트랩 - 올리브영 1위, 3개 브랜드 동시 키운 팀 (flex 블로그)","summary":"flex 인터뷰 핵심:\n\n[성장 데이터]\n• 2020년 창업 / 연 평균 2배 이상 성장\n• 2024년 5월 누적 500억 → 12월 700억\n• 2026년 1,000억 목표\n• 임직원 82명 (2025 기준)\n\n[운영 철학]\n• \"조직이 소화할 수 있는 브랜드 수\" 기준으로 집중\n• 현재 3개 브랜드로 한정 운영\n• 히어로 SKU '그로우턴'에 조직 전체 몰입한 경험이 가장 큰 러닝\n• 조직 전체가 한 상품에 몰입할 때 큰 임팩트\n\n[브랜드 선정 기준]\n1. 시장 수요 (실제 풀이고 싶은 문제)\n2. 시장의 변화 (변화 활발한 분야에서만 기회)\n\n[성과관리]\n• OKR/KPI 대신 '가중목'(가장 중요한 목표) + 선행지표\n• 모든 구성원이 함께 설계하고 실행\n• 성과는 당장 오늘의 액션으로 연결\n\n[JS 시사점]\n⭐⭐⭐ 무투자 자력 운영 = JS와 동일 자본 구조\n⭐⭐⭐ \"히어로 SKU에 조직 몰입\" = 첫 제품 전략 핵심\n⭐⭐⭐ 브랜드 수 한정 운영 = 솔로 창업자 필수 원칙","createdAt":1777459264729}],"revenueData":[{"year":"2024-12-31","revenue":"70000000","opIncome":"","netProfit":""},{"year":"2024-05-31","revenue":"50000000","opIncome":"","netProfit":""}],"revenueSource":"web","revenueSourceUrl":"https://www.wanted.co.kr/company/24599","revenueImages":[],"createdAt":1777459264729,"updatedAt":1777459264729,"channels":[]},{"id":"co_1777470498482","catId":"cat_cosmetic","subId":"sub_base","name":"키세라씨","brand":"KiseraC","brandUrl":"https://kiserac.co.kr/product/%ED%82%A4%EC%84%B8%EB%9D%BC%EC%94%A8-%ED%81%90%EC%96%B4%ED%8C%8C%EC%9D%B8-%EB%A6%AC%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%ED%8B%B0%EB%B8%8C-%ED%81%AC%EB%A6%BC/98/category/25/display/1/?NaPm=ci%3D4tKNmiX3y0Qe-MKuIvtrQ5Wg%7Ctr%3Dgfa%7Cct%3Dmok14uwm%7Chk%3D1840f5a9c06a1a9c77803c2a6677ae194c6f0e81%7Cnacn%3DfGWfEgC4YJMiD","recordReason":"네이버에서 광고 떠서 봤는데, 파데 프리, 바르는 커버 크림 아이디어. 광고 2025년 8월부터 러닝중. 다른 기능성 화장품도 존재. 벤치마크 딱인 기업인데, 더 알아보려고.","channels":[{"label":"자사몰","url":"https://kiserac.co.kr/product/%ED%82%A4%EC%84%B8%EB%9D%BC%EC%94%A8-%ED%81%90%EC%96%B4%ED%8C%8C%EC%9D%B8-%EB%A6%AC%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%ED%8B%B0%EB%B8%8C-%ED%81%AC%EB%A6%BC/98/category/25/display/1/?NaPm=ci%3D4tKNmiX3y0Qe-MKuIvtrQ5Wg%7Ctr%3Dgfa%7Cct%3Dmok14uwm%7Chk%3D1840f5a9c06a1a9c77803c2a6677ae194c6f0e81%7Cnacn%3DfGWfEgC4YJMiD"},{"label":"스마트스토어","url":"https://kiserac.co.kr/product/%ED%82%A4%EC%84%B8%EB%9D%BC%EC%94%A8-%ED%81%90%EC%96%B4%ED%8C%8C%EC%9D%B8-%EB%A6%AC%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%ED%8B%B0%EB%B8%8C-%ED%81%AC%EB%A6%BC/98/category/25/display/1/?NaPm=ci%3D4tKNmiX3y0Qe-MKuIvtrQ5Wg%7Ctr%3Dgfa%7Cct%3Dmok14uwm%7Chk%3D1840f5a9c06a1a9c77803c2a6677ae194c6f0e81%7Cnacn%3DfGWfEgC4YJMiD"}],"ceo":"","staff":"","revenueData":[],"revenueSource":"","revenueSourceUrl":"","revenueImages":[],"addr":"","products":"","summary":"","platform":"","updatedAt":1777470556271,"ads":[{"id":"ad_1777470556271","platform":"meta","url":"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=KR&is_targeted_country=false&media_type=all&q=kiserac.co.kr&search_type=keyword_unordered&sort_data[mode]=relevancy_monthly_grouped&sort_data[direction]=desc","note":"2025년부터.","stars":0,"running":"","adCount":"","startDate":"","createdAt":1777470556271}],"articles":[],"createdAt":1777470498482}],"activeCatId":"cat_essence","activeSubId":"sub_mc"};
+function applyEmbeddedData(force){
+ if(!force && localStorage.getItem(STORAGE_KEY)) return false;
+ try{
+  data = JSON.parse(JSON.stringify(EMBEDDED_DATA));
+  saveData();
   return true;
- }
- // 잠금 화면 유지 + 입력 준비
- const inp = document.getElementById('lock-input');
- const stat = document.getElementById('lock-status');
- if(until > 0 && until <= now){
-  stat.textContent = '⏰ 30일 잠금해제 만료 · 재인증 필요';
- }
- setTimeout(()=>inp.focus(), 80);
- inp.addEventListener('keydown', e=>{
-  if(e.key === 'Enter'){ e.preventDefault(); tryUnlock(); }
- });
- // 잠금 중에는 배경 스크롤 방지
- document.body.style.overflow = 'hidden';
- return false;
+ }catch(e){ console.error('내장 데이터 적용 실패', e); return false; }
 }
 
-function tryUnlock(){
- const inp = document.getElementById('lock-input');
- const errMsg = document.getElementById('lock-err-msg');
- const remember = document.getElementById('lock-remember').checked;
- const val = inp.value;
- 
- if(btoa(val) === _PWD_HASH){
-  // 성공
-  if(remember){
-   localStorage.setItem(LOCK_KEY, String(Date.now() + LOCK_MS));
-  } else {
-   localStorage.removeItem(LOCK_KEY);
+// 시작 시 EMBEDDED_DATA와 현재 localStorage 비교 — 카테고리/회사 누락 안내
+function checkEmbeddedComparison(){
+ try{
+  if(!EMBEDDED_DATA) return;
+  const localCats = data.categories?.length || 0;
+  const localCos = data.companies?.length || 0;
+  const embedCats = EMBEDDED_DATA.categories?.length || 0;
+  const embedCos = EMBEDDED_DATA.companies?.length || 0;
+  // 로컬이 EMBEDDED보다 카테고리 또는 회사가 부족 → 사용자에게 알림
+  if(localCats < embedCats || localCos < embedCos){
+   setTimeout(()=>{
+    if(typeof toast === 'function'){
+     toast(`💡 내장 데이터(${embedCats}카테고리/${embedCos}업체)가 더 큽니다. 백업 → "🔁 내장 데이터로 복원" 가능`,'orng');
+    }
+   }, 1500);
   }
-  const screen = document.getElementById('lock-screen');
-  screen.style.transition = 'opacity .35s ease';
-  screen.style.opacity = '0';
-  setTimeout(()=>{
-   screen.classList.add('hidden');
-   screen.style.opacity = '';
-   document.body.style.overflow = '';
-  }, 360);
- } else {
-  // 실패 - 흔들림 + 에러 메시지
-  inp.classList.add('err');
-  errMsg.textContent = '비밀번호가 올바르지 않습니다';
-  inp.value = '';
-  setTimeout(()=>{
-   inp.classList.remove('err');
-   inp.focus();
-  }, 420);
-  setTimeout(()=>{ if(errMsg.textContent==='비밀번호가 올바르지 않습니다') errMsg.textContent = ''; }, 2500);
- }
+ }catch(e){ console.error('비교 실패', e); }
 }
 
-// 콘솔용: 30일 잠금해제 상태 강제 초기화 (다시 비번 입력해야 함)
-function resetLock(){
- localStorage.removeItem(LOCK_KEY);
- console.log('🔒 잠금 초기화 완료. 새로고침하면 비밀번호 입력 화면이 나타납니다.');
+function restoreEmbeddedData(){
+ if(!confirm('⚠️ 현재 데이터를 내장된 24개 회사 데이터로 덮어쓰시겠습니까?\n(현재 상태는 자동으로 스냅샷 백업됩니다)')) return;
+ _addSnapshot();
+ if(applyEmbeddedData(true)){
+  render();
+  toast('내장 데이터(24개 회사) 적용 완료','grn');
+ } else {
+  toast('적용 실패','red');
+ }
 }
 
 // 기본 카테고리 구조
@@ -2192,6 +1847,56 @@ let data = null;
 // ============================================================
 // 저장/로드
 // ============================================================
+// ============================================================
+// 자동 백업 시스템 (사용자 요청 기능 1번 - 안전 버전)
+// 1. 변경 N회마다 자동 다운로드 토스트 알림
+// 2. localStorage에 마지막 5개 스냅샷 자동 보관 (롤백용)
+// 3. 모든 변경 시 카운트 증가
+// ============================================================
+const SNAPSHOT_KEY = 'adlibkit-snapshots';   // 스냅샷 5개 저장 키
+const COUNTER_KEY = 'adlibkit-changes';      // 변경 카운트 키
+const AUTOBACKUP_THRESHOLD_KEY = 'adlibkit-backup-threshold';  // N회마다 알림 임계
+const LAST_BACKUP_KEY = 'adlibkit-last-backup';  // 마지막 백업 다운로드 시점
+
+function _getBackupThreshold(){
+ return parseInt(localStorage.getItem(AUTOBACKUP_THRESHOLD_KEY) || '20', 10);
+}
+function _setBackupThreshold(n){
+ localStorage.setItem(AUTOBACKUP_THRESHOLD_KEY, String(n));
+}
+function _addSnapshot(){
+ try{
+  const arr = JSON.parse(localStorage.getItem(SNAPSHOT_KEY) || '[]');
+  const snap = {
+   ts: new Date().toISOString(),
+   companies: data.companies?.length || 0,
+   data: JSON.stringify(data)
+  };
+  arr.unshift(snap);
+  while(arr.length > 5) arr.pop();
+  try{
+   localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(arr));
+  }catch(e){
+   // 용량 초과 시 가장 오래된 스냅샷 제거하고 재시도
+   arr.pop();
+   localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(arr));
+  }
+ }catch(e){console.error('스냅샷 실패:', e);}
+}
+function _incrementChangeCounter(){
+ const n = parseInt(localStorage.getItem(COUNTER_KEY) || '0', 10) + 1;
+ localStorage.setItem(COUNTER_KEY, String(n));
+ const threshold = _getBackupThreshold();
+ if(n > 0 && n % threshold === 0){
+  // 자동 백업 알림
+  setTimeout(()=>{
+   if(typeof toast === 'function'){
+    toast(`💾 ${n}회 변경 — JSON 다운로드를 권장합니다 (헤더의 ⬇ JSON)`,'orng');
+   }
+  }, 800);
+ }
+}
+
 function loadData(){
  try{
   const raw = localStorage.getItem(STORAGE_KEY);
@@ -2205,6 +1910,23 @@ function loadData(){
     const cat = data.categories.find(c=>c.id===data.activeCatId);
     data.activeSubId = cat?.subcats[0]?.id || 'sub_kimi';
    }
+   // 신규 필드 마이그레이션 (channels/adCaptures)
+   data.companies.forEach(co=>{
+    if(!Array.isArray(co.channels)){
+     if(co.channels && typeof co.channels === 'object'){
+      const map = {own:'자사몰', coupang:'쿠팡', gmarket:'지마켓', smartstore:'스마트스토어', etc:'기타'};
+      const arr = [];
+      Object.keys(co.channels).forEach(k=>{
+       const url = co.channels[k];
+       if(url) arr.push({label: map[k] || k, url});
+      });
+      co.channels = arr;
+     } else {
+      co.channels = [];
+     }
+    }
+    if(!Array.isArray(co.adCaptures)) co.adCaptures = [];
+   });
   } else {
    data = JSON.parse(JSON.stringify(DEFAULT_DATA));
    saveData();
@@ -2218,11 +1940,376 @@ function loadData(){
 function saveData(){
  try{
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  _incrementChangeCounter();
+  // 매 5회마다 자동 스냅샷 저장
+  const cnt = parseInt(localStorage.getItem(COUNTER_KEY) || '0', 10);
+  if(cnt % 5 === 0) _addSnapshot();
+  // GitHub 자동 동기화 (디바운스 = 마지막 변경 후 8초 뒤에 한 번)
+  _githubSyncDebounced();
   return true;
  }catch(e){
   toast('저장 실패: '+e.message,'red');
   return false;
  }
+}
+
+// ============================================================
+// GitHub 자동 저장 시스템 (사용자 요청)
+// 안전 설계:
+// - PAT은 localStorage에 저장 (HTML 파일 공유해도 따라가지 않음)
+// - Fine-grained PAT, 단일 리포만 권장
+// - 디바운스 8초 (입력 끝나고 8초 후 한 번만 push)
+// - 모든 push는 같은 파일에 덮어쓰기 (히스토리는 GitHub commit history로 보존)
+// ============================================================
+const GH_KEY_PAT = 'adlibkit-gh-pat';
+const GH_KEY_OWNER = 'adlibkit-gh-owner';
+const GH_KEY_REPO = 'adlibkit-gh-repo';
+const GH_KEY_PATH = 'adlibkit-gh-path';
+const GH_KEY_BRANCH = 'adlibkit-gh-branch';
+const GH_KEY_ENABLED = 'adlibkit-gh-enabled';
+const GH_KEY_LAST_SHA = 'adlibkit-gh-last-sha';
+const GH_KEY_LAST_SYNC = 'adlibkit-gh-last-sync';
+
+let _ghSyncTimer = null;
+function _githubSyncDebounced(){
+ if(localStorage.getItem(GH_KEY_ENABLED) !== '1') return;
+ if(_ghSyncTimer) clearTimeout(_ghSyncTimer);
+ _ghSyncTimer = setTimeout(()=>{ githubSync(false); }, 8000);
+}
+
+async function githubSync(showToastAlways){
+ const pat = localStorage.getItem(GH_KEY_PAT);
+ const owner = localStorage.getItem(GH_KEY_OWNER);
+ const repo = localStorage.getItem(GH_KEY_REPO);
+ const path = localStorage.getItem(GH_KEY_PATH) || 'media-treasure-data.json';
+ const branch = localStorage.getItem(GH_KEY_BRANCH) || 'main';
+ if(!pat || !owner || !repo){
+  if(showToastAlways) toast('GitHub 설정이 비어있습니다 (백업 → GitHub 설정)','red');
+  return false;
+ }
+ const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+ const lastSha = localStorage.getItem(GH_KEY_LAST_SHA);
+ try{
+  // 현재 파일의 SHA 가져오기 (덮어쓰려면 sha 필요)
+  let sha = lastSha;
+  try{
+   const headRes = await fetch(`${url}?ref=${branch}`, {
+    headers: {'Authorization':`Bearer ${pat}`,'Accept':'application/vnd.github+json'}
+   });
+   if(headRes.ok){
+    const headJson = await headRes.json();
+    sha = headJson.sha;
+   } else if(headRes.status === 404){
+    sha = null;  // 첫 생성
+   } else if(headRes.status === 401){
+    toast('GitHub 인증 실패 — PAT 확인','red');
+    return false;
+   }
+  }catch(e){ /* 네트워크 실패 시 그냥 넘어감 */ }
+  
+  // 컨텐츠 업로드 (UTF-8 → base64)
+  const json = JSON.stringify(data, null, 2);
+  // UTF-8 안전 base64 인코딩
+  const b64 = btoa(unescape(encodeURIComponent(json)));
+  const body = {
+   message: `auto-sync ${new Date().toISOString().slice(0,19)} (${data.companies?.length||0} cos)`,
+   content: b64,
+   branch: branch
+  };
+  if(sha) body.sha = sha;
+  
+  const res = await fetch(url, {
+   method: 'PUT',
+   headers: {
+    'Authorization': `Bearer ${pat}`,
+    'Accept': 'application/vnd.github+json',
+    'Content-Type': 'application/json'
+   },
+   body: JSON.stringify(body)
+  });
+  if(!res.ok){
+   const errText = await res.text();
+   if(showToastAlways) toast(`GitHub 저장 실패: ${res.status}`,'red');
+   console.error('GitHub sync failed', res.status, errText);
+   return false;
+  }
+  const result = await res.json();
+  if(result.content?.sha){
+   localStorage.setItem(GH_KEY_LAST_SHA, result.content.sha);
+  }
+  localStorage.setItem(GH_KEY_LAST_SYNC, new Date().toISOString());
+  if(showToastAlways) toast('☁️ GitHub 동기화 완료','grn');
+  return true;
+ }catch(e){
+  console.error('GitHub sync error', e);
+  if(showToastAlways) toast('GitHub 저장 오류: '+e.message,'red');
+  return false;
+ }
+}
+
+async function githubFetch(){
+ const pat = localStorage.getItem(GH_KEY_PAT);
+ const owner = localStorage.getItem(GH_KEY_OWNER);
+ const repo = localStorage.getItem(GH_KEY_REPO);
+ const path = localStorage.getItem(GH_KEY_PATH) || 'media-treasure-data.json';
+ const branch = localStorage.getItem(GH_KEY_BRANCH) || 'main';
+ if(!pat || !owner || !repo){
+  toast('GitHub 설정이 비어있습니다','red');
+  return false;
+ }
+ const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+ try{
+  const res = await fetch(url, {
+   headers: {'Authorization':`Bearer ${pat}`,'Accept':'application/vnd.github+json'}
+  });
+  if(!res.ok){
+   if(res.status === 404){ toast('GitHub에 백업 파일이 없습니다','orng'); return false; }
+   if(res.status === 401){ toast('인증 실패 — PAT 확인','red'); return false; }
+   toast(`GitHub 가져오기 실패 (${res.status})`,'red');
+   return false;
+  }
+  const result = await res.json();
+  // base64 → UTF-8
+  const b64 = result.content.replace(/\n/g, '');
+  const json = decodeURIComponent(escape(atob(b64)));
+  const remoteData = JSON.parse(json);
+  const remoteCos = remoteData.companies?.length || 0;
+  const localCos = data.companies?.length || 0;
+  if(!confirm(`GitHub에서 가져온 데이터로 덮어쓰시겠습니까?\n\n원격: 업체 ${remoteCos}개\n로컬: 업체 ${localCos}개\n\n(현재 로컬 데이터는 자동으로 스냅샷 백업됩니다)`)) return false;
+  _addSnapshot();
+  data = remoteData;
+  // 마이그레이션 — channels/adCaptures
+  data.companies.forEach(co=>{
+   if(!Array.isArray(co.channels)){
+    if(co.channels && typeof co.channels === 'object'){
+     const map = {own:'자사몰', coupang:'쿠팡', gmarket:'지마켓', smartstore:'스마트스토어', etc:'기타'};
+     const arr = [];
+     Object.keys(co.channels).forEach(k=>{
+      const url = co.channels[k];
+      if(url) arr.push({label: map[k] || k, url});
+     });
+     co.channels = arr;
+    } else {
+     co.channels = [];
+    }
+   }
+   if(!Array.isArray(co.adCaptures)) co.adCaptures = [];
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  localStorage.setItem(GH_KEY_LAST_SHA, result.sha);
+  localStorage.setItem(GH_KEY_LAST_SYNC, new Date().toISOString());
+  render();
+  toast(`☁️ GitHub에서 ${remoteCos}개 업체 가져옴`,'grn');
+  return true;
+ }catch(e){
+  console.error('GitHub fetch error', e);
+  toast('가져오기 오류: '+e.message,'red');
+  return false;
+ }
+}
+
+function openGithubSettings(){
+ const enabled = localStorage.getItem(GH_KEY_ENABLED) === '1';
+ const pat = localStorage.getItem(GH_KEY_PAT) || '';
+ // 사용자 합의: brandhublab/adbomoolsum 공개 리포 사용 (B 옵션)
+ const owner = localStorage.getItem(GH_KEY_OWNER) || 'brandhublab';
+ const repo = localStorage.getItem(GH_KEY_REPO) || 'adbomoolsum';
+ const path = localStorage.getItem(GH_KEY_PATH) || 'data/media-treasure.json';
+ const branch = localStorage.getItem(GH_KEY_BRANCH) || 'main';
+ const lastSync = localStorage.getItem(GH_KEY_LAST_SYNC);
+ const lastSyncText = lastSync ? new Date(lastSync).toLocaleString('ko-KR') : '없음';
+ 
+ let modal = document.getElementById('modal-github');
+ if(!modal){
+  modal = document.createElement('div');
+  modal.id = 'modal-github';
+  modal.className = 'overlay';
+  modal.innerHTML = '<div class="modal" style="max-width:600px"></div>';
+  document.body.appendChild(modal);
+ }
+ modal.querySelector('.modal').innerHTML = `
+  <div class="modal-hd">
+   <div class="modal-title">☁️ GitHub 자동 저장 설정</div>
+   <button class="modal-close" onclick="closeModal('modal-github')">×</button>
+  </div>
+  <div style="background:#fdfaf3;border-left:3px solid var(--hi);padding:10px 12px;border-radius:6px;margin-bottom:14px;font-size:11.5px;line-height:1.6;color:var(--txt2)">
+   <strong style="color:var(--hi2)">📌 현재 설정</strong> — <code style="background:#fff;padding:2px 6px;border-radius:3px">${owner}/${repo}</code>의 <code style="background:#fff;padding:2px 6px;border-radius:3px">${path}</code>에 자동 저장.<br>
+   변경 후 8초 멈추면 1번만 commit. 다른 PC에서 ⬇ 가져오기로 동기화.<br>
+   <span style="color:var(--txt3);font-size:10.5px">⚠️ 공개 리포 사용 — 데이터 누구나 볼 수 있음 (사용자 합의됨)</span>
+  </div>
+  
+  <div style="font-size:13px;font-weight:700;color:var(--hi2);margin-bottom:8px">📋 PAT 만들기 (한 번만, 3분)</div>
+  <ol style="font-size:11.5px;line-height:1.7;color:var(--txt2);padding-left:20px;margin-bottom:14px">
+   <li><a href="https://github.com/settings/tokens?type=beta" target="_blank" style="color:var(--hi2);font-weight:700">github.com/settings/tokens (Fine-grained 탭)</a> 접속</li>
+   <li>"Generate new token" 클릭</li>
+   <li>Token name: <code>media-treasure-backup</code></li>
+   <li><strong>Expiration: 1 year (또는 No expiration)</strong> ← 90일 X, 갱신 부담 줄이기</li>
+   <li>Repository access: <strong>Only select repositories</strong> → <code style="background:var(--panel2);padding:1px 5px;border-radius:3px">${owner}/${repo}</code> 선택</li>
+   <li>Repository permissions: <strong>Contents</strong> → <strong>Read and write</strong> (다른 권한 모두 No access)</li>
+   <li>Generate → 토큰 복사 → 아래 입력</li>
+  </ol>
+  
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px">
+   <div>
+    <label style="font-size:11px;color:var(--txt2);font-weight:600;display:block;margin-bottom:3px">🔑 PAT (Personal Access Token)</label>
+    <input type="password" id="gh-pat" value="${escapeAttr(pat)}" placeholder="github_pat_xxxx..." style="width:100%;padding:8px;border:1px solid var(--bord);border-radius:4px;font-family:monospace;font-size:11px">
+    ${pat ? '<div style="font-size:10px;color:var(--grn);margin-top:3px">✓ 저장됨 ('+pat.length+'자)</div>' : ''}
+   </div>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div>
+     <label style="font-size:11px;color:var(--txt2);font-weight:600;display:block;margin-bottom:3px">👤 Owner</label>
+     <input type="text" id="gh-owner" value="${escapeAttr(owner)}" placeholder="brandhublab" style="width:100%;padding:8px;border:1px solid var(--bord);border-radius:4px;font-size:12px">
+    </div>
+    <div>
+     <label style="font-size:11px;color:var(--txt2);font-weight:600;display:block;margin-bottom:3px">📦 Repo</label>
+     <input type="text" id="gh-repo" value="${escapeAttr(repo)}" placeholder="adbomoolsum" style="width:100%;padding:8px;border:1px solid var(--bord);border-radius:4px;font-size:12px">
+    </div>
+   </div>
+   <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
+    <div>
+     <label style="font-size:11px;color:var(--txt2);font-weight:600;display:block;margin-bottom:3px">📄 파일 경로 (리포 안)</label>
+     <input type="text" id="gh-path" value="${escapeAttr(path)}" placeholder="data/media-treasure.json" style="width:100%;padding:8px;border:1px solid var(--bord);border-radius:4px;font-family:monospace;font-size:11px">
+    </div>
+    <div>
+     <label style="font-size:11px;color:var(--txt2);font-weight:600;display:block;margin-bottom:3px">🌿 브랜치</label>
+     <input type="text" id="gh-branch" value="${escapeAttr(branch)}" placeholder="main" style="width:100%;padding:8px;border:1px solid var(--bord);border-radius:4px;font-family:monospace;font-size:11px">
+    </div>
+   </div>
+   <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--txt);cursor:pointer;background:var(--panel2);padding:10px 12px;border-radius:5px;border:1px solid var(--bord)">
+    <input type="checkbox" id="gh-enabled" ${enabled?'checked':''} style="width:16px;height:16px;cursor:pointer">
+    <span><strong>자동 동기화 활성화</strong> — 변경 시 8초 후 자동 push</span>
+   </label>
+  </div>
+  
+  <div style="background:var(--panel2);padding:8px 12px;border-radius:5px;font-size:11px;color:var(--txt2);margin-bottom:10px">
+   <strong>마지막 동기화:</strong> ${lastSyncText} · 
+   <a href="https://github.com/${owner}/${repo}/blob/${branch}/${path}" target="_blank" style="color:var(--hi2)">📂 GitHub에서 보기 ↗</a> · 
+   <a href="https://github.com/${owner}/${repo}/graphs/traffic" target="_blank" style="color:var(--hi2)" title="GitHub Traffic - 방문자 통계">📊 Traffic ↗</a>
+  </div>
+  
+  <div class="form-actions" style="justify-content:space-between">
+   <button class="btn btn-sm btn-danger" onclick="clearGithubPat()">🗑 PAT 삭제</button>
+   <div style="display:flex;gap:6px">
+    <button class="btn btn-sm" onclick="githubFetch()">⬇ 가져오기</button>
+    <button class="btn btn-sm" onclick="githubSync(true)">⬆ 즉시 동기화</button>
+    <button class="btn btn-primary" onclick="saveGithubSettings()">💾 저장</button>
+   </div>
+  </div>
+ `;
+ modal.classList.add('active');
+}
+
+function saveGithubSettings(){
+ const pat = document.getElementById('gh-pat').value.trim();
+ const owner = document.getElementById('gh-owner').value.trim();
+ const repo = document.getElementById('gh-repo').value.trim();
+ const path = document.getElementById('gh-path').value.trim() || 'media-treasure-data.json';
+ const branch = document.getElementById('gh-branch').value.trim() || 'main';
+ const enabled = document.getElementById('gh-enabled').checked;
+ if(pat) localStorage.setItem(GH_KEY_PAT, pat);
+ if(owner) localStorage.setItem(GH_KEY_OWNER, owner);
+ if(repo) localStorage.setItem(GH_KEY_REPO, repo);
+ localStorage.setItem(GH_KEY_PATH, path);
+ localStorage.setItem(GH_KEY_BRANCH, branch);
+ localStorage.setItem(GH_KEY_ENABLED, enabled ? '1' : '0');
+ toast(enabled ? '☁️ 자동 동기화 활성화됨' : '☁️ 설정 저장됨 (자동 동기화 OFF)', 'grn');
+ closeModal('modal-github');
+}
+
+function clearGithubPat(){
+ if(!confirm('GitHub PAT을 localStorage에서 삭제하시겠습니까?\n(설정 다른 항목은 유지됨)')) return;
+ localStorage.removeItem(GH_KEY_PAT);
+ localStorage.setItem(GH_KEY_ENABLED, '0');
+ toast('PAT 삭제됨','red');
+ openGithubSettings();
+}
+
+// 스냅샷 복원 UI
+function openSnapshotsModal(){
+ const arr = JSON.parse(localStorage.getItem(SNAPSHOT_KEY) || '[]');
+ const cnt = parseInt(localStorage.getItem(COUNTER_KEY) || '0', 10);
+ const lastBk = localStorage.getItem(LAST_BACKUP_KEY);
+ const lastBkText = lastBk ? new Date(lastBk).toLocaleString('ko-KR') : '없음';
+ const threshold = _getBackupThreshold();
+ let modal = document.getElementById('modal-snapshots');
+ if(!modal){
+  modal = document.createElement('div');
+  modal.id = 'modal-snapshots';
+  modal.className = 'overlay';
+  modal.innerHTML = '<div class="modal" style="max-width:560px"></div>';
+  document.body.appendChild(modal);
+ }
+ const html = `
+  <div class="modal-hd">
+   <div class="modal-title">💾 자동 백업 / 스냅샷 복원</div>
+   <button class="modal-close" onclick="closeModal('modal-snapshots')">×</button>
+  </div>
+  <div style="font-size:12px;color:var(--txt2);line-height:1.6;margin-bottom:14px;background:var(--panel2);padding:10px 12px;border-radius:6px;border-left:3px solid var(--hi)">
+   <p style="margin:0 0 6px 0"><strong>총 변경 횟수:</strong> ${cnt}회</p>
+   <p style="margin:0 0 6px 0"><strong>마지막 JSON 다운로드:</strong> ${lastBkText}</p>
+   <p style="margin:0"><strong>알림 주기:</strong> 매 ${threshold}회 변경 시 토스트 알림 
+    <button class="btn btn-xs" onclick="changeBackupThreshold()" style="margin-left:6px">변경</button>
+   </p>
+  </div>
+  <div style="font-size:13px;font-weight:700;color:var(--hi2);margin-bottom:8px">📦 자동 스냅샷 (마지막 5개)</div>
+  <div style="font-size:11px;color:var(--txt3);margin-bottom:10px;line-height:1.5">
+   매 5회 변경마다 자동 저장됨. 실수로 데이터 삭제 시 여기서 복원 가능.
+  </div>
+  <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
+   ${arr.length === 0 ? '<div style="color:var(--txt3);font-size:11px;text-align:center;padding:20px">아직 스냅샷이 없습니다.</div>' :
+   arr.map((s,i)=>`
+    <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--panel2);border-radius:5px;border:1px solid var(--bord)">
+     <div style="flex:1">
+      <div style="font-size:11.5px;font-weight:600;color:var(--txt)">📅 ${new Date(s.ts).toLocaleString('ko-KR')}</div>
+      <div style="font-size:10.5px;color:var(--txt3)">업체 ${s.companies}개</div>
+     </div>
+     <button class="btn btn-xs" onclick="restoreSnapshot(${i})" title="이 시점으로 복원">⤴ 복원</button>
+    </div>
+   `).join('')}
+  </div>
+  <div style="font-size:12px;color:var(--txt2);line-height:1.55;background:#fff4e8;padding:10px 12px;border-radius:6px;border-left:3px solid var(--orng);margin-bottom:10px">
+   <strong>💡 안전한 백업 권장</strong><br>
+   1주일에 1번 헤더의 <code style="background:var(--panel2);padding:1px 5px;border-radius:3px">⬇ JSON</code>으로 다운로드 → Dropbox/Google Drive 폴더에 저장하면 클라우드 자동 동기화. GitHub 자동 저장은 토큰 보안 위험으로 비권장.
+  </div>
+  <div class="form-actions">
+   <button class="btn" onclick="closeModal('modal-snapshots')">닫기</button>
+   <button class="btn btn-primary" onclick="exportJSON();markBackupDone();">⬇ JSON 다운로드 + 백업 시점 기록</button>
+  </div>
+ `;
+ modal.querySelector('.modal').innerHTML = html;
+ modal.classList.add('active');
+}
+
+function changeBackupThreshold(){
+ const cur = _getBackupThreshold();
+ const v = prompt(`자동 백업 알림 주기 변경\n현재: ${cur}회 변경마다 알림\n새 값(예: 10, 20, 50):`, String(cur));
+ if(!v) return;
+ const n = parseInt(v, 10);
+ if(isNaN(n) || n < 1 || n > 1000){ toast('1~1000 사이의 숫자','red'); return; }
+ _setBackupThreshold(n);
+ toast(`알림 주기: ${n}회마다`,'grn');
+ openSnapshotsModal();
+}
+
+function restoreSnapshot(idx){
+ const arr = JSON.parse(localStorage.getItem(SNAPSHOT_KEY) || '[]');
+ if(!arr[idx]) return;
+ if(!confirm(`이 스냅샷으로 복원하시겠습니까?\n(현재 데이터는 1개의 새 스냅샷으로 자동 백업됩니다)\n\n복원 시점: ${new Date(arr[idx].ts).toLocaleString('ko-KR')}\n업체 ${arr[idx].companies}개`)) return;
+ _addSnapshot();  // 현재 상태도 백업
+ try{
+  data = JSON.parse(arr[idx].data);
+  localStorage.setItem(STORAGE_KEY, arr[idx].data);
+  closeModal('modal-snapshots');
+  render();
+  toast('스냅샷 복원 완료','grn');
+ }catch(e){
+  toast('복원 실패: '+e.message,'red');
+ }
+}
+
+function markBackupDone(){
+ localStorage.setItem(LAST_BACKUP_KEY, new Date().toISOString());
+ toast('JSON 다운로드 + 백업 시점 기록','grn');
 }
 
 // ============================================================
@@ -2247,6 +2334,9 @@ function renderCategories(){
    ${c.icon||'📁'} ${escapeHtml(c.name)}
   </button>
  `).join('') + `
+  <button class="cat-tab ${data.activeCatId==='cat_all'?'active':''}" onclick="switchCategory('cat_all')" title="모든 카테고리의 업체를 한 번에 보기" style="border-left:1px solid var(--bord);margin-left:4px;padding-left:14px;background:${data.activeCatId==='cat_all'?'var(--hi)':'#fdfaf3'};font-weight:600">
+   🌐 전체
+  </button>
   <button class="cat-tab" onclick="openAddCategoryModal()" style="border:1px dashed var(--bord);color:var(--txt3)">＋</button>
  `;
 }
@@ -2254,8 +2344,10 @@ function renderCategories(){
 function switchCategory(catId){
  data.activeCatId = catId;
  const cat = data.categories.find(c=>c.id===catId);
- // 업의 본질은 첫 서브탭, 나머지는 '전체'를 기본으로
- if(cat && catId === 'cat_essence'){
+ // 업의 본질은 첫 서브탭, 전체는 __all__, 나머지는 '전체'를 기본으로
+ if(catId === 'cat_all'){
+  data.activeSubId = '__all__';
+ } else if(cat && catId === 'cat_essence'){
   data.activeSubId = cat.subcats[0]?.id || '';
  } else {
   data.activeSubId = '__all__';
@@ -2269,6 +2361,23 @@ function switchCategory(catId){
 // ============================================================
 function renderSubcats(){
  const bar = document.getElementById('subtab-bar');
+ // 가상 카테고리 'cat_all' — 카테고리별 카운트 표시 (서브탭 대신)
+ if(data.activeCatId === 'cat_all'){
+  const total = data.companies.length;
+  let html = `
+   <div style="font-size:11.5px;color:var(--txt2);font-weight:600;padding:10px 14px;background:#fdfaf3;border-bottom:1px solid var(--bord);width:100%;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <span>🌐 <strong style="color:var(--hi2)">전체 보기</strong> · 모든 카테고리의 업체 ${total}개</span>
+    <span style="color:var(--txt3);font-size:10.5px">|</span>
+  `;
+  data.categories.forEach(c=>{
+   const n = data.companies.filter(co=>co.catId===c.id).length;
+   if(n === 0) return;
+   html += `<a onclick="switchCategory('${c.id}');" style="cursor:pointer;color:var(--hi2);font-size:11px;text-decoration:none;font-weight:500" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'" title="${escapeAttr(c.name)} 카테고리로 이동">${c.icon||'📁'} ${escapeHtml(c.name)} (${n})</a>`;
+  });
+  html += '</div>';
+  bar.innerHTML = html;
+  return;
+ }
  const cat = data.categories.find(c=>c.id===data.activeCatId);
  if(!cat){bar.innerHTML='';return}
  
@@ -2394,6 +2503,115 @@ function renderCards(){
  const area = document.getElementById('cards-area');
  const search = (document.getElementById('search-input').value||'').toLowerCase().trim();
  
+ // 🌐 전체 카테고리 — 모든 카테고리의 업체를 한 번에 표시
+ if(data.activeCatId === 'cat_all'){
+  let companies = data.companies.filter(co=> co.catId !== 'cat_essence');  // 본질은 가상이라 제외
+  if(search){
+   companies = companies.filter(co=>
+    (co.name||'').toLowerCase().includes(search) ||
+    (co.brand||'').toLowerCase().includes(search) ||
+    (co.products||'').toLowerCase().includes(search) ||
+    (co.summary||'').toLowerCase().includes(search)
+   );
+  }
+  // 카테고리별 그룹핑 (보기 좋게)
+  const grouped = {};
+  companies.forEach(co=>{
+   const k = co.catId;
+   if(!grouped[k]) grouped[k] = [];
+   grouped[k].push(co);
+  });
+  let html = '';
+  // 데이터 카테고리 순서 보존
+  data.categories.forEach(cat=>{
+   if(cat.id === 'cat_essence') return;
+   const arr = grouped[cat.id];
+   if(!arr || arr.length === 0) return;
+   html += `
+    <div style="margin:18px auto;max-width:1400px">
+     <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;margin-bottom:8px;background:#fdfaf3;border-left:3px solid var(--hi);border-radius:4px">
+      <span style="font-size:18px">${cat.icon||'📁'}</span>
+      <span style="font-size:13px;font-weight:700;color:var(--hi2)">${escapeHtml(cat.name)}</span>
+      <span style="font-size:11px;color:var(--txt3)">— ${arr.length}개 업체</span>
+      <button class="btn btn-xs" onclick="switchCategory('${cat.id}')" style="margin-left:auto" title="이 카테고리로 이동">→ 이동</button>
+     </div>
+     <div class="comp-table-wrap"><table class="comp-table"><thead>
+      <tr>
+       <th>업체/브랜드</th><th>대표</th><th>직원</th><th>매출</th>
+       <th>주소</th><th>주요제품</th><th>광고/특징/메모</th><th>광고 링크</th>
+       <th>기사</th><th></th>
+      </tr></thead><tbody>
+      ${arr.map(co=>renderRow(co)).join('')}
+     </tbody></table></div>
+    </div>
+   `;
+  });
+  if(!html){
+   html = `
+    <div class="empty-state">
+     <div class="empty-state-icon">🔍</div>
+     <div class="empty-state-title">검색 결과 없음</div>
+     <div class="empty-state-desc">다른 키워드로 검색해보세요.</div>
+    </div>
+   `;
+  }
+  area.innerHTML = html;
+  return;
+ }
+ 
+ // 업의 본질 카테고리: 매핑된 업체 + 본질 보드 함께 표시
+ if(data.activeCatId === 'cat_essence'){
+  const sloganHtml = renderEssenceBoard();
+  // 현재 서브카테고리에 매핑된 업체들 (다른 카테고리에서 끌어옴)
+  _ensureEssenceLinks?.();
+  if(!data.essenceLinks) data.essenceLinks = {};
+  const linkedIds = data.essenceLinks[data.activeSubId] || [];
+  let linkedCompanies = data.companies.filter(co=> linkedIds.includes(co.id));
+  if(search){
+   linkedCompanies = linkedCompanies.filter(co=>
+    (co.name||'').toLowerCase().includes(search) ||
+    (co.brand||'').toLowerCase().includes(search) ||
+    (co.products||'').toLowerCase().includes(search) ||
+    (co.summary||'').toLowerCase().includes(search)
+   );
+  }
+  
+  let mappedHtml = '';
+  if(linkedIds.length > 0){
+   const cat = data.categories.find(c=>c.id==='cat_essence');
+   const sub = cat?.subcats.find(s=>s.id===data.activeSubId);
+   mappedHtml = `
+    <div style="margin:24px auto;max-width:1400px">
+     <div style="display:flex;align-items:center;justify-content:space-between;padding:0 4px 12px;border-bottom:1px solid var(--bord);margin-bottom:12px">
+      <div style="font-size:14px;font-weight:700;color:var(--hi2)">📌 "${escapeHtml(sub?.name||'')}"에 매핑된 업체 ${linkedCompanies.length}개</div>
+      <button class="btn btn-sm" onclick="openEssenceFilterModal()" title="매핑 수정">✏ 매핑 수정</button>
+     </div>
+     ${linkedCompanies.length > 0 ? `
+      <div class="comp-table-wrap"><table class="comp-table"><thead>
+       <tr>
+        <th>업체/브랜드</th><th>대표</th><th>직원</th><th>매출</th>
+        <th>주소</th><th>주요제품</th><th>광고/특징/메모</th><th>광고 링크</th>
+        <th>기사</th><th></th>
+       </tr></thead><tbody>
+       ${linkedCompanies.map(co=>renderRow(co)).join('')}
+      </tbody></table></div>
+     ` : '<div style="text-align:center;color:var(--txt3);padding:40px;font-size:12px">검색 결과 없음</div>'}
+    </div>
+   `;
+  } else {
+   mappedHtml = `
+    <div style="margin:24px auto;max-width:900px;text-align:center;padding:30px;background:#fdfaf3;border:1px dashed var(--bord);border-radius:10px">
+     <div style="font-size:32px;margin-bottom:8px">🔍</div>
+     <div style="font-size:13px;color:var(--txt2);font-weight:600;margin-bottom:8px">아직 매핑된 업체가 없습니다</div>
+     <div style="font-size:11.5px;color:var(--txt3);line-height:1.6;margin-bottom:14px">상단 <strong style="color:var(--hi2)">"🔍 업체 필터/매핑"</strong> 버튼으로 다른 카테고리 (화장품·건기식 등) 의 업체 중 이 본질에 해당하는 업체를 골라서 매핑하세요.</div>
+     <button class="btn btn-primary" onclick="openEssenceFilterModal()">🔍 업체 필터/매핑 시작</button>
+    </div>
+   `;
+  }
+  area.innerHTML = sloganHtml + mappedHtml;
+  return;
+ }
+ 
  let companies = data.companies.filter(co=>{
   if(co.catId !== data.activeCatId) return false;
   if(data.activeSubId === '__all__') return true;
@@ -2413,13 +2631,6 @@ function renderCards(){
   const cat = data.categories.find(c=>c.id===data.activeCatId);
   const sub = cat?.subcats.find(s=>s.id===data.activeSubId);
   const subName = data.activeSubId==='__all__' ? '전체' : (sub?.name||'');
-  
-  // 업의 본질 카테고리는 특별 화면
-  if(data.activeCatId === 'cat_essence'){
-   const sloganHtml = renderEssenceBoard();
-   area.innerHTML = sloganHtml;
-   return;
-  }
   
   area.innerHTML = `
    <div class="empty-state">
@@ -3269,126 +3480,14 @@ function jumpToCompany(coId){
  }, 300);
 }
 
-function renderCellNote(co, field, label){
- const note = (co[field]||'').trim();
- if(note){
-  return `<div class="cell-note" onclick="editCellNote('${co.id}','${field}')" title="클릭하여 수정">
-   <span class="cell-note-label">📝 ${label}</span>${escapeHtml(note)}
-  </div>`;
- }
- return `<div class="cell-note-empty" onclick="editCellNote('${co.id}','${field}')" title="클릭하여 메모 추가">＋ ${label}</div>`;
-}
-
-function editCellNote(coId, field){
- const co = data.companies.find(c=>c.id===coId);
- if(!co) return;
- const labels = {adsNote:'광고 셀 메모', articlesNote:'기사 셀 메모'};
- const current = co[field] || '';
- const result = prompt(`${labels[field]||'메모'}\n(여러 줄은 \\n으로, 또는 그냥 쉼표/마침표로 짧게 적으세요)`, current);
- if(result === null) return;  // 취소
- co[field] = result.trim();
- saveData();
- renderCards();
-}
-
 // ============================================================
-// 구조화 메모 (notes-v2) — 7개 항목 + 자유 요약
+// 채널 칩 시스템 (자유 라벨 + 무한 추가) — 사용자 요청 디자인 #2
 // ============================================================
-let _nv2EditingCoId = null;
-const NV2_FIELDS = ['recordDate','currentAdCount','firstAdDate','pros','cons','expansion','etc'];
-
-function getNotesV2(co){
- if(!co.notesV2) co.notesV2 = {};
- return co.notesV2;
-}
-
-function hasNotesV2Content(co){
- const n = co.notesV2;
- if(!n) return false;
- return NV2_FIELDS.some(k => (n[k]||'').toString().trim() !== '');
-}
-
-function openNotesV2Modal(coId){
- const co = data.companies.find(c=>c.id===coId);
+function _ensureChannelsArray(co){
  if(!co) return;
- _nv2EditingCoId = coId;
- const n = getNotesV2(co);
- document.getElementById('nv2-company-name').textContent = co.name || '(이름없음)';
- // 기록일 기본값: 저장된 값 또는 오늘
- const today = new Date().toISOString().slice(0,10);
- document.getElementById('nv2-recordDate').value = n.recordDate || today;
- document.getElementById('nv2-currentAdCount').value = n.currentAdCount || '';
- document.getElementById('nv2-firstAdDate').value = n.firstAdDate || '';
- document.getElementById('nv2-pros').value = n.pros || '';
- document.getElementById('nv2-cons').value = n.cons || '';
- document.getElementById('nv2-expansion').value = n.expansion || '';
- document.getElementById('nv2-etc').value = n.etc || '';
- document.getElementById('nv2-summary').value = co.summary || '';
- document.getElementById('modal-notes-v2').classList.add('active');
+ if(!Array.isArray(co.channels)) co.channels = [];
 }
 
-function saveNotesV2(){
- if(!_nv2EditingCoId) return;
- const co = data.companies.find(c=>c.id===_nv2EditingCoId);
- if(!co) return;
- const n = getNotesV2(co);
- n.recordDate = document.getElementById('nv2-recordDate').value || '';
- n.currentAdCount = document.getElementById('nv2-currentAdCount').value.trim();
- n.firstAdDate = document.getElementById('nv2-firstAdDate').value.trim();
- n.pros = document.getElementById('nv2-pros').value.trim();
- n.cons = document.getElementById('nv2-cons').value.trim();
- n.expansion = document.getElementById('nv2-expansion').value.trim();
- n.etc = document.getElementById('nv2-etc').value.trim();
- // 자유 메모(summary)도 같이 저장
- co.summary = document.getElementById('nv2-summary').value;
- saveData();
- closeModal('modal-notes-v2');
- renderCards();
- if(typeof toast === 'function') toast('메모 저장 완료','grn');
-}
-
-function clearNotesV2(){
- if(!_nv2EditingCoId) return;
- if(!confirm('구조화 메모 7개 항목을 모두 비웁니다 (자유 메모는 유지). 계속할까요?')) return;
- NV2_FIELDS.forEach(k => {
-  const el = document.getElementById('nv2-'+k);
-  if(el) el.value = (k==='recordDate' ? new Date().toISOString().slice(0,10) : '');
- });
-}
-
-// 셀에 표시할 구조화 메모 블록 (있는 항목만 컴팩트)
-function renderNotesV2Block(co){
- const n = co.notesV2;
- if(!n || !hasNotesV2Content(co)) return '';
- const rows = [];
- if(n.currentAdCount) rows.push({lbl:'🔢 광고수', val:n.currentAdCount});
- if(n.firstAdDate)    rows.push({lbl:'🗓 최초', val:n.firstAdDate});
- if(n.pros)           rows.push({lbl:'✅ 장점', val:n.pros});
- if(n.cons)           rows.push({lbl:'⚠️ 단점', val:n.cons});
- if(n.expansion)      rows.push({lbl:'🚀 확장', val:n.expansion});
- if(n.etc)            rows.push({lbl:'📌 기타', val:n.etc});
- const inner = rows.map(r => 
-  `<div class="notes-v2-row"><span class="notes-v2-label">${r.lbl}</span><span class="notes-v2-value">${escapeHtml(r.val)}</span></div>`
- ).join('');
- const recordLine = n.recordDate ? `<div class="notes-v2-record">📅 기록일: ${escapeHtml(n.recordDate)}</div>` : '';
- return `<div class="notes-v2-block" onclick="openNotesV2Modal('${co.id}')" title="클릭하여 수정">${inner}${recordLine}</div>`;
-}
-
-// 브랜드 URL 정규화 (저장 시 호출)
-// - 빈/공백 → ''
-// - javascript:, data:, file:, vbscript: 차단 (XSS/스푸핑 방지)
-// - http(s)://, // 가 없으면 https:// 자동 추가
-function normalizeBrandUrl(url){
- if(!url) return '';
- url = url.trim();
- if(!url) return '';
- if(/^\s*(javascript|data|file|vbscript):/i.test(url)) return '';
- if(/^\/\//.test(url)) return 'https:' + url;
- if(!/^https?:\/\//i.test(url)) url = 'https://' + url;
- return url;
-}
-
-// 렌더링용 안전 검사 (저장된 값이라도 한 번 더 체크)
 function safeBrandUrl(url){
  if(!url) return '';
  if(!/^https?:\/\//i.test(url)) return '';
@@ -3396,24 +3495,13 @@ function safeBrandUrl(url){
  return url;
 }
 
-// 판매 채널 — 동적 배열 [{label, url}] (자유 라벨/개수)
-// 기존 데이터 호환: co.channels가 객체({own,coupang,...})면 자동으로 배열로 변환
-const _LEGACY_CHANNEL_LABELS = {
- own:'자사몰', coupang:'쿠팡', gmarket:'지마켓', etc:'기타'
-};
-function _ensureChannelsArray(co){
- if(!co) return;
- if(Array.isArray(co.channels)) return;
- const oldCh = co.channels || {};
- const arr = [];
- ['own','coupang','gmarket','etc'].forEach(k=>{
-  if(oldCh[k]) arr.push({label:_LEGACY_CHANNEL_LABELS[k], url:oldCh[k]});
- });
- co.channels = arr;
+function normalizeBrandUrl(url){
+ const u = (url||'').trim();
+ if(!u) return '';
+ if(/^https?:\/\//i.test(u)) return u;
+ if(/^\/\//.test(u)) return 'https:' + u;
+ return 'https://' + u;
 }
-
-// 자주 쓰는 채널 라벨 (빠른 추가 버튼)
-const _COMMON_CHANNEL_LABELS = ['자사몰','쿠팡','지마켓','스마트스토어','네이버블로그','협업 인플루언서','공구 판매','약국/의원 입점','기타'];
 
 function renderChannelChips(co){
  _ensureChannelsArray(co);
@@ -3429,9 +3517,6 @@ function renderChannelChips(co){
  return `<div class="cell-channels">${chips}<button class="cell-channels-edit" onclick="openChannelsQuickModal('${co.id}')" title="채널 수정">✏️ 수정</button></div>`;
 }
 
-// ============================================================
-// 채널 빠른 편집 — 동적 배열 (라벨/URL/추가/삭제)
-// ============================================================
 let _chqEditingCoId = null;
 function openChannelsQuickModal(coId){
  const co = data.companies.find(c=>c.id===coId);
@@ -3439,7 +3524,6 @@ function openChannelsQuickModal(coId){
  _ensureChannelsArray(co);
  _chqEditingCoId = coId;
  document.getElementById('chq-company-name').textContent = co.name || '(이름없음)';
- // 기존 채널 행 렌더
  const rowsBox = document.getElementById('chq-rows');
  rowsBox.innerHTML = '';
  const list = co.channels.length ? co.channels : [{label:'자사몰', url:''}];
@@ -3494,7 +3578,7 @@ function saveChannelsQuick(){
 }
 
 // ============================================================
-// 광고 캡처 갤러리 — 이미지를 base64로 압축 저장 (링크가 없는 광고용)
+// 광고 캡처 갤러리 — 클립보드 붙여넣기 + 1280px 압축 (사용자 요청 #2,#3)
 // ============================================================
 let _capEditingCoId = null;
 let _capEditingId = null;
@@ -3515,27 +3599,37 @@ function openCapturesModal(coId){
  document.getElementById('cap-company-name').textContent = co.name || '(이름없음)';
  _renderCaptureGallery();
  document.getElementById('modal-captures').classList.add('active');
- // 붙여넣기 영역 자동 포커스
  setTimeout(()=>document.getElementById('cap-paste-zone').focus(), 100);
 }
 
 function _renderCaptureGallery(){
  const co = data.companies.find(c=>c.id===_capEditingCoId);
  const gallery = document.getElementById('cap-gallery');
- const empty = document.getElementById('cap-empty');
  if(!co || !co.adCaptures || co.adCaptures.length === 0){
-  gallery.innerHTML = '<div id="cap-empty" style="width:100%;text-align:center;color:var(--txt3);font-size:11px;padding:30px 0">아직 캡처가 없습니다. 위에 붙여넣기 또는 파일 선택으로 추가하세요.</div>';
+  gallery.innerHTML = '<div style="width:100%;text-align:center;color:var(--txt3);font-size:11px;padding:30px 0">아직 캡처가 없습니다. 위 영역에 포커스 둔 상태로 Ctrl+V 또는 파일 선택으로 추가하세요.</div>';
   return;
  }
  gallery.innerHTML = co.adCaptures.map(cap => `
   <div class="cap-thumb" onclick="openCaptureView('${cap.id}')" title="${escapeAttr(cap.memo||'클릭하여 보기')}">
    <img src="${escapeAttr(cap.dataUrl)}" alt="">
+   <button class="cap-thumb-del" onclick="event.stopPropagation();deleteCaptureFromThumb('${cap.id}')" title="이 캡처 삭제">×</button>
    ${cap.memo ? `<div class="cap-thumb-memo">${escapeHtml(cap.memo)}</div>` : ''}
   </div>
  `).join('');
 }
 
-// 이미지를 800px 이내로 리사이즈 + JPEG 압축 → base64
+function deleteCaptureFromThumb(capId){
+ if(!confirm('이 캡처를 삭제하시겠습니까?')) return;
+ const co = data.companies.find(c=>c.id===_capEditingCoId);
+ if(!co) return;
+ co.adCaptures = (co.adCaptures||[]).filter(c=>c.id!==capId);
+ saveData();
+ _renderCaptureGallery();
+ renderCards();
+ if(typeof toast === 'function') toast('캡처 삭제됨','red');
+}
+
+// 1280px / 0.92 압축 - 사용자 요청 #3 해상도 향상
 function _resizeImageToDataUrl(file, maxDim, quality){
  return new Promise((resolve, reject)=>{
   const reader = new FileReader();
@@ -3571,7 +3665,10 @@ async function _addCaptureFromFile(file){
  const co = data.companies.find(c=>c.id===_capEditingCoId);
  if(!co) return;
  try{
-  const dataUrl = await _resizeImageToDataUrl(file, 800, 0.85);
+  // 사용자 요청: 1600px / 0.92 품질 (글자 가독성 ↑↑)
+  // 용량 비교: 800px=50~150KB, 1280px=120~350KB, 1600px=180~500KB
+  // localStorage 5MB 한계 → 1600px 약 15~25장 보관 가능
+  const dataUrl = await _resizeImageToDataUrl(file, 1600, 0.92);
   if(!Array.isArray(co.adCaptures)) co.adCaptures = [];
   co.adCaptures.push({
    id: 'cap-' + Math.random().toString(36).slice(2,9),
@@ -3582,14 +3679,15 @@ async function _addCaptureFromFile(file){
   try {
    saveData();
   } catch(e) {
-   // localStorage 용량 초과 등 대비
    co.adCaptures.pop();
-   if(typeof toast === 'function') toast('저장 실패 — 용량 초과 가능. 오래된 캡처 삭제 권장','red');
+   if(typeof toast === 'function') toast('저장 실패 — 용량 초과. 오래된 캡처 삭제 권장','red');
    return;
   }
+  // 용량 정보 표시 (사이즈 KB)
+  const sizeKB = Math.round(dataUrl.length * 0.75 / 1024);
   _renderCaptureGallery();
   renderCards();
-  if(typeof toast === 'function') toast('캡처 추가됨','grn');
+  if(typeof toast === 'function') toast(`캡처 추가됨 (1600px, ${sizeKB}KB)`,'grn');
  } catch(err){
   if(typeof toast === 'function') toast('이미지 처리 실패: '+err.message,'red');
  }
@@ -3632,12 +3730,23 @@ function deleteCaptureFromView(){
  if(typeof toast === 'function') toast('캡처 삭제됨','red');
 }
 
-// 붙여넣기/드래그/파일 선택 이벤트 바인딩 (DOMContentLoaded 시점)
+// 캡처 영역 이벤트 바인딩 - 사용자 요청 #2: "여기 클릭" 의미 명확화
 function _bindCaptureEvents(){
  const zone = document.getElementById('cap-paste-zone');
+ const fileBtn = document.getElementById('cap-file-btn');
  const fileInput = document.getElementById('cap-file-input');
  if(!zone || !fileInput) return;
- zone.addEventListener('click', ()=> fileInput.click());
+ // ★ 사용자 요청 #2: 클릭 시 파일 다이얼로그 X — 영역에 포커스만, 파일 선택은 별도 버튼
+ zone.addEventListener('click', (e)=>{
+  if(e.target.id === 'cap-file-btn') return; // 파일 버튼 클릭은 별도 처리
+  zone.focus();
+ });
+ if(fileBtn){
+  fileBtn.addEventListener('click', (e)=>{
+   e.stopPropagation();
+   fileInput.click();
+  });
+ }
  fileInput.addEventListener('change', e => {
   const files = Array.from(e.target.files||[]);
   files.forEach(f => _addCaptureFromFile(f));
@@ -3655,7 +3764,6 @@ function _bindCaptureEvents(){
    }
   }
  });
- // 드래그앤드롭
  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
  zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
  zone.addEventListener('drop', e => {
@@ -3665,65 +3773,83 @@ function _bindCaptureEvents(){
   files.forEach(f => _addCaptureFromFile(f));
  });
 }
-// DOM 로드 후 캡처 이벤트 바인딩
 if(document.readyState === 'loading'){
  document.addEventListener('DOMContentLoaded', _bindCaptureEvents);
 } else {
- _bindCaptureEvents();
+ setTimeout(_bindCaptureEvents, 100);
+}
+
+// ============================================================
+// 메모 편집 모달 (사용자 요청 디자인 #1)
+// ============================================================
+let _summaryEditingCoId = null;
+function openSummaryEditModal(coId){
+ const co = data.companies.find(c=>c.id===coId);
+ if(!co) return;
+ _summaryEditingCoId = coId;
+ document.getElementById('sm-company-name').textContent = co.name || '(이름없음)';
+ document.getElementById('sm-textarea').value = co.summary || '';
+ document.getElementById('modal-summary-edit').classList.add('active');
+ setTimeout(()=>document.getElementById('sm-textarea').focus(), 100);
+}
+function saveSummaryEdit(){
+ if(!_summaryEditingCoId) return;
+ const co = data.companies.find(c=>c.id===_summaryEditingCoId);
+ if(!co) return;
+ co.summary = document.getElementById('sm-textarea').value;
+ saveData();
+ closeModal('modal-summary-edit');
+ renderCards();
+ if(typeof toast === 'function') toast('메모 저장됨','grn');
 }
 
 function renderRow(co){
- _ensureChannelsArray(co);
  const ads = co.ads||[];
+ _ensureChannelsArray(co);
  const summaryId = 'sum-'+co.id;
  const summaryLong = (co.summary||'').length > 100;
  
  return `
   <tr data-id="${co.id}">
-   <td class="cell-name" data-label="업체/브랜드">
+   <td class="cell-name">
     <div class="name-main">${escapeHtml(co.name||'(이름없음)')}</div>
-    ${co.brand ? (
-      safeBrandUrl(co.brandUrl)
-       ? `<a class="name-brand" href="${escapeAttr(safeBrandUrl(co.brandUrl))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${escapeAttr(safeBrandUrl(co.brandUrl))} (새 탭에서 열기)">🏷️ ${escapeHtml(co.brand)}<span class="brand-ext">↗</span></a>`
-       : `<div class="name-brand">🏷️ ${escapeHtml(co.brand)}</div>`
-    ) : ''}
-    ${renderChannelChips(co)}
+    ${co.brand?`<div class="name-brand">🏷️ ${escapeHtml(co.brand)}</div>`:''}
     ${co.platform?`<div class="name-platform" title="${escapeAttr(co.platform)}">🛠️ ${escapeHtml(co.platform.length>20?co.platform.slice(0,20)+'…':co.platform)}</div>`:''}
-    ${co.recordReason && co.recordReason.trim() ? `<div class="name-record-reason" title="등록 사유: ${escapeAttr(co.recordReason)}">${escapeHtml(co.recordReason)}</div>` : ''}
+    ${renderChannelChips(co)}
+    <div style="display:flex;gap:4px;margin-top:6px">
+     <button class="btn btn-xs" onclick="editCompany('${co.id}')" title="수정">✏ 수정</button>
+     <button class="btn btn-xs btn-danger" onclick="deleteCompany('${co.id}')" title="삭제">× 삭제</button>
+    </div>
    </td>
-   <td class="cell-text-sm" data-label="대표">${escapeHtml(co.ceo||'-')}</td>
-   <td class="cell-text-sm" data-label="직원수">${escapeHtml(co.staff||'-')}</td>
-   <td class="cell-revenue" data-label="📊 매출 추이">${renderRevenueMini(co)}</td>
-   <td class="cell-text-sm" data-label="주소">${escapeHtml(co.addr||'-')}</td>
-   <td class="cell-products" data-label="주요 제품">${escapeHtml(co.products||'-')}</td>
-   <td class="cell-summary" data-label="📋 광고/특징 메모">
-    ${renderNotesV2Block(co)}
-    ${hasNotesV2Content(co) 
-      ? `<button class="notes-v2-edit-btn" onclick="openNotesV2Modal('${co.id}')" title="구조화 메모 수정">✏️ 메모 수정</button>`
-      : `<button class="notes-v2-empty-btn" onclick="openNotesV2Modal('${co.id}')" title="기록일/광고개수/장단점/확장방안 등 입력">📋 상세 메모 입력</button>`
-    }
+   <td class="cell-text-sm">${escapeHtml(co.ceo||'-')}</td>
+   <td class="cell-text-sm">${escapeHtml(co.staff||'-')}</td>
+   <td class="cell-revenue">${renderRevenueMini(co)}</td>
+   <td class="cell-text-sm">${escapeHtml(co.addr||'-')}</td>
+   <td class="cell-products">${escapeHtml(co.products||'-')}</td>
+   <td class="cell-summary">
     ${co.summary && co.summary.trim() ? `
-     <div id="${summaryId}" class="${summaryLong?'cell-summary-truncate':''}" style="margin-top:4px">${escapeHtml(co.summary)}</div>
+     <div id="${summaryId}" class="${summaryLong?'cell-summary-truncate':''}">${escapeHtml(co.summary)}</div>
      ${summaryLong?`<span class="cell-summary-toggle" onclick="toggleSummary('${summaryId}',this)">▼ 더보기</span>`:''}
-    ` : ''}
+    ` : '<span style="color:var(--txt3);font-style:italic">-</span>'}
+    <div style="margin-top:6px;text-align:right">
+     <button class="btn btn-xs" onclick="openSummaryEditModal('${co.id}')" style="font-size:9.5px;padding:3px 7px" title="상세 메모 입력">✏ 메모편집</button>
+    </div>
    </td>
-   <td class="cell-ads" data-label="📢 광고 링크">
+   <td class="cell-ads">
     <div class="ads-inline">
      ${ads.map(ad=>renderAdChip(co.id, ad)).join('')}
      <button class="add-ad-btn" onclick="openAddAdModal('${co.id}')" title="광고 추가">＋ 광고</button>
      ${renderCapturesButton(co)}
     </div>
-    ${renderCellNote(co, 'adsNote', '광고 메모')}
    </td>
-   <td class="cell-articles" data-label="📰 관련 기사">
+   <td class="cell-articles">
     <div class="ads-inline">
      ${(co.articles||[]).slice(0,3).map(art=>renderArticleChip(co.id, art)).join('')}
      ${(co.articles||[]).length > 3 ? `<span class="article-chip" onclick="openArticlesModal('${co.id}')" style="background:var(--panel2);font-weight:600">+${(co.articles||[]).length-3}개 더</span>` : ''}
      <button class="add-ad-btn" onclick="openArticlesModal('${co.id}')" title="기사 관리">＋ 기사</button>
     </div>
-    ${renderCellNote(co, 'articlesNote', '기사 메모')}
    </td>
-   <td class="cell-actions" data-label="">
+   <td class="cell-actions">
     <button class="btn btn-xs" onclick="editCompany('${co.id}')" title="수정">✏</button>
     <button class="btn btn-xs btn-danger" onclick="deleteCompany('${co.id}')" title="삭제">×</button>
    </td>
@@ -3791,8 +3917,7 @@ let editingCompanyId = null;
 function openAddCompanyModal(){
  editingCompanyId = null;
  document.getElementById('modal-company-title').textContent = '업체 추가';
- ['comp-name','comp-brand','comp-brand-url','comp-record-reason','comp-ceo','comp-staff','comp-addr','comp-products','comp-summary','comp-platform',
-  'comp-ch-own','comp-ch-coupang','comp-ch-gmarket','comp-ch-etc'].forEach(id=>{
+ ['comp-name','comp-brand','comp-ceo','comp-staff','comp-addr','comp-products','comp-summary','comp-platform'].forEach(id=>{
   const el = document.getElementById(id);
   if(el) el.value = '';
  });
@@ -3805,8 +3930,7 @@ function openAddCompanyModal(){
  editingImages = [];
  refreshImageThumbs();
  fillRevenueRowsFromData([]);  // 빈 행 1개만
- fillCatSelect(data.activeCatId);
- fillSubcatSelect(data.activeSubId, data.activeCatId);
+ fillSubcatSelect();
  document.getElementById('modal-company').classList.add('active');
  setTimeout(()=>{
   setupImageDropZone();
@@ -3821,8 +3945,6 @@ function editCompany(id){
  document.getElementById('modal-company-title').textContent = '업체 수정';
  document.getElementById('comp-name').value = co.name||'';
  document.getElementById('comp-brand').value = co.brand||'';
- document.getElementById('comp-brand-url').value = co.brandUrl||'';
- document.getElementById('comp-record-reason').value = co.recordReason||'';
  document.getElementById('comp-ceo').value = co.ceo||'';
  document.getElementById('comp-staff').value = co.staff||'';
  document.getElementById('comp-addr').value = co.addr||'';
@@ -3830,12 +3952,6 @@ function editCompany(id){
  document.getElementById('comp-summary').value = co.summary||'';
  const pfEl = document.getElementById('comp-platform');
  if(pfEl) pfEl.value = co.platform||'';
- // 판매 채널 4개 (없으면 빈 문자열)
- const ch = co.channels || {};
- document.getElementById('comp-ch-own').value     = ch.own     || '';
- document.getElementById('comp-ch-coupang').value = ch.coupang || '';
- document.getElementById('comp-ch-gmarket').value = ch.gmarket || '';
- document.getElementById('comp-ch-etc').value     = ch.etc     || '';
  const pasteEl = document.getElementById('revenue-paste-text');
  if(pasteEl) pasteEl.value = '';
  const srcEl = document.getElementById('revenue-source');
@@ -3850,32 +3966,16 @@ function editCompany(id){
  } else {
   fillRevenueRowsFromData(co.revenueData||[]);
  }
- // 메인 카테고리는 회사 데이터의 catId 우선, 없으면 active
- fillCatSelect(co.catId || data.activeCatId);
- fillSubcatSelect(co.subId, co.catId || data.activeCatId);
+ fillSubcatSelect(co.subId);
  document.getElementById('modal-company').classList.add('active');
  setTimeout(()=>setupImageDropZone(),100);
 }
 
-function fillCatSelect(selectedCatId){
- const sel = document.getElementById('comp-cat');
- sel.innerHTML = data.categories.map(c=>
-  `<option value="${c.id}" ${c.id===selectedCatId?'selected':''}>${c.icon} ${escapeHtml(c.name)}</option>`
- ).join('');
-}
-
-function onCompCatChange(){
- // 메인 카테고리 변경 시 서브카테고리 select를 그 카테고리의 첫 항목으로 갱신
- const newCatId = document.getElementById('comp-cat').value;
- fillSubcatSelect(null, newCatId);
-}
-
-function fillSubcatSelect(selectedId, overrideCatId){
- const catId = overrideCatId || document.getElementById('comp-cat')?.value || data.activeCatId;
- const cat = data.categories.find(c=>c.id===catId);
+function fillSubcatSelect(selectedId){
+ const cat = data.categories.find(c=>c.id===data.activeCatId);
  const sel = document.getElementById('comp-subcat');
  if(!cat){sel.innerHTML='';return}
- const target = selectedId || (cat.subcats[0] && cat.subcats[0].id);
+ const target = selectedId || data.activeSubId;
  sel.innerHTML = cat.subcats.map(s=>`<option value="${s.id}" ${s.id===target?'selected':''}>${escapeHtml(s.name)}</option>`).join('');
 }
 
@@ -3883,22 +3983,11 @@ function saveCompany(){
  const name = document.getElementById('comp-name').value.trim();
  if(!name){toast('업체명을 입력하세요','red');return}
  
- // 메인 카테고리는 모달 select에서 (없으면 active 사용)
- const newCatId = document.getElementById('comp-cat')?.value || data.activeCatId;
- 
  const fields = {
-  catId: newCatId,
+  catId: data.activeCatId,
   subId: document.getElementById('comp-subcat').value,
   name,
   brand: document.getElementById('comp-brand').value.trim(),
-  brandUrl: normalizeBrandUrl(document.getElementById('comp-brand-url').value),
-  recordReason: document.getElementById('comp-record-reason').value.trim(),
-  channels: {
-   own:     normalizeBrandUrl(document.getElementById('comp-ch-own').value),
-   coupang: normalizeBrandUrl(document.getElementById('comp-ch-coupang').value),
-   gmarket: normalizeBrandUrl(document.getElementById('comp-ch-gmarket').value),
-   etc:     normalizeBrandUrl(document.getElementById('comp-ch-etc').value)
-  },
   ceo: document.getElementById('comp-ceo').value.trim(),
   staff: document.getElementById('comp-staff').value.trim(),
   revenueData: collectRevenueRows(),
@@ -3912,27 +4001,15 @@ function saveCompany(){
   updatedAt: Date.now()
  };
  
- // 카테고리 이동 감지 (수정 시)
- const movedCategory = editingCompanyId && (() => {
-  const orig = data.companies.find(c=>c.id===editingCompanyId);
-  return orig && orig.catId && orig.catId !== newCatId;
- })();
- 
  if(editingCompanyId){
   const co = data.companies.find(c=>c.id===editingCompanyId);
   Object.assign(co, fields);
   delete co.revenue;
   delete co.profit;
-  toast(movedCategory ? '업체 수정 + 카테고리 이동됨' : '업체 수정됨','grn');
+  toast('업체 수정됨','grn');
  } else {
   data.companies.push({id:'co_'+Date.now(),...fields,ads:[],articles:[],createdAt:Date.now()});
   toast('업체 추가됨','grn');
- }
- 
- // 카테고리가 이동된 경우, 새 카테고리로 화면 전환 (사용자가 결과를 바로 확인할 수 있게)
- if(movedCategory){
-  data.activeCatId = newCatId;
-  data.activeSubId = fields.subId;
  }
  
  saveData();
@@ -4402,9 +4479,24 @@ function collectRevenueRows(){
 }
 
 // 붙여넣은 표 자동 분석
+// 출처 변경 시 안내 토스트
+function onRevenueSourceChange(){
+ const v = document.getElementById('revenue-source')?.value;
+ if(v === 'cretop'){
+  toast('크레탑 모드 — 분석 시 백만원 → 천원 자동 변환 (×1,000)','blu');
+ } else if(v === 'smb'){
+  toast('중소기업현황 모드 — 그대로 천원 단위 처리','blu');
+ }
+}
+
 function parseRevenueTable(){
  const text = document.getElementById('revenue-paste-text').value.trim();
  if(!text){toast('표 텍스트를 붙여넣으세요','red');return}
+ 
+ // 출처가 크레탑이면 백만원 → 천원 변환 (×1000)
+ const sourceVal = document.getElementById('revenue-source')?.value || '';
+ const isCretop = sourceVal === 'cretop';
+ const multiplier = isCretop ? 1000 : 1;
  
  // 줄별로 처리
  const lines = text.split(/\n/).filter(l=>l.trim());
@@ -4412,7 +4504,7 @@ function parseRevenueTable(){
  
  for(const line of lines){
   // 헤더 라인 스킵 (결산년도, 총자산 등 텍스트 포함)
-  if(/결산|총자산|자본금|자본총계|매출액|영업이익|당기순이익|단위|단위:|단위 :/.test(line)) continue;
+  if(/결산|총자산|자본금|자본총계|매출액|영업이익|당기순이익|단위|단위:|단위 :|납입자본금|순이익정보/.test(line)) continue;
   
   // 토큰 추출 (공백/탭/콤마 보존)
   const tokens = line.split(/[\s\t]+/).filter(t=>t.trim());
@@ -4424,23 +4516,22 @@ function parseRevenueTable(){
   const year = yearMatch[1];
   
   // 숫자 토큰들 (콤마 포함 가능)
-  const nums = tokens.slice(1).map(t=>t.replace(/,/g,'')).filter(t=>/^-?\d+$/.test(t));
+  const nums = tokens.slice(1).map(t=>t.replace(/,/g,'')).filter(t=>/^-?\d+$/.test(t)).map(t=>parseInt(t,10));
   
-  // 중소기업현황 표준 형식: [총자산, 자본금, 자본총계, 매출액, 영업이익, 당기순이익] = 6개
-  // 또는 단축: [매출액, 영업이익, 당기순이익] = 3개
+  // 중소기업현황 / 크레탑 표준 형식: [총자산, (납입)자본금, 자본총계, 매출액, 영업이익, 당기순이익] = 6개
   if(nums.length >= 6){
    parsed.push({
     year: year+'-12-31',
-    revenue: nums[3],   // 매출액 (4번째)
-    opIncome: nums[4],  // 영업이익 (5번째)
-    netProfit: nums[5]  // 당기순이익 (6번째)
+    revenue: String(nums[3] * multiplier),   // 매출액 (4번째)
+    opIncome: String(nums[4] * multiplier),  // 영업이익 (5번째)
+    netProfit: String(nums[5] * multiplier)  // 당기순이익 (6번째)
    });
   } else if(nums.length >= 3){
    parsed.push({
     year: year+'-12-31',
-    revenue: nums[0],
-    opIncome: nums[1],
-    netProfit: nums[2]
+    revenue: String(nums[0] * multiplier),
+    opIncome: String(nums[1] * multiplier),
+    netProfit: String(nums[2] * multiplier)
    });
   }
  }
@@ -4452,7 +4543,8 @@ function parseRevenueTable(){
  
  // 입력란 채우기
  fillRevenueRowsFromData(parsed);
- toast(parsed.length+'개 연도 자동 인식됨','grn');
+ const unitMsg = isCretop ? ' (백만원 → 천원 자동 변환)' : '';
+ toast(parsed.length+'개 연도 자동 인식됨'+unitMsg,'grn');
  
  // 텍스트 영역 비우기
  document.getElementById('revenue-paste-text').value = '';
@@ -4676,7 +4768,7 @@ function openHelpModal(){
   modal.id = 'modal-help';
   modal.className = 'overlay';
   modal.innerHTML = '<div class="modal" style="max-width:480px"></div>';
-  modal.addEventListener('click', e=>{if(e.target===modal)modal.classList.remove('active')});
+  // 외부 클릭 닫기 비활성화 (사용자 요청)
   document.body.appendChild(modal);
  }
  modal.querySelector('.modal').innerHTML = `
@@ -4829,7 +4921,7 @@ function openRevenueChartModal(coId){
   modal.id = 'modal-revenue-chart';
   modal.className = 'overlay';
   modal.innerHTML = '<div class="modal" style="max-width:760px"></div>';
-  modal.addEventListener('click', e=>{if(e.target===modal)modal.classList.remove('active')});
+  // 외부 클릭 닫기 비활성화 (사용자 요청)
   document.body.appendChild(modal);
  }
  modal.querySelector('.modal').innerHTML = modalHtml;
@@ -5108,6 +5200,23 @@ function copyResearchPrompt(){
 // ============================================================
 function renderStats(){
  const bar = document.getElementById('stats-bar');
+ // cat_all 모드 — 전체 합계만 표시
+ if(data.activeCatId === 'cat_all'){
+  const total = data.companies.length;
+  const totalAds = data.companies.reduce((s,co)=>s+(co.ads||[]).length,0);
+  const cats = {};
+  data.companies.forEach(co=>{ cats[co.catId] = (cats[co.catId]||0)+1; });
+  const catSummary = Object.keys(cats).map(cid=>{
+   const c = data.categories.find(x=>x.id===cid);
+   return c ? `${c.icon||''}${escapeHtml(c.name)} ${cats[cid]}` : '';
+  }).filter(Boolean).join(' · ');
+  bar.innerHTML = `
+   <div class="stat-item" style="background:#fdfaf3;border-color:var(--hi);font-weight:600">🌐 전체 업체 <b>${total}</b></div>
+   <div class="stat-item">전체 광고 <b>${totalAds}</b></div>
+   <div class="stat-item" style="flex:1;font-size:11px;color:var(--txt2);text-align:left">${catSummary}</div>
+  `;
+  return;
+ }
  const cat = data.categories.find(c=>c.id===data.activeCatId);
  const sub = cat?.subcats.find(s=>s.id===data.activeSubId);
  const subName = data.activeSubId === '__all__' ? '📂 전체' : (sub?.name||'');
@@ -5118,11 +5227,28 @@ function renderStats(){
  const totalAll = data.companies.reduce((s,co)=>s+(co.ads||[]).length,0);
  
  bar.innerHTML = `
-  <div class="stat-item">전체 업체 <b>${data.companies.length}</b></div>
-  <div class="stat-item">전체 광고 <b>${totalAll}</b></div>
-  <div class="stat-item">${escapeHtml(cat?.name||'')} <b>${allInCat.length}</b>개 업체</div>
+  <div class="stat-item stat-clickable" onclick="goToAllCompanies()" title="🌐 전체 카테고리 보기">전체 업체 <b>${data.companies.length}</b></div>
+  <div class="stat-item stat-clickable" onclick="goToAllCompanies()" title="🌐 전체 업체 + 광고">전체 광고 <b>${totalAll}</b></div>
+  <div class="stat-item stat-clickable" onclick="goToCatAll()" title="이 카테고리 전체 보기">${escapeHtml(cat?.name||'')} <b>${allInCat.length}</b>개 업체</div>
   <div class="stat-item">${escapeHtml(subName)} <b>${inSub.length}</b>개 업체 / ${totalAds}개 광고</div>
  `;
+}
+
+// 통계 숫자 클릭 — 🌐 전체 카테고리로 이동
+function goToAllCompanies(){
+ data.activeCatId = 'cat_all';
+ data.activeSubId = '__all__';
+ saveData();
+ render();
+ toast('🌐 전체 카테고리 보기','blu');
+}
+
+// 현재 카테고리 전체 보기 모드
+function goToCatAll(){
+ data.activeSubId = '__all__';
+ saveData();
+ render();
+ toast('이 카테고리의 전체 업체 보기','blu');
 }
 
 // ============================================================
@@ -5158,12 +5284,30 @@ function importJSON(event){
     toast('잘못된 형식의 파일','red');return;
    }
    if(!confirm(`현재 데이터를 덮어쓰시겠습니까?\n\n가져올 데이터:\n- 카테고리 ${imported.categories.length}개\n- 업체 ${imported.companies.length}개`)) return;
+   // 마이그레이션 — channels는 배열로 정규화, adCaptures 누락 시 빈 배열
+   imported.companies.forEach(co=>{
+    if(!Array.isArray(co.channels)){
+     // 객체 형태였다면 배열로 변환
+     if(co.channels && typeof co.channels === 'object'){
+      const map = {own:'자사몰', coupang:'쿠팡', gmarket:'지마켓', smartstore:'스마트스토어', etc:'기타'};
+      const arr = [];
+      Object.keys(co.channels).forEach(k=>{
+       const url = co.channels[k];
+       if(url) arr.push({label: map[k] || k, url});
+      });
+      co.channels = arr;
+     } else {
+      co.channels = [];
+     }
+    }
+    if(!Array.isArray(co.adCaptures)) co.adCaptures = [];
+   });
    data = imported;
    if(!data.activeCatId) data.activeCatId = data.categories[0]?.id;
    if(!data.activeSubId) data.activeSubId = data.categories.find(c=>c.id===data.activeCatId)?.subcats[0]?.id;
    saveData();
    render();
-   toast('데이터 가져오기 완료','grn');
+   toast('데이터 가져오기 완료 (채널/캡처 마이그레이션 포함)','grn');
   }catch(err){
    toast('JSON 파싱 실패: '+err.message,'red');
   }
@@ -5184,250 +5328,6 @@ function resetAll(){
 }
 
 // ============================================================
-// 회사 1건 JSON 추가 (클로드 조사 결과 빠르게 입력용)
-// ============================================================
-function openImportCompanyModal(){
- document.getElementById('import-company-json').value = '';
- const prev = document.getElementById('import-company-preview');
- prev.style.display = 'none';
- prev.innerHTML = '';
- document.getElementById('modal-import-company').classList.add('active');
-}
-
-// 다양한 JSON 스키마를 보물섬 회사 객체로 변환
-function _normalizeImportedCompany(raw){
- if(!raw || typeof raw !== 'object') throw new Error('객체 형식이 아닙니다');
- if(!raw.name || !String(raw.name).trim()) throw new Error('"name" 필드가 비어있습니다');
- 
- const co = {};
- // 필수/기본 필드 (보물섬 표준 스키마와 1:1 매핑)
- co.id = raw.id || ('co-' + Math.random().toString(36).slice(2,9));
- co.name = String(raw.name).trim();
- co.brand = String(raw.brand || '').trim();
- co.brandUrl = String(raw.brandUrl || raw.brand_url || raw.url || '').trim();
- co.recordReason = String(raw.recordReason || raw.record_reason || raw.기록사유 || raw.등록사유 || '').trim();
- co.ceo = String(raw.ceo || raw.대표 || raw.대표자 || '').trim();
- co.staff = String(raw.staff || raw.직원수 || '').trim();
- co.addr = String(raw.addr || raw.address || raw.주소 || '').trim();
- co.products = String(raw.products || raw.제품 || '').trim();
- co.platform = String(raw.platform || raw.플랫폼 || '').trim();
- co.summary = String(raw.summary || '').trim();
- co.adsNote = String(raw.adsNote || '').trim();
- co.articlesNote = String(raw.articlesNote || '').trim();
- 
- // 카테고리 / 서브카테고리 (없으면 현재 활성)
- co.catId = raw.catId || raw.cat || data.activeCatId;
- co.subId = raw.subId || raw.sub || (data.categories.find(c=>c.id===co.catId)?.subcats?.[0]?.id) || '';
- 
- // 채널 — 배열 또는 객체 형태 모두 지원, 항상 배열로 정규화
- //   허용 입력: (1) raw.channels = [{label,url}]  (2) raw.channels = {own,coupang,gmarket,etc}
- const rawCh = raw.channels;
- const chArr = [];
- if(Array.isArray(rawCh)){
-  rawCh.forEach(c=>{
-   const url = normalizeBrandUrl(c.url || c.URL || '');
-   if(url) chArr.push({label: (c.label||c.name||'링크').trim() || '링크', url});
-  });
- } else if(rawCh && typeof rawCh === 'object'){
-  // 레거시 형태 변환
-  const map = {own:'자사몰', coupang:'쿠팡', gmarket:'지마켓', etc:'기타', 자사몰:'자사몰', 쿠팡:'쿠팡', 지마켓:'지마켓', 스마트스토어:'스마트스토어', 기타:'기타'};
-  Object.keys(rawCh).forEach(k=>{
-   const url = normalizeBrandUrl(rawCh[k] || '');
-   if(url) chArr.push({label: map[k] || k, url});
-  });
- }
- co.channels = chArr;
- 
- // 매출 데이터 변환
- //   허용 입력: (1) raw.revenueData[]  (2) raw.revenue.rows[]  (3) raw.revenue[]
- //   각 row 키: year/sales/operatingProfit/netProfit  →  year/revenue/opIncome/netProfit
- let rows = [];
- if(Array.isArray(raw.revenueData)){
-  rows = raw.revenueData;
- } else if(raw.revenue && Array.isArray(raw.revenue.rows)){
-  rows = raw.revenue.rows;
- } else if(Array.isArray(raw.revenue)){
-  rows = raw.revenue;
- }
- co.revenueData = rows.map(r => ({
-  year: String(r.year || r.결산년도 || r.date || '').trim(),
-  totalAssets: String(r.totalAssets || r.총자산 || ''),
-  capital: String(r.capital || r.자본금 || ''),
-  totalCapital: String(r.totalCapital || r.자본총계 || ''),
-  revenue: String(r.revenue || r.sales || r.매출액 || ''),
-  opIncome: String(r.opIncome || r.operatingProfit || r.영업이익 || ''),
-  netProfit: String(r.netProfit || r.당기순이익 || '')
- })).filter(r => r.year || r.revenue);
- 
- // 매출 출처
- if(raw.revenue && typeof raw.revenue === 'object' && !Array.isArray(raw.revenue)){
-  co.revenueSource = String(raw.revenue.source || raw.revenueSource || '').trim();
-  co.revenueSourceUrl = String(raw.revenue.sourceLink || raw.revenue.sourceUrl || raw.revenueSourceUrl || '').trim();
- } else {
-  co.revenueSource = String(raw.revenueSource || '').trim();
-  co.revenueSourceUrl = String(raw.revenueSourceUrl || raw.revenueSourceLink || '').trim();
- }
- 
- // 광고 / 기사 (배열 그대로, URL 정규화만)
- co.ads = Array.isArray(raw.ads) ? raw.ads.map(a => ({
-  ...a,
-  url: normalizeBrandUrl(a.url || '')
- })) : [];
- co.articles = Array.isArray(raw.articles) ? raw.articles.map(a => ({
-  title: String(a.title || ''),
-  url: normalizeBrandUrl(a.url || ''),
-  memo: String(a.memo || a.summary || '')
- })) : [];
- 
- // 메모 V2
- if(raw.notesV2 && typeof raw.notesV2 === 'object'){
-  co.notesV2 = {
-   recordDate: String(raw.notesV2.recordDate || ''),
-   currentAdCount: String(raw.notesV2.currentAdCount || ''),
-   firstAdDate: String(raw.notesV2.firstAdDate || ''),
-   pros: String(raw.notesV2.pros || ''),
-   cons: String(raw.notesV2.cons || ''),
-   expansion: String(raw.notesV2.expansion || ''),
-   etc: String(raw.notesV2.etc || '')
-  };
- }
- 
- // 4기준 매칭 (있으면 그대로)
- if(raw.pillarsMatch && typeof raw.pillarsMatch === 'object') co.pillarsMatch = {...raw.pillarsMatch};
- 
- // 보물섬 표준 외 추가 필드(biz/globalSites/social/influencers 등)는 모두 그대로 보존
- const STANDARD_KEYS = new Set([
-  'id','name','brand','brandUrl','brand_url','url','recordReason','record_reason','기록사유','등록사유',
-  'ceo','대표','대표자','staff','직원수','addr','address','주소','products','제품','platform','플랫폼',
-  'summary','adsNote','articlesNote','catId','cat','subId','sub','channels','revenueData','revenue',
-  'revenueSource','revenueSourceUrl','revenueSourceLink','ads','articles','notesV2','pillarsMatch'
- ]);
- Object.keys(raw).forEach(k => {
-  if(!STANDARD_KEYS.has(k) && co[k] === undefined){
-   co[k] = raw[k];
-  }
- });
- 
- return co;
-}
-
-function previewImportCompany(){
- const txt = document.getElementById('import-company-json').value.trim();
- const prev = document.getElementById('import-company-preview');
- if(!txt){
-  prev.style.display = 'block';
-  prev.innerHTML = '<span style="color:var(--red)">⚠️ JSON을 붙여넣어주세요.</span>';
-  return;
- }
- try{
-  const raw = JSON.parse(txt);
-  const co = _normalizeImportedCompany(raw);
-  const cat = data.categories.find(c => c.id === co.catId);
-  const sub = cat?.subcats?.find(s => s.id === co.subId);
-  const dup = data.companies.find(c => c.id === co.id || (c.name === co.name && c.brand === co.brand));
-  
-  // 카테고리 폴백 결정 (실제 추가는 confirmImportCompany에서)
-  const fallbackCat = !cat ? (data.categories.find(c => c.id === data.activeCatId) || data.categories[0]) : null;
-  
-  let html = '<div style="font-weight:700;color:var(--hi2);margin-bottom:6px">📋 미리보기</div>';
-  html += '<table style="width:100%;font-size:11px"><tbody>';
-  const row = (k,v) => v ? `<tr><td style="color:var(--txt3);padding:2px 8px 2px 0;white-space:nowrap;vertical-align:top">${k}</td><td style="padding:2px 0">${escapeHtml(String(v))}</td></tr>` : '';
-  html += row('업체명', co.name);
-  html += row('브랜드', co.brand);
-  html += row('브랜드 URL', co.brandUrl);
-  html += row('등록 사유', co.recordReason);
-  html += row('대표', co.ceo);
-  html += row('직원수', co.staff);
-  if(cat){
-   html += row('카테고리', `${cat.label || cat.name || co.catId} → ${sub?.label || sub?.name || co.subId || '(첫 서브 자동)'}`);
-  } else if(fallbackCat){
-   html += row('카테고리', `⚠️ '${co.catId}' 없음 → 자동 폴백: ${fallbackCat.label || fallbackCat.name}`);
-  } else {
-   html += row('카테고리', `❌ 카테고리 0개`);
-  }
-  html += row('매출 행', co.revenueData.length ? `${co.revenueData.length}년치 (${co.revenueData[0]?.year} ~ ${co.revenueData[co.revenueData.length-1]?.year})` : '');
-  html += row('광고', co.ads.length ? `${co.ads.length}개` : '');
-  html += row('기사', co.articles.length ? `${co.articles.length}개` : '');
-  html += row('판매 채널', (co.channels && co.channels.length) ? `${co.channels.length}개 (${co.channels.map(c=>c.label).join(', ')})` : '');
-  html += row('메모 V2', co.notesV2 ? '✅' : '');
-  html += '</tbody></table>';
-  if(dup){
-   html += `<div style="margin-top:8px;padding:6px 10px;background:#fff4e8;border:1px solid var(--orng);border-radius:5px;color:var(--orng);font-weight:600">⚠️ 중복 가능성: 같은 이름의 업체가 이미 있습니다 → 추가하면 새 ID로 별도 등록됩니다.</div>`;
-  }
-  if(!cat && fallbackCat){
-   html += `<div style="margin-top:8px;padding:6px 10px;background:#fff4e8;border:1px solid var(--orng);border-radius:5px;color:var(--orng);font-weight:600">⚠️ JSON에 명시된 카테고리 '${escapeHtml(co.catId)}'가 없어서 현재 카테고리 '${escapeHtml(fallbackCat.label || fallbackCat.name)}'에 추가됩니다. 야인 카테고리에 넣으려면 먼저 야인 탭으로 이동 후 추가하거나, 야인 카테고리를 만들어주세요.</div>`;
-  } else if(!cat && !fallbackCat){
-   html += `<div style="margin-top:8px;padding:6px 10px;background:#fdf0f0;border:1px solid var(--red);border-radius:5px;color:var(--red);font-weight:600">❌ 카테고리가 하나도 없습니다. 먼저 카테고리를 만들어주세요.</div>`;
-  }
-  prev.style.display = 'block';
-  prev.innerHTML = html;
- }catch(err){
-  prev.style.display = 'block';
-  prev.innerHTML = `<span style="color:var(--red)">❌ JSON 파싱 실패: ${escapeHtml(err.message)}</span>`;
- }
-}
-
-function confirmImportCompany(){
- const txt = document.getElementById('import-company-json').value.trim();
- if(!txt){ toast('JSON을 붙여넣어주세요','red'); return; }
- let co;
- try{
-  const raw = JSON.parse(txt);
-  co = _normalizeImportedCompany(raw);
- }catch(err){
-  toast('파싱 실패: '+err.message,'red');
-  return;
- }
- const cat = data.categories.find(c => c.id === co.catId);
- let resolvedCat = cat;
- let fallbackUsed = false;
- if(!resolvedCat){
-  // 카테고리 매칭 실패 → 현재 활성 카테고리로 자동 폴백
-  resolvedCat = data.categories.find(c => c.id === data.activeCatId) || data.categories[0];
-  if(!resolvedCat){
-   toast('카테고리가 하나도 없습니다. 먼저 만들어주세요.','red');
-   return;
-  }
-  const oldCatId = co.catId;
-  co.catId = resolvedCat.id;
-  // 서브카테고리도 매칭 안 되면 첫 번째 서브로 폴백
-  const matchedSub = resolvedCat.subcats?.find(s => s.id === co.subId);
-  if(!matchedSub) co.subId = resolvedCat.subcats?.[0]?.id || '';
-  fallbackUsed = oldCatId;
- } else {
-  // 카테고리는 있는데 서브카테고리가 없으면 첫 번째로 폴백
-  const matchedSub = resolvedCat.subcats?.find(s => s.id === co.subId);
-  if(!matchedSub) co.subId = resolvedCat.subcats?.[0]?.id || '';
- }
- // ID 중복 회피
- while(data.companies.find(c => c.id === co.id)){
-  co.id = 'co-' + Math.random().toString(36).slice(2,9);
- }
- data.companies.push(co);
- saveData();
- closeModal('modal-import-company');
- // 추가된 회사가 있는 카테고리/서브로 이동
- data.activeCatId = co.catId;
- if(co.subId) data.activeSubId = co.subId;
- render();
- const catLabel = resolvedCat.label || resolvedCat.name || resolvedCat.id;
- if(fallbackUsed){
-  toast(`"${co.name}" 추가됨 (⚠ '${fallbackUsed}' 카테고리 없음 → '${catLabel}'에 추가)`,'orng');
- } else {
-  toast(`"${co.name}" 추가 완료 (${catLabel})`,'grn');
- }
- // 추가된 행으로 스크롤
- setTimeout(()=>{
-  const row = document.querySelector(`tr[data-id="${co.id}"]`);
-  if(row){
-   row.scrollIntoView({behavior:'smooth', block:'center'});
-   row.style.background = 'rgba(90,154,106,0.15)';
-   setTimeout(()=>row.style.background = '', 2500);
-  }
- }, 250);
-}
-
-// ============================================================
 // 유틸
 // ============================================================
 function closeModal(id){document.getElementById(id).classList.remove('active')}
@@ -5437,16 +5337,150 @@ function escapeAttr(s){return escapeHtml(s)}
 function render(){
  renderCategories();
  renderSubcats();
+ _toggleEssenceMode();
  renderCards();
  renderStats();
 }
 
-// 모달 외부 클릭으로 닫기
-document.querySelectorAll('.overlay').forEach(o=>{
- o.addEventListener('click', e=>{
-  if(e.target===o) o.classList.remove('active');
+// 업의 본질·전체 카테고리에선 "업체 추가" 버튼 숨김
+function _toggleEssenceMode(){
+ const isEssence = data.activeCatId === 'cat_essence';
+ const isAll = data.activeCatId === 'cat_all';
+ const btnAdd = document.getElementById('btn-add-company');
+ const btnFilter = document.getElementById('btn-essence-filter');
+ if(btnAdd) btnAdd.style.display = (isEssence || isAll) ? 'none' : '';
+ if(btnFilter) btnFilter.style.display = isEssence ? '' : 'none';
+}
+
+// ============================================================
+// 업의 본질 — 다른 카테고리 업체를 매핑/링크 (사용자 요청)
+// data.essenceLinks = { [subId]: [coId, coId, ...] } 구조로 저장
+// ============================================================
+function _ensureEssenceLinks(){
+ if(!data.essenceLinks) data.essenceLinks = {};
+}
+
+function openEssenceFilterModal(){
+ _ensureEssenceLinks();
+ const subId = data.activeSubId;
+ const subData = data.categories.find(c=>c.id==='cat_essence')?.subcats.find(s=>s.id===subId);
+ if(!subData){ toast('서브카테고리를 먼저 선택하세요','red'); return; }
+ const linkedIds = data.essenceLinks[subId] || [];
+ // 모든 카테고리의 업체들 (업의 본질 제외)
+ const allCompanies = data.companies.filter(co => co.catId !== 'cat_essence');
+ 
+ let modal = document.getElementById('modal-essence-filter');
+ if(!modal){
+  modal = document.createElement('div');
+  modal.id = 'modal-essence-filter';
+  modal.className = 'overlay';
+  modal.innerHTML = '<div class="modal" style="max-width:680px"></div>';
+  document.body.appendChild(modal);
+ }
+ 
+ // 카테고리별 그룹핑
+ const grouped = {};
+ allCompanies.forEach(co=>{
+  const cat = data.categories.find(c=>c.id===co.catId);
+  const catName = cat?.name || '?';
+  if(!grouped[catName]) grouped[catName] = [];
+  grouped[catName].push(co);
  });
-});
+ 
+ const html = `
+  <div class="modal-hd">
+   <div class="modal-title">🔍 "${escapeHtml(subData.name)}"에 매핑할 업체 선택</div>
+   <button class="modal-close" onclick="closeModal('modal-essence-filter')">×</button>
+  </div>
+  <div style="font-size:11.5px;color:var(--txt2);line-height:1.6;margin-bottom:14px;background:var(--panel2);padding:10px 12px;border-radius:6px;border-left:3px solid var(--hi)">
+   다른 카테고리(화장품·건기식 등)의 업체 중에서 <strong>"${escapeHtml(subData.name)}"</strong>이라는 본질에 해당하는 업체를 골라서 이 화면에 표시합니다.<br>
+   <span style="color:var(--txt3);font-size:10.5px">원본 데이터는 그대로 두고, 이 화면에서만 참조해서 보여줍니다.</span>
+  </div>
+  <input type="text" id="ef-search" placeholder="🔍 업체명으로 검색..." style="width:100%;padding:8px 10px;border:1px solid var(--bord);border-radius:5px;font-size:12px;margin-bottom:10px" oninput="_renderEssenceFilterList()">
+  <div style="font-size:11px;color:var(--txt3);margin-bottom:8px">선택됨: <strong id="ef-count" style="color:var(--hi2)">${linkedIds.length}</strong>개 / 전체 ${allCompanies.length}개</div>
+  <div id="ef-list" style="max-height:380px;overflow-y:auto;border:1px solid var(--bord);border-radius:5px;padding:6px;background:#fafafa"></div>
+  <div class="form-actions">
+   <button class="btn btn-sm btn-danger" onclick="clearEssenceLinks('${subId}')">🗑 매핑 모두 해제</button>
+   <div style="flex:1"></div>
+   <button class="btn" onclick="closeModal('modal-essence-filter')">취소</button>
+   <button class="btn btn-primary" onclick="saveEssenceFilter('${subId}')">💾 저장</button>
+  </div>
+ `;
+ modal.querySelector('.modal').innerHTML = html;
+ modal.classList.add('active');
+ _efGroupedCache = grouped;
+ _efLinkedSet = new Set(linkedIds);
+ _renderEssenceFilterList();
+}
+
+let _efGroupedCache = {};
+let _efLinkedSet = new Set();
+
+function _renderEssenceFilterList(){
+ const search = (document.getElementById('ef-search')?.value || '').toLowerCase().trim();
+ const list = document.getElementById('ef-list');
+ if(!list) return;
+ let html = '';
+ Object.keys(_efGroupedCache).sort().forEach(catName=>{
+  const items = _efGroupedCache[catName].filter(co=>{
+   if(!search) return true;
+   const haystack = `${co.name||''} ${co.brand||''} ${co.products||''}`.toLowerCase();
+   return haystack.includes(search);
+  });
+  if(items.length === 0) return;
+  html += `<div style="font-size:10.5px;font-weight:700;color:var(--hi2);padding:8px 4px 4px;text-transform:uppercase;letter-spacing:0.5px">📁 ${escapeHtml(catName)} (${items.length})</div>`;
+  items.forEach(co=>{
+   const checked = _efLinkedSet.has(co.id);
+   html += `
+    <label style="display:flex;align-items:center;gap:8px;padding:6px 8px;cursor:pointer;border-radius:4px;transition:.1s;${checked?'background:#fdf6e8;':''}" onmouseover="this.style.background='#fdf6e8'" onmouseout="this.style.background='${checked?'#fdf6e8':''}'">
+     <input type="checkbox" ${checked?'checked':''} onchange="_toggleEssenceLink('${co.id}', this.checked)" style="width:15px;height:15px;cursor:pointer;flex-shrink:0">
+     <div style="flex:1;min-width:0">
+      <div style="font-size:11.5px;font-weight:600;color:var(--txt);text-overflow:ellipsis;overflow:hidden;white-space:nowrap">${escapeHtml(co.name||'?')}</div>
+      ${co.brand?`<div style="font-size:10px;color:var(--txt3)">🏷️ ${escapeHtml(co.brand)}</div>`:''}
+     </div>
+    </label>
+   `;
+  });
+ });
+ if(!html) html = '<div style="text-align:center;color:var(--txt3);padding:30px;font-size:11px">검색 결과 없음</div>';
+ list.innerHTML = html;
+ const cnt = document.getElementById('ef-count');
+ if(cnt) cnt.textContent = _efLinkedSet.size;
+}
+
+function _toggleEssenceLink(coId, checked){
+ if(checked) _efLinkedSet.add(coId);
+ else _efLinkedSet.delete(coId);
+ const cnt = document.getElementById('ef-count');
+ if(cnt) cnt.textContent = _efLinkedSet.size;
+}
+
+function saveEssenceFilter(subId){
+ _ensureEssenceLinks();
+ data.essenceLinks[subId] = Array.from(_efLinkedSet);
+ saveData();
+ closeModal('modal-essence-filter');
+ renderCards();
+ toast(`"${subId}"에 ${_efLinkedSet.size}개 업체 매핑 저장`,'grn');
+}
+
+function clearEssenceLinks(subId){
+ if(!confirm('이 본질에 매핑된 업체를 모두 해제하시겠습니까?')) return;
+ _ensureEssenceLinks();
+ data.essenceLinks[subId] = [];
+ _efLinkedSet.clear();
+ _renderEssenceFilterList();
+ saveData();
+ toast('매핑 해제됨','red');
+}
+
+// 모달 외부 클릭 닫기 — 비활성화 (사용자 요청: 의도하지 않은 닫힘 방지)
+// 외부 클릭 시 자동으로 닫지 않음. ESC 또는 × / 취소 / 저장 버튼으로만 닫힘
+// document.querySelectorAll('.overlay').forEach(o=>{
+//  o.addEventListener('click', e=>{
+//   if(e.target===o) o.classList.remove('active');
+//  });
+// });
 
 // ESC 로 모달 닫기
 document.addEventListener('keydown', e=>{
@@ -5465,11 +5499,14 @@ document.addEventListener('click', e=>{
 });
 
 // 시작
-checkLock();  // 비밀번호 잠금 체크 (30일 유효 시 자동 통과)
 loadData();
  if(!data.essenceCards) data.essenceCards = {};
  if(!data.pillarsOverride) data.pillarsOverride = {};
  if(!data.motivationLinks) data.motivationLinks = {};
+// localStorage가 비어 처음 열렸으면 EMBEDDED_DATA 자동 적용
+applyEmbeddedData(false);
+// localStorage에 데이터가 이미 있다면 EMBEDDED와 비교해서 더 큰 쪽 안내
+checkEmbeddedComparison();
 render();
 setupCmdIntercept();
 </script>
