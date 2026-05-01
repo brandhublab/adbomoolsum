@@ -74,6 +74,8 @@ a:hover{text-decoration:underline}
 .cell-name .name-main{font-size:13px;line-height:1.3}
 .cell-name .name-brand{font-size:10px;color:var(--txt3);font-weight:500;margin-top:2px}
 .cell-name .name-platform{font-size:9px;color:var(--prp);font-weight:500;margin-top:2px;background:#f0eaf6;padding:1px 5px;border-radius:3px;display:inline-block;border:1px solid #d8c8e8}
+.cell-name .name-record-reason{font-size:10px;color:#7a5a18;font-weight:500;margin-top:4px;background:#fdf3d4;padding:3px 7px;border-radius:3px;display:block;border:1px solid #e8d68a;cursor:pointer;line-height:1.4;transition:.15s;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cell-name .name-record-reason:hover{background:#fae9b8;border-color:#d4b85e;color:#5c4214}
 .cell-text{min-width:100px;max-width:160px;font-size:11px;color:var(--txt2);word-break:break-word}
 .cell-text-sm{min-width:80px;max-width:130px;font-size:11px;color:var(--txt2)}
 .cell-products{min-width:150px;max-width:220px;font-size:11px;color:var(--txt2);line-height:1.5}
@@ -636,6 +638,11 @@ a:hover{text-decoration:underline}
   <div class="form-row">
    <label class="form-label">🛠️ 사이트 플랫폼/기술 스택</label>
    <input type="text" id="comp-platform" class="form-input" placeholder="예: 그누보드+영카트(자체호스팅), 카페24, 아임웹, 식스샵 등">
+  </div>
+  
+  <div class="form-row">
+   <label class="form-label">📌 기록한 이유 <span style="font-size:10.5px;color:var(--txt3);font-weight:400">(왜 등록했나 — 인상적 포인트, 첫 발견 맥락)</span></label>
+   <textarea id="comp-record-reason" class="form-textarea" placeholder="예: 네이버 광고에서 봤는데 파데 프리, 바르는 커버 크림 아이디어가 인상적. 광고 N개월 러닝 중. 벤치마크 대상." style="min-height:60px;background:#fdfaf3"></textarea>
   </div>
   
   <div class="form-row">
@@ -3803,6 +3810,44 @@ function saveSummaryEdit(){
  if(typeof toast === 'function') toast('메모 저장됨','grn');
 }
 
+// ============================================================
+// 기록 이유 보기 모달 — 클릭 시 전체 텍스트 표시
+// ============================================================
+function openRecordReasonModal(coId){
+ const co = data.companies.find(c=>c.id===coId);
+ if(!co || !co.recordReason) return;
+ // 모달이 없으면 동적 생성
+ let modal = document.getElementById('modal-record-reason');
+ if(!modal){
+  modal = document.createElement('div');
+  modal.id = 'modal-record-reason';
+  modal.className = 'overlay';
+  modal.innerHTML = `
+   <div class="modal" style="max-width:520px">
+    <div class="modal-header">
+     <h3 style="margin:0">📌 기록한 이유</h3>
+     <button class="btn btn-xs" onclick="closeModal('modal-record-reason')">×</button>
+    </div>
+    <div style="padding:8px 0">
+     <div id="rr-company-name" style="font-size:13px;color:var(--gold2);font-weight:700;margin-bottom:10px;letter-spacing:0.05em"></div>
+     <div id="rr-content" style="font-size:14px;line-height:1.7;color:var(--txt1);white-space:pre-wrap;background:#fdfaf3;padding:14px 16px;border-left:3px solid var(--gold);border-radius:4px"></div>
+    </div>
+    <div class="form-actions" style="margin-top:14px">
+     <button class="btn" onclick="closeModal('modal-record-reason')">닫기</button>
+     <button class="btn btn-primary" onclick="closeModal('modal-record-reason');editCompany('${coId}')">✏ 수정하러 가기</button>
+    </div>
+   </div>`;
+  document.body.appendChild(modal);
+ } else {
+  // 이미 존재하면 수정 버튼 onclick 갱신
+  const editBtn = modal.querySelector('.btn-primary');
+  if(editBtn) editBtn.setAttribute('onclick', `closeModal('modal-record-reason');editCompany('${coId}')`);
+ }
+ document.getElementById('rr-company-name').textContent = co.name || '(이름없음)';
+ document.getElementById('rr-content').textContent = co.recordReason;
+ modal.classList.add('active');
+}
+
 function renderRow(co){
  const ads = co.ads||[];
  _ensureChannelsArray(co);
@@ -3815,6 +3860,7 @@ function renderRow(co){
     <div class="name-main">${escapeHtml(co.name||'(이름없음)')}</div>
     ${co.brand?`<div class="name-brand">🏷️ ${escapeHtml(co.brand)}</div>`:''}
     ${co.platform?`<div class="name-platform" title="${escapeAttr(co.platform)}">🛠️ ${escapeHtml(co.platform.length>20?co.platform.slice(0,20)+'…':co.platform)}</div>`:''}
+    ${co.recordReason && co.recordReason.trim() ? `<div class="name-record-reason" title="${escapeAttr(co.recordReason)}" onclick="openRecordReasonModal('${co.id}')">📌 ${escapeHtml(co.recordReason.length > 35 ? co.recordReason.slice(0,35)+'…' : co.recordReason)}</div>` : ''}
     ${renderChannelChips(co)}
     <div style="display:flex;gap:4px;margin-top:6px">
      <button class="btn btn-xs" onclick="editCompany('${co.id}')" title="수정">✏ 수정</button>
@@ -3917,7 +3963,7 @@ let editingCompanyId = null;
 function openAddCompanyModal(){
  editingCompanyId = null;
  document.getElementById('modal-company-title').textContent = '업체 추가';
- ['comp-name','comp-brand','comp-ceo','comp-staff','comp-addr','comp-products','comp-summary','comp-platform'].forEach(id=>{
+ ['comp-name','comp-brand','comp-ceo','comp-staff','comp-addr','comp-products','comp-summary','comp-platform','comp-record-reason'].forEach(id=>{
   const el = document.getElementById(id);
   if(el) el.value = '';
  });
@@ -3950,6 +3996,8 @@ function editCompany(id){
  document.getElementById('comp-addr').value = co.addr||'';
  document.getElementById('comp-products').value = co.products||'';
  document.getElementById('comp-summary').value = co.summary||'';
+ const rrEl = document.getElementById('comp-record-reason');
+ if(rrEl) rrEl.value = co.recordReason||'';
  const pfEl = document.getElementById('comp-platform');
  if(pfEl) pfEl.value = co.platform||'';
  const pasteEl = document.getElementById('revenue-paste-text');
@@ -3997,6 +4045,7 @@ function saveCompany(){
   addr: document.getElementById('comp-addr').value.trim(),
   products: document.getElementById('comp-products').value.trim(),
   summary: document.getElementById('comp-summary').value.trim(),
+  recordReason: (document.getElementById('comp-record-reason')?.value||'').trim(),
   platform: (document.getElementById('comp-platform')?.value||'').trim(),
   updatedAt: Date.now()
  };
