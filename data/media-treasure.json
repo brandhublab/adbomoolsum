@@ -2205,7 +2205,7 @@
       "adCaptures": []
     }
   ],
-  "activeCatId": "cat_essence",
-  "activeSubId": "sub_mc",
+  "activeCatId": "cat_cosmetic",
+  "activeSubId": "__all__",
   "essenceLinks": {}
 }
